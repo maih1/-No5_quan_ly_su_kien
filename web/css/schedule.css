@@ -1,0 +1,32 @@
+.data {
+	margin-bottom: 10px;
+}
+
+.content {
+	display: inline-block;
+    width: 130px;
+}
+
+form {
+	margin-left: 30px;
+}
+
+.button {
+	margin-left: 200px;
+	background: #168cd9;
+	padding: 10px;
+    border-radius: 10px;
+}
+
+input {
+	border: 1px solid #0787d9;
+}
+
+textarea {
+	height: 50px;
+	border: 1px solid #0787d9;
+}
+
+.edit {
+	background: #168cd9;
+}
