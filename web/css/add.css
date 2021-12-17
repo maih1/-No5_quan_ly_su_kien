@@ -1,0 +1,78 @@
+* { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+}
+
+form {
+    border: 2px solid #97a8bc;
+    margin: auto;
+    margin-top: 100px;
+    width: 60%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    overflow: auto;  
+    font-size: 15px;
+
+}
+
+.input-form, .input-form-login {
+    padding: 11px 20px;
+    margin-bottom: 15px;
+    margin-right: 35px;
+    display: inline-block;
+    width: 100px;
+}
+
+.selectdiv, #name, #slogan, #leader, #mt{
+    border:2px solid #97a8bc;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    width: 40%;
+
+}
+
+#mt {
+    width: 75%;
+    height: 20%;
+}
+
+input[type="file"] {
+    /* margin-left: 10px; */
+    border: 2px solid #97a8bc;
+    width: 60%;
+    vertical-align: middle;
+    /* margin-bottom: 10px; */
+    direction: rtl;
+  }
+  
+  
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #3e6595;
+    border: #3e6595;
+    /* color: #FFFFFF; */
+    line-height: 38px;
+    padding: 0px 15px;
+    /* border: none; */
+    /* float: right; */
+
+}
+
+.center-block {
+    cursor: pointer;
+    color: black;
+    background-color: #4f81bd;
+    border-style: solid;
+    border-color: #4f81bd;
+    float: none;
+    display: block;
+    margin-top: 50px;
+    /* margin-bottom: 50px; */
+    margin-right: auto;
+    margin-left: auto;
+
+    padding: 12px 20px;
+    border-radius: 5px; 
+    width: 160px;
+}
