@@ -5,7 +5,7 @@
 form {
     border: 2px solid #97a8bc;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 70px;
     width: 60%;
     padding-left: 50px;
     padding-right: 50px;
@@ -24,12 +24,12 @@ form {
     width: 100px;
 }
 
-.selectdiv, #name, #slogan, #leader, #mt{
+.selectdiv, #name, #slogan, #leader, #mt, #custom-text{
     border:2px solid #97a8bc;
     margin-bottom: 25px;
     padding: 12px 20px;
     width: 40%;
-
+    height: 40px;
 }
 
 #mt {
@@ -37,26 +37,23 @@ form {
     height: 20%;
 }
 
-input[type="file"] {
-    /* margin-left: 10px; */
-    border: 2px solid #97a8bc;
-    width: 60%;
-    vertical-align: middle;
-    /* margin-bottom: 10px; */
+input[type="file"] {  
     direction: rtl;
-  }
-  
-  
+    color: transparent;
+}
 
-input[type="file"]::-webkit-file-upload-button {
-    background: #3e6595;
-    border: #3e6595;
-    /* color: #FFFFFF; */
-    line-height: 38px;
-    padding: 0px 15px;
-    /* border: none; */
-    /* float: right; */
+#custom-button {
+    padding: 10px;
+    width: 120px;
+    height: 40px;
+    color: rgb(0, 0, 0);
+    background-color: #3e6595;
+    border: 1px solid #3e6595;
+    cursor: pointer;
+}
 
+#custom-button:hover {
+  background-color: #00b28f;
 }
 
 .center-block {
@@ -68,11 +65,11 @@ input[type="file"]::-webkit-file-upload-button {
     float: none;
     display: block;
     margin-top: 50px;
-    /* margin-bottom: 50px; */
     margin-right: auto;
     margin-left: auto;
 
     padding: 12px 20px;
     border-radius: 5px; 
     width: 160px;
+    height: 60px;
 }

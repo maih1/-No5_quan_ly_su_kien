@@ -6,7 +6,7 @@
 	<title>Đăng ký tân sinh viên</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../../web/css/add.css">
-    
+    <script async src="../../web/js/addRealFileBtn.js"></script>
 </head>
 <body>
     
@@ -25,7 +25,9 @@
         <input id="mt" type="text" name="mt" value=""><br>        
        
         <label class="input-form" for="avater">Avatar</label>
-        <input id="avatar" class='input-img' type="file" name="avatar" value="" accept=".jpg, .jpeg, .png" multiple><br>  
+        <input type="file" id="real-file" hidden="hidden" />
+        <input id="custom-text" type="text" value="">
+        <button type="button" id="custom-button">Browse</button>
 
         <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
             
