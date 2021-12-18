@@ -22,7 +22,7 @@
         <input id="leader" type="text" name="leader" value=""><br>        
        
         <label class="input-form" for="mt">Mô tả chi tiết</label>
-        <input id="mt" type="text" name="mt" value=""><br>        
+        <textarea id="mt" name="mt" maxlength="1000"></textarea><br>        
        
         <label class="input-form" for="avater">Avatar</label>
         <input type="file" id="real-file" hidden="hidden" />

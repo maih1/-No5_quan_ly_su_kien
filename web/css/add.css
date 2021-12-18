@@ -24,7 +24,7 @@ form {
     width: 100px;
 }
 
-.selectdiv, #name, #slogan, #leader, #mt, #custom-text{
+.selectdiv, #name, #slogan, #leader, #custom-text{
     border:2px solid #97a8bc;
     margin-bottom: 25px;
     padding: 12px 20px;
@@ -33,6 +33,10 @@ form {
 }
 
 #mt {
+    border:2px solid #97a8bc;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    vertical-align: middle;
     width: 75%;
     height: 20%;
 }
