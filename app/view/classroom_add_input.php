@@ -25,7 +25,7 @@
         <textarea id="mt" name="mt" maxlength="1000"></textarea><br>        
        
         <label class="input-form" for="avater">Avatar</label>
-        <input type="file" id="real-file" hidden="hidden" />
+        <input type="file" id="real-file" hidden="hidden" accept="image/*"/>
         <input id="custom-text" type="text" value="">
         <button type="button" id="custom-button">Browse</button>
 
