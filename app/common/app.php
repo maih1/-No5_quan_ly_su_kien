@@ -1,8 +1,8 @@
 <?php
 class App{
 
-    protected $controller="ScheduleController";
-    protected $action="show";
+    protected $controller="EventCommentController";
+    protected $action="display";
     protected $params=[];
 
     function __construct(){
