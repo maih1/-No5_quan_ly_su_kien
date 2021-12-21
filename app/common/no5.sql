@@ -78,7 +78,7 @@ CREATE TABLE `event_comments` (
 CREATE TABLE `event_timelines` (
   `id` int(10) NOT NULL,
   `event_id` int(10) NOT NULL,
-  `form` time NOT NULL,
+  `from` time NOT NULL,
   `to` time NOT NULL,
   `name` varchar(250) NOT NULL,
   `detail` text NOT NULL,
