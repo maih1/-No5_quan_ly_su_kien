@@ -9,23 +9,23 @@ class App{
  
         $arr = $this->UrlProcess();
         unset($arr[0]);
-        unset($arr[1]);
+
         // print_r($arr);
 
         // Controller
-        if( file_exists("./mvc/controllers/".$arr[2]."Controller.php") ){
-            $this->controller = $arr[2] . 'Controller';
-            unset($arr[2]);
+        if( file_exists("./app/controller/".$arr[1]."Controller.php") ){
+            $this->controller = $arr[1] . 'Controller';
+            unset($arr[1]);
         }
-        require_once "./mvc/controllers/". $this->controller .".php";
+        require_once "./app/controller/". $this->controller .".php";
         $this->controller = new $this->controller;
 
         // Action
-        if(isset($arr[3])){
-            if( method_exists( $this->controller , $arr[3]) ){
-                $this->action = $arr[3];
+        if(isset($arr[2])){
+            if( method_exists( $this->controller , $arr[2]) ){
+                $this->action = $arr[2];
             }
-            unset($arr[3]);
+            unset($arr[2]);
         }
 
         // Params
