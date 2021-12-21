@@ -1,7 +1,7 @@
 <?php
 class App{
 
-    protected $controller="Home";
+    protected $controller="ScheduleController";
     protected $action="show";
     protected $params=[];
 
@@ -13,8 +13,8 @@ class App{
         // print_r($arr);
 
         // Controller
-        if( file_exists("./app/controller/".$arr[1]."Controller.php") ){
-            $this->controller = $arr[1] . 'Controller';
+        if( file_exists("./app/controller/".$arr[1]."controller.php") ){
+            $this->controller = $arr[1] . 'controller';
             unset($arr[1]);
         }
         require_once "./app/controller/". $this->controller .".php";

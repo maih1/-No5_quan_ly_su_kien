@@ -8,6 +8,7 @@
 </head>
 <body>
 <div>
+	<h1>Đây là ví dụ</h1>
 	<label>Tên sự kiện</label>
 	<label>Chào đón sinh viên</label>
 	<div>Lịch trình</div>
