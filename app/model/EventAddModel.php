@@ -1,15 +1,14 @@
 <?php
-class EventAddModel extends DB{
+    require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/DB.php";
 
-    public function getAdd(){
+    function getAdd(){
+        global $conn;
         $sql = "SELECT * FROM `events`";
-        $result = $this -> con -> query($sql);
+        $result = $conn -> prepare($sql);
+        $result->execute();
         $data = [];
-        while($row = $result -> fetch_assoc()) {
-            array_push($data, $row);
-        }
-        // print_r($data);
-        return $data;
+        $_result = $result->fetchAll();
+        // print_r($_result);
+        return $_result;
     }
-}
 ?>

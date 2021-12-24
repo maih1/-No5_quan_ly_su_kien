@@ -17,3 +17,4 @@
 + PHP
     - Form search: là kiểu GET	
     - Form đăng ký/chỉnh sửa: là kiểu POST
+    - Viết chương trình theo hướng cấu trúc (không sử dụng class)

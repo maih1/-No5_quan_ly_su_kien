@@ -7,7 +7,7 @@ if(customBtn) {
     realFileBtn.click();
     });
 }
-customTxt.value = php_var;
+// customTxt.value = php_var;
 if(realFileBtn) {
     realFileBtn.addEventListener("change", function() {
     if (realFileBtn.value) {

@@ -1,24 +1,18 @@
 <?php
-    class ErrorValidate { 
+    $errors = array();
 
-        protected $_errors = array();
+    //add an error for an attribute if the validation fails
+    function addError($attribute, $error) { 
+        $errors[$attribute] = $error;
+    }
 
-        //add an error for an attribute if the validation fails
-        public function addError($attribute, $error) { 
-            $this->_errors[$attribute] = $error;
-        }
-
-        //get the error for an attribute
-        public function getError($attribute) { 
-            return (isset($this->_errors[$attribute])) ? $this->_errors[$attribute] : '';
-        }
-        //get all errors for all attributes
-        public function getErrors() {
-            return $this->_errors;       
-        }
-
-        // public abstract function load($data);
-        // public abstract function validate();
-
+    //get the error for an attribute
+    function getError($attribute) { 
+        return (isset($errors[$attribute])) ? $errors[$attribute] : '';
+    }
+    //get all errors for all attributes
+    function getErrors() {
+        global $errors;
+        return $errors;       
     }
 ?>
