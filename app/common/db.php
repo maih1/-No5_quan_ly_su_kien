@@ -1,19 +1,13 @@
 <?php
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "no5";
 
-class DB{
-
-    public $con;
-    protected $servername = "localhost";
-    protected $username = "root";
-    protected $password = "";
-    protected $dbname = "no5";
-
-    function __construct(){
-        $this->con = mysqli_connect($this->servername, $this->username, $this->password);
-        mysqli_select_db($this->con, $this->dbname);
-        mysqli_query($this->con, "SET NAMES 'utf8'");
+    try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
     }
-
-}
-
 ?>

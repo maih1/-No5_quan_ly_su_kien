@@ -7,7 +7,7 @@ if(customBtn) {
     realFileBtn.click();
     });
 }
-
+// customTxt.value = php_var;
 if(realFileBtn) {
     realFileBtn.addEventListener("change", function() {
     if (realFileBtn.value) {
@@ -17,8 +17,6 @@ if(realFileBtn) {
         customTxt.value = realFileBtn.value.match(
             /[\/\\]([\w\d\s\.\-\(\)]+)$/
         )[1];
-    } else {
-        customTxt.innerHTML = "No file chosen, yet.";
-    }
+    } 
     });
 }
