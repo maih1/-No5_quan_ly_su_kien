@@ -83,4 +83,20 @@ input[type="file"] {
 #output {
     width: 100px;
     height: 100px;
-  }
+}
+
+span.error {
+    box-sizing: content-box;
+    color: #FF0000;
+    margin-left: 160px;
+    /* border:2px solid rgb(233, 163, 13); */
+    
+    margin-bottom: 10px;
+
+    display: inline-block;
+    height: 20px;
+    padding: 7px 20px;
+    width: 545px;
+
+    background-color: #ffffff;
+}
