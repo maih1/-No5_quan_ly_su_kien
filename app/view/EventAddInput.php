@@ -36,8 +36,8 @@
             <span class="error"><?php  echo getError('avatar'); ?></span><br>
         <?php } ?>
         <label class="input-form" for="avatar">Avatar</label>
-        <input type="file" id="real-file" name="avatar" hidden="hidden" accept="image/*"/>
-        <input id="custom-text" type="text" value="<?php echo $avatar;?>">
+        <input type="file" id="real-file" name="upload-file" hidden="hidden" accept="image/*"/>
+        <input id="custom-text" type="text" name="avatar" value="<?php echo $avatar;?>">
         <button type="button" id="custom-button">Browse</button>
 
         <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
