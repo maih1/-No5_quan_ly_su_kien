@@ -7,7 +7,7 @@
 </head>
 <body>
     
-    <form method="post" action="" enctype="multipart/form-data" >   
+    <form method="post" action="EventAddInput.php" enctype="multipart/form-data" >   
         <?php if(getError('name')) {?>
             <span class="error"><?php  echo getError('name'); ?></span><br>
         <?php } ?>
@@ -30,14 +30,14 @@
             <span class="error"><?php  echo getError('description'); ?></span><br>
         <?php } ?>
         <label class="input-form" for="description">Mô tả chi tiết</label>
-        <textarea id="description" name="description" maxlength="1000" value="<?php echo $description;?>"></textarea><br>        
+        <textarea id="description" name="description" maxlength="1000"><?php echo $description;?></textarea><br>        
         
         <?php if(getError('avatar')) {?>
             <span class="error"><?php  echo getError('avatar'); ?></span><br>
         <?php } ?>
         <label class="input-form" for="avatar">Avatar</label>
         <input type="file" id="real-file" name="upload-file" hidden="hidden" accept="image/*"/>
-        <input id="custom-text" type="text" name="avatar" value="<?php echo $avatar;?>">
+        <input id="custom-text" type="text" name="avatar" readonly="readonly" value="<?php echo $avatar;?>">
         <button type="button" id="custom-button">Browse</button>
 
         <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
