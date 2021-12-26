@@ -1,19 +1,9 @@
 <?php
+    $conn;
+    $servername = "localhost";
+    $username = "root";
+    $password = "toor";
+    $dbname = "qlsk";
 
-class DB{
-
-    public $conn;
-    protected $servername = "localhost";
-    protected $username = "root";
-    protected $password = "toor";
-    protected $dbname = "qlsk";
-
-    function __construct(){
-        $this->conn = mysqli_connect($this->servername, $this->username, $this->password);
-        mysqli_select_db($this->conn, $this->dbname);
-        mysqli_query($this->conn, "SET NAMES 'utf8'");
-    }
-
-}
-
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
 ?>
