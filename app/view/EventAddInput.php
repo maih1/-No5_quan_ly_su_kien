@@ -6,7 +6,9 @@
     <script type="text/javascript" async src="web/js/EventAddRealFileBtn.js"></script>
 </head>
 <body>
-    
+    <?php
+        // echo $check;
+    ?>
     <form method="post" action="EventAddInput.php" enctype="multipart/form-data" >   
         <?php if(getError('name')) {?>
             <span class="error"><?php  echo getError('name'); ?></span><br>
@@ -38,9 +40,11 @@
         <label class="input-form" for="avatar">Avatar</label>
         <input type="file" id="real-file" name="upload-file" hidden="hidden" accept="image/*"/>
         <input id="custom-text" type="text" name="avatar" readonly="readonly" value="<?php echo $avatar;?>">
-        <button type="button" id="custom-button">Browse</button>
-
-        <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
+        <button type="button" id="custom-button">Browse</button><br>
+        
+        <div class="button-submit">
+            <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
+        </div>
             
   </form>
 </body>

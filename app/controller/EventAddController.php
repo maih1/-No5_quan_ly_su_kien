@@ -1,33 +1,42 @@
 <?php
     // echo $_SERVER['REQUEST_URI'];
     $paths = explode("/", filter_var(trim($_SERVER['REQUEST_URI'], "/")));
+    $actual_link = $_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI'];
+    // $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    // echo $actual_link;
+    // echo $_SERVER['DOCUMENT_ROOT'];
     // printf($_SERVER['DOCUMENT_ROOT'].$paths[0].$paths[1]."/app/common/ErrorValidate.php");
-    require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/ErrorValidate.php";
+    // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/ErrorValidate.php";
     // require_once "../common/ErrorValidate.php";
-    require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/model/EventAddModel.php";
+    // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/model/EventAddModel.php";
+    require_once "./app/common/ErrorValidate.php";
+    require_once "./app/model/EventAddModel.php";
+    // require_once "../view/EventAddConfirm.php"
     $add;
     $name = $slogan = $leader = $description = $avatar = null;
+    $check = 0;
     // $check_avatar = false;
     
     // print_r($errors);
-    function eventAddMain() {
+    function main() {
         global $name, $slogan, $leader, $description, $avatar, $paths;
-        global $errors, $check_avatar;
+        global $errors, $check;
 
         $list_add = getAdd();
         // print_r($list_add);
         validate();
         // print_r($errors);
         // print_r(getError('name'));
-        require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/view/EventAddInput.php";
+        // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/view/EventAddInput.php";
+        require_once "./app/view/EventAddInput.php";
+        // echo "<script type='text/javascript'>location.href = 'app/view/EventAddInput.php';</script>";
     }
 
     function validate() {
-        global $name, $slogan, $leader, $description, $avatar;
-        global $errors, $check_avatar, $cou;
+        global $name, $slogan, $leader, $description, $avatar,$paths;
+        global $errors, $check, $cou, $actual_link;
 
-    $check_avatar = false;
-    $cou = 0;
+        
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
 
@@ -37,8 +46,7 @@
                 addError('name', 'Không nhập quá 100 ký tự');
             } else {
                 $_SESSION['name'] = $name;
-                // $cou += 1;
-
+                $check++;
             }
 
             if(empty($slogan)) {
@@ -47,6 +55,7 @@
                 addError('slogan', 'Không nhập quá 250 ký tự');
             } else {
                 $_SESSION['slogan'] = $slogan;
+                $check++;
             }
 
             if(empty($leader)) {
@@ -55,6 +64,7 @@
                 addError('leader', 'Không nhập quá 250 ký tự');
             } else {
                 $_SESSION['leader'] = $leader;
+                $check++;
             }
 
             if(empty($description)) {
@@ -63,41 +73,61 @@
                 addError('description', 'Không nhập quá 1000 ký tự');
             } else {
                 $_SESSION['description'] = $description;
+                $check++;
             }
-            // print(!isset($_FILES["avatar"])); 
-            if(empty($avatar) and $check_avatar == false) {
+            
+            if(empty($avatar)) {
+            // if(!file_exists($_FILES['avatar']['tmp_name']) || !is_uploaded_file($_FILES['avatar']['tmp_name'])) {
                 addError('avatar', 'Hãy chọn avatar');
             } else {
-                $_SESSION['avatar'] = $avatar;
-                $check_avatar = true;
-                $cou += 1;
-                
+                // print_r($_SESSION['avatar']) ;
+                // print_r($_FILES["upload-file"]);
+                $target_dir = "web/avatar/tmp/";
+                $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
+                move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
+                $_SESSION['avatar'] =  $target_dir . $avatar;
+                // echo $_SESSION['avatar'];
+                $check++;    
             }
-            // print_r($_FILES['avatar']['name']);
-            // print_r($_FILES['avatar']);
-            // print_r($check_avatar);
-        // echo $check_avatar;
-        echo $cou;
+            // echo $name;
 
+            isComfirm($check, $name, $slogan, $leader, $description, $avatar);
         }
 
     }
 
     function load($data) {
         global $name, $slogan, $leader, $description, $avatar;
-        $name = test_input($data['name']);
-        $slogan = test_input($data['slogan']);
-        $leader = test_input($data['leader']);
-        $description = test_input($data['description']);
-        $avatar = test_input($_FILES['avatar']['name']);
+        $name = testInput($data['name']);
+        $slogan = testInput($data['slogan']);
+        $leader = testInput($data['leader']);
+        $description = testInput($data['description']);
+        $avatar = testInput($data['avatar']);
+        // $avatar = testInput($_FILES['avatar']['name']);
     }
 
-    function test_input($data) {
+    function testInput($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
-    // eventAddMain();
+    
+    function isComfirm($check, $name, $slogan, $leader, $description, $avatar){
+        if($check == 5) {
+            // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
+            // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
+            require_once "./app/view/EventAddConfirm.php";
+            exit;
+            // isBackPage();
+
+        }
+    }
+
+    // function isBackPage(){
+    //     if($_POST['redirect']) {
+    //         echo 'adadsadsa';
+    //     }
+    // }
     
 ?>

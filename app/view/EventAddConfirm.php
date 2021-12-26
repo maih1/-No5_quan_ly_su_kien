@@ -1,43 +1,44 @@
 <?php
-    // include 'control.inc';
+    // session_start();
 ?>
 <html>
 <head>
-	<title>Đăng ký tân sinh viên</title>
+	<title>Đăng ký sự kiện</title>
 	<meta charset=UTF-8>
-    <link rel="stylesheet" href="../../web/css/add.css">
-    <script async src="../../web/js/addRealFileBtn.js"></script>
-    <script async src="../../web/js/addPreviewImg.js"></script>
+    <!-- <link rel="stylesheet" href="../../web/css/EventAdd.css">
+    <script async src="../../web/js/EventAddRealFileBtn.js"></script>
+    <script async src="../../web/js/EventAddPreviewImg.js"></script> -->
+
+    <link rel="stylesheet" href="web/css/EventAdd.css">
+    <script type="text/javascript" async src="web/js/EventAddPreviewImg.js"></script>
 </head>
 <body>
-    
-    <form method="post" action="regist.php" >   
+    <?php
+        // echo $_SERVER['HTTP_REFERER'];
+    ?>
+    <form method="post" >   
 
         <label class="input-form" for="name">Tên sự kiện</label>
-        <input id="name" type="text" name="name" value=" "><br>        
+        <label class="add-comfirm"><?php echo $name;?></label><br>        
         
         <label class="input-form" for="slogan">Slogan</label>
-        <input id="slogan" type="text" name="slogan" value=""><br>        
+        <label class="add-comfirm"><?php echo $_SESSION['slogan'];?></label><br>                
        
         <label class="input-form" for="slogan">Leader</label>
-        <input id="leader" type="text" name="leader" value=""><br>        
+        <label class="add-comfirm"><?php echo $_SESSION['leader'];?></label><br>         
        
         <label class="input-form" for="description">Mô tả chi tiết</label>
-        <textarea id="description" name="description" maxlength="1000"></textarea><br>        
-       
-        <label class="input-form" for="avater">Avatar</label>
-        <input type="file" id="real-file" hidden="hidden" accept="image/*" onchange="loadFile(event)" />
-        <input id="custom-text" type="text" value="">
-        <button type="button" id="custom-button">Browse</button>
-        <!-- <div class='img_container'><img class='image'></div> -->
-        <!-- <img id="blah" src="#" alt="your image" /> -->
-
-        <!-- <input type="file" accept="image/*" onchange="loadFile(event)"> -->
-        <img id="output"/>
+        <label id="des"><?php echo $_SESSION['description'];?></label><br>         
         
-
-        <button class="center-block" type="submit" name='submit' formaction="">Xác Nhận</button>    
-            
+        <label class="input-form" for="avatar">Avatar</label>
+        <img id="output" src="<?php echo $_SESSION['avatar']; ?>"/>
+        
+        <div class="button-submit">
+            <button class="center-block" name='redirect' >Sửa lại</button>    
+            <button class="center-block" >Đăng ký</button>    
+        </div>
+        <!-- onclick="history.back()" -->
+        <!-- onclick="location.href = document.referrer; return false;" -->
   </form>
 </body>
 </html>
