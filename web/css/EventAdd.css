@@ -1,9 +1,10 @@
 * { 
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    font-size: 15px;
 }
 
 form {
-    border: 2px solid #97a8bc;
+    border: 2px solid #385D8A;
     margin: auto;
     margin-top: 70px;
     width: 60%;
@@ -12,7 +13,7 @@ form {
     padding-top: 50px;
     padding-bottom: 40px;
     overflow: auto;  
-    font-size: 15px;
+    /* font-size: 15px; */
 
 }
 
@@ -24,23 +25,25 @@ form {
     width: 100px;
 }
 
-.selectdiv, #name, #slogan, #leader, #custom-text{
+.selectdiv, .add-comfirm, #name, #slogan, #leader, #custom-text{
     background-color: #e4f6ff;
-    border:2px solid #97a8bc;
+    border:1px solid #385D8A;
     margin-bottom: 25px;
     padding: 12px 20px;
     width: 40%;
-    height: 40px;
+    /* font-size: 15px; */
+    display: inline-block;  
 }
 
-#description {
+#description, #des {
     background-color: #e4f6ff;
-    border:2px solid #97a8bc;
+    border:1px solid #385D8A;
     margin-bottom: 25px;
     padding: 12px 20px;
     vertical-align: middle;
     width: 75%;
     height: 20%;
+    display: inline-block;  
 }
 
 input[type="file"] {  
@@ -51,10 +54,10 @@ input[type="file"] {
 #custom-button {
     padding: 10px;
     width: 120px;
-    height: 40px;
+    height: 45px;
     color: rgb(0, 0, 0);
-    background-color: #3e6595;
-    border: 1px solid #3e6595;
+    background-color: #4f81bdc2;
+    border:1px solid #385D8A;
     cursor: pointer;
 }
 
@@ -62,20 +65,24 @@ input[type="file"] {
   background-color: #e4f6ff;
 }
 
+.button-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .center-block {
     cursor: pointer;
     color: black;
     background-color: #4f81bd;
-    border-style: solid;
-    border-color: #4f81bd;
+    border:2px solid #385D8A;
     float: none;
-    display: block;
     margin-top: 50px;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: 20px;
+    margin-left: 20px;
 
     padding: 12px 20px;
-    border-radius: 5px; 
+    border-radius: 10px; 
     width: 160px;
     height: 60px;
 }
@@ -83,6 +90,8 @@ input[type="file"] {
 #output {
     width: 100px;
     height: 100px;
+    background-color: #4f81bd;
+    vertical-align: middle;
 }
 
 span.error {
@@ -100,3 +109,4 @@ span.error {
 
     background-color: #ffffff;
 }
+
