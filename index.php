@@ -5,7 +5,7 @@ session_start();
 // // echo $_SERVER['REQUEST_URI'];
 // require_once "./app/controller/EventAddController.php";
 // main();
-$controllerName = ucfirst((($_REQUEST['controller']) ?? 'EventAdd').'Controller');
+$controllerName = ucfirst((($_REQUEST['controller']) ?? 'home'));
 // echo $controllerName;
 $actionName = $_REQUEST['action'] ?? 'main';
 // echo $actionName;

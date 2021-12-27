@@ -236,11 +236,11 @@
         if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
             if(!empty($_FILES["upload-file"]["name"]) &&
             $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
-                // unlink($_SESSION['avatar']);
-                print_r($_SESSION['nameAvatar']);
-                echo "<br>";
-                print_r(basename($_FILES["upload-file"]["name"]));
-                echo 'ad';
+                unlink($_SESSION['avatar']);
+                // print_r($_SESSION['nameAvatar']);
+                // echo "<br>";
+                // print_r(basename($_FILES["upload-file"]["name"]));
+                // echo 'ad';
             }
         } 
         
