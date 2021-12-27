@@ -18,3 +18,5 @@
     - Form search: là kiểu GET	
     - Form đăng ký/chỉnh sửa: là kiểu POST
     - Viết chương trình theo hướng cấu trúc (không sử dụng class)
+    - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/?controller='TÊN FILE CONTROLLER'&action='TÊN HÀM CHẠY CHƯƠNG TRÌNH TRONG FILE CONTROLLER'
+    vd: http://localhost/web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventInput
