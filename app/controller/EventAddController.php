@@ -114,7 +114,7 @@
         }
         
         // header('Location: ./app/view/EventAddInput.php');
-        require_once "./app/view/EventAddInput.php";
+        require_once "./app/view/eventadd/EventAddInput.php";
 
 
         // exit;
@@ -126,7 +126,7 @@
     function eventComfirm(){
         global $name, $slogan, $leader, $description, $avatar,$paths;
         global $errors, $check, $cou, $actual_link;
-        require_once "./app/view/EventAddConfirm.php";
+        require_once "./app/view/eventadd/EventAddConfirm.php";
         // echo $_SERVER['HTTP_REFERER'];
         echo $_SESSION['leader'];
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -164,7 +164,7 @@
             // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
             // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
             // require_once "./app/view/EventAddConfirm.php";
-            header('Location: ./app/view/EventAddConfirm.php');
+            header('Location: ./app/view/eventadd/EventAddConfirm.php');
             // exit;
             // exit;
             // isBackPage();
