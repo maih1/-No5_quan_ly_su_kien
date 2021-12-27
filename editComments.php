@@ -46,6 +46,8 @@
                 <input id="custom-text" type="text" value="">
                 <button type="button" id="custom-button">Browse</button>
             </div>
+            <div><img id="avatar-preview" style="margin-left: 175px;"></div>
+            <br>
             <div>
                 <label class="input-form">Nội dung</label>
                 <textarea form="avatarform" name="comment" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"></textarea>
