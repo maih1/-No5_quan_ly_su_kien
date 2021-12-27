@@ -20,11 +20,14 @@
         <div>
             <label id="section-name"> &#9650; Comments đã đăng ký</label>
             <table>
-                <tr>
-                    <th>NO</th>
-                    <th>Avatar</th>
-                    <th>Nội dung comment</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>NO</th>
+                        <th>Avatar</th>
+                        <th>Nội dung comment</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <?php
                     foreach($data as $row) {
                         echo '<tr>
@@ -35,6 +38,7 @@
                         ';
                     }
                 ?>
+                </tbody>
             </table>
         </div>
         <br>
