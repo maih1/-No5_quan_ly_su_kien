@@ -99,15 +99,27 @@
                 $_SESSION['nameAvatar'] = null;
                 addError('avatar', 'Hãy chọn avatar');
             } else {
+                uploadAvatar();
                 // print_r($_SESSION['avatar']) ;
                 // print_r($_FILES["upload-file"]);
-                $target_dir = "web/avatar/tmp/";
-                $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
-                move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
-                $_SESSION['avatar'] =  $target_dir . $avatar;
-                $_SESSION['nameAvatar'] = $avatar;
-                // echo $_SESSION['avatar'];
-                $check++;    
+                // if(isset($_FILES["upload-file"]) && $_FILES["upload-file"]['error'] == 0){
+                    // $target_dir = "web/avatar/tmp/";
+                    // $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
+                    
+                    // echo basename($_FILES["upload-file"]["name"]);
+                    // if(file_exists($target_file)){
+
+                    // }
+
+                    // move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
+                    // $_SESSION['avatar'] =  $target_dir . $avatar;
+                    // $_SESSION['nameAvatar'] = $avatar;
+                    // echo $_SESSION['avatar'];
+                    // echo $target_file;
+                    // echo  $_SESSION['avatar'] ;
+                    // $check++;  
+                // }
+                  
             }
         // getValue($name);
             // echo (isset($_SESSION['name']));
@@ -117,7 +129,7 @@
             // echo "sffffffff";
             // isBackPage();
 
-            echo $check;
+            // echo $check;
         }
         
         // header('Location: ./app/view/EventAddInput.php');
@@ -215,6 +227,39 @@
         }
 
         echo $res;
+    }
+
+    function uploadAvatar(){
+        global $avatar, $check;
+        // echo basename($_FILES["upload-file"]["name"]);
+        // echo  $_SESSION['avatar'] ;
+        if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
+            if(!empty($_FILES["upload-file"]["name"]) &&
+            $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
+                // unlink($_SESSION['avatar']);
+                print_r($_SESSION['nameAvatar']);
+                echo "<br>";
+                print_r(basename($_FILES["upload-file"]["name"]));
+                echo 'ad';
+            }
+        } 
+        
+            $target_dir = "web/avatar/tmp/";
+            $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
+            
+            // if(file_exists($target_file)){
+
+            // }
+
+            move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
+            $_SESSION['avatar'] =  $target_dir . $avatar;
+            $_SESSION['nameAvatar'] = $avatar;
+            // echo $_SESSION['avatar'];
+            
+            $check++;  
+        
+
+        
     }
     
 ?>
