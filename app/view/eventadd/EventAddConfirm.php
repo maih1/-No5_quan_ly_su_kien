@@ -36,7 +36,7 @@
         
         <div class="button-submit">
             <button class="center-block" name='back-page'  >Sửa lại</button>    
-            <button class="center-block" name="submit-comfirm" type="submit" >Đăng ký</button>    
+            <button class="center-block" name="submit-comfirm" >Đăng ký</button>    
         </div>
         <!-- onclick="history.back()" -->
         <!-- onclick="location.href = document.referrer; return false;" -->

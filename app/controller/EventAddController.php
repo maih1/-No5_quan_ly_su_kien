@@ -23,7 +23,7 @@
         global $name, $slogan, $leader, $description, $avatar, $paths;
         global $errors, $check;
 
-        $list_add = getAdd();
+        $list_add = getAll();
         // print_r($list_add);
         // echo 'sd';
         // eventInput();
@@ -148,19 +148,32 @@
         require_once "./app/view/eventadd/EventAddConfirm.php";
         // echo $_SERVER['HTTP_REFERER'];
         // echo $_SESSION['leader'];
+        // $list_add = getAll();
+        //     print_r($list_add);
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         // getValue($name);
         // echo $_SESSION['leader'];
             if(isset($_POST['back-page'])) {
+                // echo 'eddf';
                 
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddInput');
+                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddInput');
             }
 
             if(isset($_POST['submit-comfirm'])) {
-                echo 'e';
+                $id = getIdEnd() + 1;
+                $target_dir = "web/avatar/".$id;
+                if(!file_exists($target_dir)){
+                    mkdir($target_dir, 0777);
+                }
+                $tmp_file = $_SESSION['avatar'];
+                $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
+                rename($tmp_file, $target_file);
+                $_SESSION['avatar'] = $target_file;
+                // getAll();
+                add();
             }
 
-            echo 's';
+            
         }
         // echo $_SESSION['leader'];
         
@@ -202,14 +215,14 @@
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddComfirm');
+                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddComfirm');
             }
         }
     }
 
     function isBackPage($name, $slogan, $leader, $description, $avatar){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddComfirm');
+            header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddComfirm');
 
         }
 
@@ -250,6 +263,7 @@
             // if(file_exists($target_file)){
 
             // }
+            // echo $target_file;
 
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
             $_SESSION['avatar'] =  $target_dir . $avatar;
