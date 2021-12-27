@@ -17,7 +17,7 @@
                 // echo $check.'ls';
                 // echo $_SERVER['HTTP_REFERER'];
     ?>
-    <form method="post" >   
+    <form method="post" action="">   
 
         <label class="input-form" for="name">Tên sự kiện</label>
         <label class="add-comfirm"><?php echo $_SESSION['name']?></label><br>        
@@ -36,7 +36,7 @@
         
         <div class="button-submit">
             <button class="center-block" name='back-page'  >Sửa lại</button>    
-            <button class="center-block" name="submit" type="submit" >Đăng ký</button>    
+            <button class="center-block" name="submit-comfirm" type="submit" >Đăng ký</button>    
         </div>
         <!-- onclick="history.back()" -->
         <!-- onclick="location.href = document.referrer; return false;" -->

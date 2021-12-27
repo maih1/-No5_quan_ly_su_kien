@@ -44,7 +44,7 @@
 
     }
 
-    function eventInput() {
+    function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar,$paths;
         global $errors, $check, $cou, $actual_link;
 
@@ -53,8 +53,9 @@
         
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
-
+ 
             if(empty($name)) {
+                $_SESSION['name'] = null;
                 addError('name', 'Hãy nhập tên sự kiện');
             } elseif(strlen($name) == 100) {
                 addError('name', 'Không nhập quá 100 ký tự');
@@ -64,6 +65,7 @@
             }
 
             if(empty($slogan)) {
+                $_SESSION['slogan'] = null;
                 addError('slogan', 'Hãy nhập slogan');
             } elseif(strlen($slogan) == 250) {
                 addError('slogan', 'Không nhập quá 250 ký tự');
@@ -73,6 +75,7 @@
             }
 
             if(empty($leader)) {
+                $_SESSION['leader'] = null;
                 addError('leader', 'Hãy nhập tên leader');
             } elseif(strlen($leader) == 250) {
                 addError('leader', 'Không nhập quá 250 ký tự');
@@ -82,6 +85,7 @@
             }
 
             if(empty($description)) {
+                $_SESSION['description'] = null;
                 addError('description', 'Hãy nhập mô tả chi tiết');
             } elseif(strlen($description) == 1000) {
                 addError('description', 'Không nhập quá 1000 ký tự');
@@ -92,6 +96,7 @@
             
             if(empty($avatar)) {
             // if(!file_exists($_FILES['avatar']['tmp_name']) || !is_uploaded_file($_FILES['avatar']['tmp_name'])) {
+                $_SESSION['nameAvatar'] = null;
                 addError('avatar', 'Hãy chọn avatar');
             } else {
                 // print_r($_SESSION['avatar']) ;
@@ -105,12 +110,14 @@
                 $check++;    
             }
         // getValue($name);
-            echo (isset($_SESSION['name']));
-            echo $_SESSION['nameAvatar'];
+            // echo (isset($_SESSION['name']));
+            // echo $_SESSION['nameAvatar'];
             // eventComfirm();
             // isComfirm($check);
             // echo "sffffffff";
             // isBackPage();
+
+            echo $check;
         }
         
         // header('Location: ./app/view/EventAddInput.php');
@@ -123,21 +130,27 @@
     }
 
 
-    function eventComfirm(){
+    function eventAddComfirm(){
         global $name, $slogan, $leader, $description, $avatar,$paths;
         global $errors, $check, $cou, $actual_link;
         require_once "./app/view/eventadd/EventAddConfirm.php";
         // echo $_SERVER['HTTP_REFERER'];
-        echo $_SESSION['leader'];
+        // echo $_SESSION['leader'];
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
         // getValue($name);
-        echo $_SESSION['leader'];
+        // echo $_SESSION['leader'];
             if(isset($_POST['back-page'])) {
                 
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventInput');
+                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddInput');
             }
+
+            if(isset($_POST['submit-comfirm'])) {
+                echo 'e';
+            }
+
+            echo 's';
         }
-        echo $_SESSION['leader'];
+        // echo $_SESSION['leader'];
         
     }
 
@@ -177,14 +190,14 @@
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventComfirm');
+                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddComfirm');
             }
         }
     }
 
     function isBackPage($name, $slogan, $leader, $description, $avatar){
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventComfirm');
+            header('Location: /web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventAddComfirm');
 
         }
 
@@ -192,14 +205,16 @@
 
     function getValue($value, $nameValue){
         // global $name, $slogan, $leader, $description, $avatar;
-        
+        $res = null;
         if(!empty($value)){
-            echo $value;
+            $res = $value;
             // echo 'tt';
         } elseif((isset($_SESSION['checkEventAdd']) && $_SESSION['checkEventAdd'] == 5) && isset($_SESSION[$nameValue])){
             // echo 'sada';
-            echo $_SESSION[$nameValue]; 
+            $res =  $_SESSION[$nameValue]; 
         }
+
+        echo $res;
     }
     
 ?>
