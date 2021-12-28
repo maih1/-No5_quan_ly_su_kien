@@ -12,11 +12,13 @@
             <form action="reset.php" method="POST">
                 <table>
                     <?php
-                    $host = "localhost";
-                    $dbname = "giuaki";
-                    $username = "root";
-                    $password = "";
-                    $conn = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8", $username, $password);
+//                    $host = "localhost";
+//                    $dbname = "giuaki";
+//                    $username = "root";
+//                    $password = "";
+//                    $conn = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8", $username, $password);
+
+                    include '../common/db.php';
 
                     $query = 'SELECT users.name FROM users INNER JOIN admins ON admins.login_id = users.user_id WHERE admins.login_id = users.user_id AND admins.reset_password_token <> ""';
                     $sql = $conn->prepare($query);
