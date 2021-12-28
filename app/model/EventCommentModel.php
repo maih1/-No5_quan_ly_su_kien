@@ -15,9 +15,9 @@
         $sql = "SELECT * FROM `event_comments` WHERE event_id = '$event_id' and id = '$comment_id'";
         $result = $conn -> prepare($sql);
         $result -> execute();
-        $data = $result -> fetchAll();
+        $data = $result -> fetch(PDO::FETCH_ASSOC);
         return $data;
     }
 
-    
+
 ?>

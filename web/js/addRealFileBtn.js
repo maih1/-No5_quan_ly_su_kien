@@ -1,5 +1,5 @@
-var realFileBtn = document.getElementById("real-file");
-var customBtn = document.getElementById("custom-button");
+var realFileBtn = document.getElementById("file");
+var customBtn = document.getElementById("uploadTrigger");
 var customTxt = document.getElementById("custom-text");
 var preview = document.getElementById("avatar-preview");
 

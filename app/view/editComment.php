@@ -3,11 +3,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../web/css/comments.css"/>
-    <script async src="../../web/js/addRealFileBtn.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../web/css/comments.css"/>
+    <script async src="../../../web/js/addRealFileBtn.js"></script>
     <title>Event Comment</title>
 </head>
 <body>
+    <?php print_r($commentContents); ?>
     <div id="mainform">
         <div>
             <h3><?php echo 'Tên sự kiện: '. $eventName[0]['name']; ?></h3>
@@ -29,7 +30,7 @@
                         foreach($listComments as $row) {
                             echo '<tr>
                                 <td>No'.$count.'</td>
-                                <td><img src="images/'.$row['avatar'].'"></td>
+                                <td><img src="../../../web/images/'.$row['avatar'].'"></td>
                                 <td>'.$row['content'].'</td>
                                 </tr>
                             ';
@@ -41,21 +42,20 @@
         </div>
         <br>
         <label id="section-name">&#9650; Sửa comment</label>
-        <form id="avatarform" method="post" <?php echo 'action="../editComment' . $event_id . '/' . $comment_id . '"'; ?>>
+        <form id="avatarform" enctype="multipart/form-data" <?php echo 'action="../../editComment/' . $event_id . '/' . $comment_id . '"'; ?> method="POST" >
             <div style="display: flex">
                 <label class="input-form" for="avatar">Avatar</label>
-                <input type="file" id="real-file" hidden="hidden" accept="images/*">
-                <input id="custom-text" type="text" value="">
-                <button type="button" id="custom-button">Browse</button>
+                <input type="file" class="hidden" id="file"/>
+                <input id="custom-text" type="text">
+                <button type="button" id="uploadTrigger">Browse</button>
             </div>
             <div><img id="avatar-preview" style="margin-left: 175px;"></div>
             <br>
             <div>
                 <label class="input-form">Nội dung</label>
-                <textarea form="avatarform" name="comment" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"></textarea>
+                <textarea form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard" maxlength="1000"></textarea>
             </div>
-
-            <button class="center-block" type="submit" name="submit">Sửa</button>
+            <input class="center-block" type="submit" name="submit" value="Sửa">
         </form>
         
     </div>

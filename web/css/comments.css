@@ -47,16 +47,16 @@ img[src] {
   height: 40px;
 }
 
-input[type="file"] {  
+/* input[type="file"] {  
   direction: rtl;
   color: transparent;
-}
+} */
 
-#text-area{
+#comment-area{
   border:2px solid #97a8bc; 
 }
 
-#custom-button {
+#uploadTrigger {
   padding: 10px;
   width: 120px;
   height: 40px;
@@ -66,7 +66,7 @@ input[type="file"] {
   cursor: pointer;
 }
 
-#custom-button:hover {
+#uploadTrigger:hover {
   background-color: #00b28f;
 }
 
@@ -87,7 +87,9 @@ input[type="file"] {
   width: 160px;
   height: 60px;
 }
-
+.hidden {
+  display: none;
+}
 ul, li {
 	margin: 0px;
 	list-style-type: none;
