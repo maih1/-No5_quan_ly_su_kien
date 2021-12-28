@@ -1,5 +1,5 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/DB.php";
+    require_once "./app/common/DB.php";
 
     function getAll(){
         global $conn;
