@@ -57,7 +57,7 @@
                 <textarea form="avatarform" name="comment" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"></textarea>
             </div>
 
-            <button class="center-block" type="submit" name="submit">Submit</button>
+            <button class="center-block" type="submit" name="submit">Sửa</button>
         </form>
         
     </div>

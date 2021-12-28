@@ -61,7 +61,7 @@ input[type="file"] {
   width: 120px;
   height: 40px;
   color: rgb(0, 0, 0);
-  background-color: #3e6595;
+  background-color: #e4f6ff;
   border: 1px solid #3e6595;
   cursor: pointer;
 }
@@ -73,7 +73,7 @@ input[type="file"] {
 .center-block {
   cursor: pointer;
   color: black;
-  background-color: #4f81bd;
+  background-color: #e4f6ff;
   border-style: solid;
   border-color: #4f81bd;
   float: none;
