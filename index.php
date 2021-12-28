@@ -1,7 +1,8 @@
 <?php
-
     session_start();
-    require_once "./app/Bridge.php";
-    $myApp = new App();
-    
+
+    $paths = explode("/", filter_var(trim($_GET["url"], "/")));
+    print_r($paths);
+    require_once "./app/controller/". $paths[0] ."Controller.php";
+    $paths[1]($paths[2] ?? '', $paths[3] ?? '');
 ?>

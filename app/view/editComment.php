@@ -1,20 +1,16 @@
-<?php
-    include 'include/db.php';
-    include 'include/EventCommentModel.php'
-?>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="static/comments.css"/>
-    <script async src="static/addRealFileBtn.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../web/css/comments.css"/>
+    <script async src="../../web/js/addRealFileBtn.js"></script>
     <title>Event Comment</title>
 </head>
 <body>
     <div id="mainform">
         <div>
-            <h3><?php echo 'Tên sự kiện: '. $data[0]['event_id_name']; ?></h3>
+            <h3><?php echo 'Tên sự kiện: '. $eventName[0]['name']; ?></h3>
         </div>
         <br>
         <div>
@@ -28,22 +24,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                    foreach($data as $row) {
-                        echo '<tr>
-                            <td>No'.$row['id'].'</td>
-                            <td><img src="images/'.$row['avatar'].'"></td>
-                            <td>'.$row['content'].'</td>
-                            </tr>
-                        ';
-                    }
-                ?>
+                    <?php
+                        $count = 1;
+                        foreach($listComments as $row) {
+                            echo '<tr>
+                                <td>No'.$count.'</td>
+                                <td><img src="images/'.$row['avatar'].'"></td>
+                                <td>'.$row['content'].'</td>
+                                </tr>
+                            ';
+                            $count++;
+                        }
+                    ?>
                 </tbody>
             </table>
         </div>
         <br>
         <label id="section-name">&#9650; Sửa comment</label>
-        <form id="avatarform" method="post" action="editComments.php">
+        <form id="avatarform" method="post" <?php echo 'action="../editComment' . $event_id . '/' . $comment_id . '"'; ?>>
             <div style="display: flex">
                 <label class="input-form" for="avatar">Avatar</label>
                 <input type="file" id="real-file" hidden="hidden" accept="images/*">
