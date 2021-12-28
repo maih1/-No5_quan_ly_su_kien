@@ -1,8 +1,6 @@
 # No5_quan_ly_su_kien
 
-+ Account Admin
-    - username = 'admin';
-    - password = '1234';
++ DB
     - nameDB = 'no5';
 
 + CSS & HTML
@@ -18,5 +16,8 @@
     - Form search: là kiểu GET	
     - Form đăng ký/chỉnh sửa: là kiểu POST
     - Viết chương trình theo hướng cấu trúc (không sử dụng class)
-    - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/?controller='TÊN FILE CONTROLLER'&action='TÊN HÀM CHẠY CHƯƠNG TRÌNH TRONG FILE CONTROLLER'
-    vd: http://localhost/web/No5_quan_ly_su_kien/?controller=EventAdd&action=eventInput
+    - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/TÊN FILE CONTROLLER/TÊN HÀM CHẠY TRONG FILECONTROLLER/ID
+    - /ID có thể có hoặc không
+    - Tên file controller mặc định chữ cuối là "Controller"
+    vd: EventAddController.php
+    vd: http://localhost/web/No5_quan_ly_su_kien/EventAdd/eventAddInput
