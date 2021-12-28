@@ -2,13 +2,12 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="../../../web/css/comments.css"/>
     <script async src="../../../web/js/addRealFileBtn.js"></script>
     <title>Event Comment</title>
 </head>
 <body>
-    <?php print_r($commentContents); ?>
     <div id="mainform">
         <div>
             <h3><?php echo 'Tên sự kiện: '. $eventName[0]['name']; ?></h3>
@@ -30,7 +29,7 @@
                         foreach($listComments as $row) {
                             echo '<tr>
                                 <td>No'.$count.'</td>
-                                <td><img src="../../../web/images/'.$row['avatar'].'"></td>
+                                <td><img src="../../../web/avatar/' . $event_id . '/' .$row['avatar'].'"></td>
                                 <td>'.$row['content'].'</td>
                                 </tr>
                             ';
@@ -45,7 +44,7 @@
         <form id="avatarform" enctype="multipart/form-data" <?php echo 'action="../../editComment/' . $event_id . '/' . $comment_id . '"'; ?> method="POST" >
             <div style="display: flex">
                 <label class="input-form" for="avatar">Avatar</label>
-                <input type="file" class="hidden" id="file"/>
+                <input type="file" class="hidden" id="file" name="file"/>
                 <input id="custom-text" type="text">
                 <button type="button" id="uploadTrigger">Browse</button>
             </div>
@@ -53,7 +52,7 @@
             <br>
             <div>
                 <label class="input-form">Nội dung</label>
-                <textarea form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard" maxlength="1000"></textarea>
+                <textarea form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"></textarea>
             </div>
             <input class="center-block" type="submit" name="submit" value="Sửa">
         </form>

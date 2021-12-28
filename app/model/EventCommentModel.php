@@ -19,5 +19,14 @@
         return $data;
     }
 
+    function editEventComment($event_id, $comment_id, $avatar, $content) {
+        global $conn;
+        date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $date = date('Y-m-d H:i:s');
+        $sql = "UPDATE `event_comments` SET avatar = '$avatar', content = '$content', updated = '$date' WHERE event_id = '$event_id' and id = '$comment_id'";
+        $result = $conn -> prepare($sql);
+        $result -> execute();
+        return $result;
+    }
 
 ?>
