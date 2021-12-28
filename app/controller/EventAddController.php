@@ -13,6 +13,7 @@
         }
         return $url;
     }
+    
 
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar,$paths;
@@ -76,6 +77,12 @@
     function eventAddComfirm(){
         require_once "./app/view/eventadd/EventAddConfirm.php";
 
+        if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
+        && empty($_SESSION['leader']) && empty($_SESSION['description'])
+        && empty($_SESSION['nameAvatar']) && empty($_SESSION['avatar'])) {
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+        }
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
        
             if(isset($_POST['back-page'])) {                
@@ -84,8 +91,8 @@
 
             if(isset($_POST['submit-comfirm'])) {
                 if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
-                && isset($_SESSION['leader']) && isset($_SESSION['nameAvatar'])
-                && isset($_SESSION['description'])) {
+                && isset($_SESSION['leader']) && isset($_SESSION['description'])
+                && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
                     
                     $id = getIdEnd() + 1;
                     $target_dir = "web/avatar/".$id;
@@ -114,6 +121,7 @@
         }        
     }
 
+
     function eventAddComplete(){
         require_once "./app/view/eventadd/EventAddComplete.php";
         
@@ -121,6 +129,7 @@
             header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         } 
     }
+
 
     function load($data) {
         global $name, $slogan, $leader, $description, $avatar;
@@ -131,12 +140,14 @@
         $avatar = testInput($data['avatar']);
     }
 
+
     function testInput($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
     }
+
 
     function isComfirm(){
         global $check;
@@ -160,24 +171,49 @@
         echo $res;
     }
 
+
     function uploadAvatar(){
         global $avatar, $check;
-
-        if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
-            if(!empty($_FILES["upload-file"]["name"]) &&
-            $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
-                unlink($_SESSION['avatar']);
-            }
-        } 
-        
+        if(checkFileUpload()){
+            if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
+                if(!empty($_FILES["upload-file"]["name"]) &&
+                $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
+                    unlink($_SESSION['avatar']);
+                }
+            } 
+    
             $target_dir = "web/avatar/tmp/";
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
-
+            
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
             $_SESSION['avatar'] =  $target_dir . $avatar;
             $_SESSION['nameAvatar'] = $avatar;
             
-            $check++;  
+            $check++; 
+        }
+    }
+
+
+    function checkFileUpload(){
+        $check_file = true;
+        $maxfilesize = 524288000;
+
+        $allowtypes = array('image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 
+                            'image/png', 'image/svg', 'image/ico', 'image/cur', 'image/gif', 'image/apng');
+        
+        if(file_exists($_FILES["upload-file"]["tmp_name"])){
+            if($_FILES["upload-file"]['error'] != 0) {
+                $check_file = false;
+            }
+            if ($_FILES["upload-file"]["size"] > $maxfilesize){
+                $check_file = false;
+            }
+            if (!in_array($_FILES["upload-file"]["type"],$allowtypes )){
+                $check_file = false;
+            }
+        }
+
+        return $check_file;
     }
     
 ?>
