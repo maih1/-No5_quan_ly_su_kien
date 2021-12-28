@@ -7,9 +7,6 @@
     
 </head>
 <body>
-    <?php
-        // echo $check;
-    ?>
     <form method="post" action="EventAddInput.php" enctype="multipart/form-data" >   
         <?php if(getError('name')) {?>
             <span class="error"><?php  echo getError('name'); ?></span><br>
@@ -45,8 +42,7 @@
         
         <div class="button-submit">
             <button class="center-block" type="submit" name='submit' formaction="<?php isComfirm(); ?>">Xác Nhận</button>    
-        </div>
-            
+        </div>      
   </form>
 </body>
 </html>

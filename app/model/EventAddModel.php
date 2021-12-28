@@ -8,8 +8,6 @@
         $stmt->execute();
         $data = [];
         $result = $stmt->fetchAll();
-        // print_r($_result);
-        // echo $_SESSION['avatar'];
         return $result;
     }
 
@@ -17,7 +15,6 @@
         global $conn;
         $stmt = $conn -> prepare("SELECT `id` FROM `events`;");
         $stmt->execute();
-        // $data = [];
         $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
         $length = count($data) - 1;
         $result = $data[$length];

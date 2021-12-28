@@ -13,8 +13,6 @@ form, .event-complete {
     padding-top: 50px;
     padding-bottom: 40px;
     overflow: auto;  
-    /* font-size: 15px; */
-
 }
 
 .event-complete{
@@ -35,7 +33,6 @@ form, .event-complete {
     margin-bottom: 25px;
     padding: 12px 20px;
     width: 40%;
-    /* font-size: 15px; */
     display: inline-block;  
 }
 
@@ -101,16 +98,12 @@ input[type="file"] {
 span.error {
     box-sizing: content-box;
     color: #FF0000;
-    margin-left: 160px;
-    /* border:2px solid rgb(233, 163, 13); */
-    
+    margin-left: 160px;    
     margin-bottom: 10px;
-
     display: inline-block;
     height: 20px;
     padding: 7px 20px;
     width: 545px;
-
     background-color: #ffffff;
 }
 
