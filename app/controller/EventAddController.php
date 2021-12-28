@@ -13,11 +13,12 @@
         }
         return $url;
     }
-    
+
 
     function eventAddInput() {
-        global $name, $slogan, $leader, $description, $avatar,$paths;
-        global $errors, $check, $cou, $actual_link;
+        global $name, $slogan, $leader, $description, $avatar;
+        global $check;
+        unset($_SESSION['check_add']);
         
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
