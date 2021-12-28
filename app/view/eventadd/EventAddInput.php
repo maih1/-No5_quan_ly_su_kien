@@ -44,7 +44,7 @@
         <button type="button" id="custom-button">Browse</button><br>
         
         <div class="button-submit">
-            <button class="center-block" type="submit" name='submit' formaction="<?php isComfirms(); ?>">Xác Nhận</button>    
+            <button class="center-block" type="submit" name='submit' formaction="<?php isComfirm(); ?>">Xác Nhận</button>    
         </div>
             
   </form>

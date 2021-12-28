@@ -1,15 +1,17 @@
 <?php
     require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventAddModel.php";
-    // $add;
+    
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;
     
-    function main() {
-        global $name, $slogan, $leader, $description, $avatar, $paths;
-        global $errors, $check;
-
-        $list_add = getAll();
+    function getUrl() {
+        $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+        $url = "/";
+        for($i = 0; $i < count($urls)-1; $i++){
+            $url = $url . $urls[$i] . "/";
+        }
+        return $url;
     }
 
     function eventAddInput() {
@@ -68,35 +70,56 @@
         }
         
         require_once "./app/view/eventadd/EventAddInput.php";
-        // require_once "./app/view/EventAddInput.php";
     }
 
 
     function eventAddComfirm(){
-        global $name, $slogan, $leader, $description, $avatar,$paths;
-        global $errors, $check, $cou, $actual_link;
         require_once "./app/view/eventadd/EventAddConfirm.php";
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
        
             if(isset($_POST['back-page'])) {                
-                header('Location: /web/No5_quan_ly_su_kien/EventAdd/eventAddInput');
+                header('Location:' . getUrl(). 'EventAdd/eventAddInput');
             }
 
             if(isset($_POST['submit-comfirm'])) {
-                $id = getIdEnd() + 1;
-                $target_dir = "web/avatar/".$id;
-                if(!file_exists($target_dir)){
-                    mkdir($target_dir, 0777);
+                if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
+                && isset($_SESSION['leader']) && isset($_SESSION['nameAvatar'])
+                && isset($_SESSION['description'])) {
+                    
+                    $id = getIdEnd() + 1;
+                    $target_dir = "web/avatar/".$id;
+                    if(!file_exists($target_dir)){
+                        mkdir($target_dir, 0777);
+                    }
+                    $tmp_file = $_SESSION['avatar'];
+                    $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
+                    rename($tmp_file, $target_file);
+                    $_SESSION['avatar'] = $target_file;
+                    $check_add = add();
                 }
-                $tmp_file = $_SESSION['avatar'];
-                $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
-                rename($tmp_file, $target_file);
-                $_SESSION['avatar'] = $target_file;
-                // getAll();
-                add();
+                
+                $_SESSION['check_add'] = $check_add;
+
+                if($check_add){
+                    unset($_SESSION['name']);
+                    unset($_SESSION['slogan']);
+                    unset($_SESSION['leader']);
+                    unset($_SESSION['avatar']);
+                    unset($_SESSION['nameAvatar']);
+                    unset($_SESSION['description']);
+                    header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
+                }
             }
         }        
+    }
+
+    function eventAddComplete(){
+        require_once "./app/view/eventadd/EventAddComplete.php";
+        
+        if (!$_SESSION['check_add']) {
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+        } 
     }
 
     function load($data) {
@@ -114,29 +137,17 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    
-    function isComfirm($check){
-        if($check == 5) {
-            header('Location: ./app/view/eventadd/EventAddConfirm.php');
-        }
-    }
 
-    function isComfirms(){
+    function isComfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location: /web/No5_quan_ly_su_kien/EventAdd/eventAddComfirm');
+                header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
             }
         }
     }
 
-    function isBackPage($name, $slogan, $leader, $description, $avatar){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            header('Location: /web/No5_quan_ly_su_kien/EventAdd/eventAddComfirm');
-        }
-
-    }
 
     function getValue($value, $nameValue){
         $res = null;
@@ -167,9 +178,6 @@
             $_SESSION['nameAvatar'] = $avatar;
             
             $check++;  
-        
-
-        
     }
     
 ?>

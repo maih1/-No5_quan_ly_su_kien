@@ -3,7 +3,7 @@
     font-size: 15px;
 }
 
-form {
+form, .event-complete {
     border: 2px solid #385D8A;
     margin: auto;
     margin-top: 70px;
@@ -15,6 +15,10 @@ form {
     overflow: auto;  
     /* font-size: 15px; */
 
+}
+
+.event-complete{
+    text-align: center;
 }
 
 .input-form, .input-form-login {
@@ -110,3 +114,9 @@ span.error {
     background-color: #ffffff;
 }
 
+#event-complete {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+    color: black;
+}

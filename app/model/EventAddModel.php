@@ -26,6 +26,7 @@
 
     function add(){
         global $conn;
+        $check_add = false;
         try{
             $stmt = $conn->prepare("INSERT INTO `events`(`name`, `slogan`, `leader`, `avatar`, `description`) 
                 VALUES (:name, :slogan, :leader, :avatar, :description)");
@@ -39,12 +40,15 @@
             $name = $_SESSION['name'];
             $slogan = $_SESSION['slogan'];
             $leader = $_SESSION['leader'];
-            $avatar = $_SESSION['avatar'];
+            $avatar = $_SESSION['nameAvatar'];
             $description = $_SESSION['description'];
 
             $stmt->execute();
+            $check_add = true;
         } catch(PDOException $e){
             echo "Connection failed: " . $e->getMessage();
         }
+        
+        return $check_add;
     }
 ?>
