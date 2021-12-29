@@ -15,8 +15,16 @@
     - dbname = "no5";
 
 + CSS & HTML
-    - background button: #e4f6ff
-    - border: 2px solid #97a8bc
+    - border form: 2px solid #385D8A
+    - input:
+        - background-color: #e4f6ff;
+        - border:1px solid #385D8A; 
+    - button submit: 
+        - background-color: #4f81bd;
+        - border:2px solid #385D8A;
+    - button khác:
+        - background-color: #4f81bdc2;
+        - border:1px solid #385D8A;
     - text color : black
     - error color : red
     - font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif
