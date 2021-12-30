@@ -12,9 +12,6 @@
 
 <body>
 
-    <?php
-    // echo $check;
-    ?>
     <form method="post" action="UserAddInput.php" enctype="multipart/form-data">
 
         <!-- User name -->
@@ -59,7 +56,7 @@
         <textarea id="description" name="description" maxlength="1000"><?php getValue($description, 'description'); ?></textarea><br>
 
         <div class="button-submit">
-            <button class="center-block" type="submit" name='submit' formaction="<?php isComfirms(); ?>">Xác Nhận</button>
+            <button class="center-block" type="submit" name='submit' formaction="<?php isConfirm(); ?>">Xác Nhận</button>
         </div>
 
     </form>

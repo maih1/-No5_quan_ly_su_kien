@@ -150,7 +150,7 @@
     }
 
 
-    function isComfirm(){
+    function isConfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
