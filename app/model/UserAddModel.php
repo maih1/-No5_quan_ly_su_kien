@@ -1,5 +1,5 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/DB.php";
+    require_once "./app/common/DB.php";
 
     function getAll(){
         global $conn;
@@ -8,8 +8,6 @@
         $stmt->execute();
         $data = [];
         $result = $stmt->fetchAll();
-        // print_r($_result);
-        // echo $_SESSION['avatar'];
         return $result;
     }
 
@@ -17,7 +15,6 @@
         global $conn;
         $stmt = $conn -> prepare("SELECT `id` FROM `events`;");
         $stmt->execute();
-        // $data = [];
         $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
         $length = count($data) - 1;
         $result = $data[$length];
@@ -26,6 +23,7 @@
 
     function add(){
         global $conn;
+        $check_add = false;
         try{
             $stmt = $conn->prepare("INSERT INTO `events`(`name`, `slogan`, `leader`, `avatar`, `description`) 
                 VALUES (:name, :slogan, :leader, :avatar, :description)");
@@ -39,12 +37,15 @@
             $name = $_SESSION['name'];
             $slogan = $_SESSION['slogan'];
             $leader = $_SESSION['leader'];
-            $avatar = $_SESSION['avatar'];
+            $avatar = $_SESSION['nameAvatar'];
             $description = $_SESSION['description'];
 
             $stmt->execute();
+            $check_add = true;
         } catch(PDOException $e){
             echo "Connection failed: " . $e->getMessage();
         }
+        
+        return $check_add;
     }
 ?>
