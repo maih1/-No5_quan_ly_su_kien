@@ -1,55 +1,24 @@
 <?php
-    // echo $_SERVER['REQUEST_URI'];
-    $paths = explode("/", filter_var(trim($_SERVER['REQUEST_URI'], "/")));
-    $actual_link = $_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI'];
-    // $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    // echo $actual_link;
-    // echo $_SERVER['REQUEST_URI'];
-    // echo $_SERVER['HTTP_REFERER'];
-    // printf($_SERVER['DOCUMENT_ROOT'].$paths[0].$paths[1]."/app/common/ErrorValidate.php");
-    // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/common/ErrorValidate.php";
-    // require_once "../common/ErrorValidate.php";
-    // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/model/EventAddModel.php";
     require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventAddModel.php";
-    // require_once "../view/EventAddConfirm.php"
-    $add;
+    
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;
-    // $check_avatar = false;
     
-    // print_r($errors);
-    function main() {
-        global $name, $slogan, $leader, $description, $avatar, $paths;
-        global $errors, $check;
-
-        $list_add = getAll();
-        // print_r($list_add);
-        // echo 'sd';
-        // eventInput();
-
-        // require_once "./app/view/EventAddInput.php";
-
-        // echo $check;
-        // eventComfirm();
-        // exit;
-        // isComfirm($check, $name, $slogan, $leader, $description, $avatar);
-
-        // print_r($errors);
-        // print_r(getError('name'));
-        // require_once $_SERVER['DOCUMENT_ROOT']."/".$paths[0]."/".$paths[1]."/app/view/EventAddInput.php";
-        // require_once "./app/view/EventAddInput.php";
-        // echo "<script type='text/javascript'>location.href = 'app/view/EventAddInput.php';</script>";
-        // isComfirm($check, $name, $slogan, $leader, $description, $avatar);
-
+    function getUrl() {
+        $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+        $url = "/";
+        for($i = 0; $i < count($urls)-1; $i++){
+            $url = $url . $urls[$i] . "/";
+        }
+        return $url;
     }
 
-    function eventAddInput() {
-        global $name, $slogan, $leader, $description, $avatar,$paths;
-        global $errors, $check, $cou, $actual_link;
 
-        // getValue($name);
-        // echo $_SESSION['name'];
+    function eventAddInput() {
+        global $name, $slogan, $leader, $description, $avatar;
+        global $check;
+        unset($_SESSION['check_add']);
         
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
@@ -95,89 +64,73 @@
             }
             
             if(empty($avatar)) {
-            // if(!file_exists($_FILES['avatar']['tmp_name']) || !is_uploaded_file($_FILES['avatar']['tmp_name'])) {
                 $_SESSION['nameAvatar'] = null;
                 addError('avatar', 'Hãy chọn avatar');
             } else {
-                uploadAvatar();
-                // print_r($_SESSION['avatar']) ;
-                // print_r($_FILES["upload-file"]);
-                // if(isset($_FILES["upload-file"]) && $_FILES["upload-file"]['error'] == 0){
-                    // $target_dir = "web/avatar/tmp/";
-                    // $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
-                    
-                    // echo basename($_FILES["upload-file"]["name"]);
-                    // if(file_exists($target_file)){
-
-                    // }
-
-                    // move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
-                    // $_SESSION['avatar'] =  $target_dir . $avatar;
-                    // $_SESSION['nameAvatar'] = $avatar;
-                    // echo $_SESSION['avatar'];
-                    // echo $target_file;
-                    // echo  $_SESSION['avatar'] ;
-                    // $check++;  
-                // }
-                  
+                uploadAvatar();                  
             }
-        // getValue($name);
-            // echo (isset($_SESSION['name']));
-            // echo $_SESSION['nameAvatar'];
-            // eventComfirm();
-            // isComfirm($check);
-            // echo "sffffffff";
-            // isBackPage();
-
-            // echo $check;
         }
         
-        // header('Location: ./app/view/EventAddInput.php');
         require_once "./app/view/eventadd/EventAddInput.php";
-
-
-        // exit;
-        // return $check;
-
     }
 
 
     function eventAddComfirm(){
-        global $name, $slogan, $leader, $description, $avatar,$paths;
-        global $errors, $check, $cou, $actual_link;
         require_once "./app/view/eventadd/EventAddConfirm.php";
-        // echo $_SERVER['HTTP_REFERER'];
-        // echo $_SESSION['leader'];
-        // $list_add = getAll();
-        //     print_r($list_add);
+
+        if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
+        && empty($_SESSION['leader']) && empty($_SESSION['description'])
+        && empty($_SESSION['nameAvatar']) && empty($_SESSION['avatar'])) {
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+        }
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        // getValue($name);
-        // echo $_SESSION['leader'];
-            if(isset($_POST['back-page'])) {
-                // echo 'eddf';
-                
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddInput');
+       
+            if(isset($_POST['back-page'])) {                
+                header('Location:' . getUrl(). 'EventAdd/eventAddInput');
             }
 
             if(isset($_POST['submit-comfirm'])) {
-                $id = getIdEnd() + 1;
-                $target_dir = "web/avatar/".$id;
-                if(!file_exists($target_dir)){
-                    mkdir($target_dir, 0777);
+                if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
+                && isset($_SESSION['leader']) && isset($_SESSION['description'])
+                && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
+                    
+                    $id = getIdEnd() + 1;
+                    $target_dir = "web/avatar/".$id;
+                    if(!file_exists($target_dir)){
+                        mkdir($target_dir, 0777);
+                    }
+                    $tmp_file = $_SESSION['avatar'];
+                    $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
+                    rename($tmp_file, $target_file);
+                    $_SESSION['avatar'] = $target_file;
+                    $check_add = add();
                 }
-                $tmp_file = $_SESSION['avatar'];
-                $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
-                rename($tmp_file, $target_file);
-                $_SESSION['avatar'] = $target_file;
-                // getAll();
-                add();
-            }
+                
+                $_SESSION['check_add'] = $check_add;
 
-            
-        }
-        // echo $_SESSION['leader'];
-        
+                if($check_add){
+                    unset($_SESSION['name']);
+                    unset($_SESSION['slogan']);
+                    unset($_SESSION['leader']);
+                    unset($_SESSION['avatar']);
+                    unset($_SESSION['nameAvatar']);
+                    unset($_SESSION['description']);
+                    header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
+                }
+            }
+        }        
     }
+
+
+    function eventAddComplete(){
+        require_once "./app/view/eventadd/EventAddComplete.php";
+        
+        if (!$_SESSION['check_add']) {
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+        } 
+    }
+
 
     function load($data) {
         global $name, $slogan, $leader, $description, $avatar;
@@ -186,8 +139,8 @@
         $leader = testInput($data['leader']);
         $description = testInput($data['description']);
         $avatar = testInput($data['avatar']);
-        // $avatar = testInput($_FILES['avatar']['name']);
     }
+
 
     function testInput($data) {
         $data = trim($data);
@@ -195,85 +148,73 @@
         $data = htmlspecialchars($data);
         return $data;
     }
-    
-    function isComfirm($check){
-        if($check == 5) {
-            // exit;
-            // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
-            // echo "<script type='text/javascript'>location.href = 'app/view/EventAddConfirm.php';</script>";
-            // require_once "./app/view/EventAddConfirm.php";
-            header('Location: ./app/view/eventadd/EventAddConfirm.php');
-            // exit;
-            // exit;
-            // isBackPage();
 
-        }
-    }
 
-    function isComfirms(){
+    function isComfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddComfirm');
+                header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
             }
         }
     }
 
-    function isBackPage($name, $slogan, $leader, $description, $avatar){
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            header('Location: /web/No5_quan_ly_su_kien/?controller=EventAddController&action=eventAddComfirm');
-
-        }
-
-    }
 
     function getValue($value, $nameValue){
-        // global $name, $slogan, $leader, $description, $avatar;
         $res = null;
         if(!empty($value)){
             $res = $value;
-            // echo 'tt';
         } elseif((isset($_SESSION['checkEventAdd']) && $_SESSION['checkEventAdd'] == 5) && isset($_SESSION[$nameValue])){
-            // echo 'sada';
             $res =  $_SESSION[$nameValue]; 
         }
 
         echo $res;
     }
 
+
     function uploadAvatar(){
         global $avatar, $check;
-        // echo basename($_FILES["upload-file"]["name"]);
-        // echo  $_SESSION['avatar'] ;
-        if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
-            if(!empty($_FILES["upload-file"]["name"]) &&
-            $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
-                unlink($_SESSION['avatar']);
-                // print_r($_SESSION['nameAvatar']);
-                // echo "<br>";
-                // print_r(basename($_FILES["upload-file"]["name"]));
-                // echo 'ad';
-            }
-        } 
-        
+        if(checkFileUpload()){
+            if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
+                if(!empty($_FILES["upload-file"]["name"]) &&
+                $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
+                    unlink($_SESSION['avatar']);
+                }
+            } 
+    
             $target_dir = "web/avatar/tmp/";
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
             
-            // if(file_exists($target_file)){
-
-            // }
-            // echo $target_file;
-
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
             $_SESSION['avatar'] =  $target_dir . $avatar;
             $_SESSION['nameAvatar'] = $avatar;
-            // echo $_SESSION['avatar'];
             
-            $check++;  
-        
+            $check++; 
+        }
+    }
 
+
+    function checkFileUpload(){
+        $check_file = true;
+        $maxfilesize = 524288000;
+
+        $allowtypes = array('image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 
+                            'image/png', 'image/svg', 'image/ico', 'image/cur', 'image/gif', 'image/apng');
         
+        if(file_exists($_FILES["upload-file"]["tmp_name"])){
+            if($_FILES["upload-file"]['error'] != 0) {
+                $check_file = false;
+            }
+            if ($_FILES["upload-file"]["size"] > $maxfilesize){
+                $check_file = false;
+            }
+            if (!in_array($_FILES["upload-file"]["type"],$allowtypes )){
+                $check_file = false;
+            }
+        }
+
+        return $check_file;
     }
     
 ?>
