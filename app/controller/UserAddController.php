@@ -34,13 +34,11 @@
             }
 
             if(empty($type)) {
-            //     $_SESSION['type'] = null;
-            //     addError('slogan', 'Hãy nhập slogan');
-            // } elseif(strlen($slogan) == 250) {
-            //     addError('slogan', 'Không nhập quá 250 ký tự');
-            // } else {
-            //     $_SESSION['slogan'] = $slogan;
-            //     $check++;
+                $_SESSION['type'] = null;
+                addError('type', 'Hãy nhập slogan');
+            }  else {
+                $_SESSION['type'] = $type;
+                $check++;
             }
 
             if(empty($user_id)) {
