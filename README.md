@@ -1,8 +1,26 @@
 # No5_quan_ly_su_kien
 
++ Cấu trúc folder
+    - app
+        - common
+        - controller
+        - model
+        - view
+            - {tên từng phần}
+    - web 
+        - avatar
+            - tmp
+            - {id - avata}
+        - css
+        - image
+        - js
+    - index.php
+        - Chương trình chỉ chạy ở file index.php
+        - file index sẽ require các file controller để chạy chương trình
+
 + Quy tắc đặt tên:
     - Tên file đặt theo PascalCase
-        - Ví dụ: EventAddModel, EventAddController
+        - Ví dụ: EventAddModel.php, EventAddController.php
     - Tên hàm và phương thức sử dụng camelCase
         - Ví dụ: eventAddInput, eventAddCofirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
