@@ -101,7 +101,7 @@ CREATE TABLE `users` (
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
+  `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

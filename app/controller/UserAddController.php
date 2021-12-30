@@ -1,8 +1,8 @@
 <?php
     require_once "./app/common/ErrorValidate.php";
-    require_once "./app/model/EventAddModel.php";
+    require_once "./app/model/UserAddModel.php";
     
-    $name = $slogan = $leader = $description = $avatar = null;
+    $name = $type = $user_id = $description = $avatar = null;
     $check = 0;
     
     function getUrl() {
@@ -15,8 +15,8 @@
     }
 
 
-    function eventAddInput() {
-        global $name, $slogan, $leader, $description, $avatar;
+    function userAddInput() {
+        global $name, $type, $user_id, $description, $avatar;
         global $check;
         unset($_SESSION['check_add']);
         
@@ -25,38 +25,38 @@
  
             if(empty($name)) {
                 $_SESSION['name'] = null;
-                addError('name', 'Hãy nhập tên sự kiện');
-            } elseif(strlen($name) == 100) {
+                addError('name', 'Hãy nhập họ và tên');
+            } elseif(strlen($name) >= 100) {
                 addError('name', 'Không nhập quá 100 ký tự');
             } else {
                 $_SESSION['name'] = $name;
                 $check++;
             }
 
-            if(empty($slogan)) {
-                $_SESSION['slogan'] = null;
-                addError('slogan', 'Hãy nhập slogan');
-            } elseif(strlen($slogan) == 250) {
-                addError('slogan', 'Không nhập quá 250 ký tự');
-            } else {
-                $_SESSION['slogan'] = $slogan;
-                $check++;
+            if(empty($type)) {
+            //     $_SESSION['type'] = null;
+            //     addError('slogan', 'Hãy nhập slogan');
+            // } elseif(strlen($slogan) == 250) {
+            //     addError('slogan', 'Không nhập quá 250 ký tự');
+            // } else {
+            //     $_SESSION['slogan'] = $slogan;
+            //     $check++;
             }
 
-            if(empty($leader)) {
-                $_SESSION['leader'] = null;
-                addError('leader', 'Hãy nhập tên leader');
-            } elseif(strlen($leader) == 250) {
-                addError('leader', 'Không nhập quá 250 ký tự');
+            if(empty($user_id)) {
+                $_SESSION['user_id'] = null;
+                addError('user_id', 'Hãy nhập ID');
+            } elseif(strlen($user_id) >= 10) {
+                addError('leader', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
             } else {
-                $_SESSION['leader'] = $leader;
+                $_SESSION['user_id'] = $user_id;
                 $check++;
             }
 
             if(empty($description)) {
                 $_SESSION['description'] = null;
                 addError('description', 'Hãy nhập mô tả chi tiết');
-            } elseif(strlen($description) == 1000) {
+            } elseif(strlen($description) >= 1000) {
                 addError('description', 'Không nhập quá 1000 ký tự');
             } else {
                 $_SESSION['description'] = $description;
@@ -71,28 +71,28 @@
             }
         }
         
-        require_once "./app/view/eventadd/EventAddInput.php";
+        require_once "./app/view/useradd/UserAddInput.php";
     }
 
 
-    function eventAddComfirm(){
-        require_once "./app/view/eventadd/EventAddConfirm.php";
+    function userAddConfirm(){
+        require_once "./app/view/useradd/UserAddInput.php";
 
-        if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
-        && empty($_SESSION['leader']) && empty($_SESSION['description'])
+        if(empty($_SESSION['name']) && empty($_SESSION['type']) 
+        && empty($_SESSION['user_id']) && empty($_SESSION['description'])
         && empty($_SESSION['nameAvatar']) && empty($_SESSION['avatar'])) {
-            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+            header('Location:' . getUrl(). 'UserAdd/userAddInput');
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
        
             if(isset($_POST['back-page'])) {                
-                header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+                header('Location:' . getUrl(). 'UserAdd/userAddInput');
             }
 
-            if(isset($_POST['submit-comfirm'])) {
-                if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
-                && isset($_SESSION['leader']) && isset($_SESSION['description'])
+            if(isset($_POST['submit-confirm'])) {
+                if(isset($_SESSION['name']) && isset($_SESSION['type']) 
+                && isset($_SESSION['user_id']) && isset($_SESSION['description'])
                 && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
                     
                     $id = getIdEnd() + 1;
@@ -111,32 +111,32 @@
 
                 if($check_add){
                     unset($_SESSION['name']);
-                    unset($_SESSION['slogan']);
-                    unset($_SESSION['leader']);
+                    unset($_SESSION['type']);
+                    unset($_SESSION['user_id']);
                     unset($_SESSION['avatar']);
                     unset($_SESSION['nameAvatar']);
                     unset($_SESSION['description']);
-                    header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
+                    header('Location:' . getUrl(). 'UserAdd/UserAddComplete');
                 }
             }
         }        
     }
 
 
-    function eventAddComplete(){
-        require_once "./app/view/eventadd/EventAddComplete.php";
+    function userAddComplete(){
+        require_once "./app/view/useradd/UserAddComplete.php";
         
         if (!$_SESSION['check_add']) {
-            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
+            header('Location:' . getUrl(). 'UserAdd/userAddInput');
         } 
     }
 
 
     function load($data) {
-        global $name, $slogan, $leader, $description, $avatar;
+        global $name, $type, $user_id, $description, $avatar;
         $name = testInput($data['name']);
-        $slogan = testInput($data['slogan']);
-        $leader = testInput($data['leader']);
+        $type = testInput($data['type']);
+        $user_id = testInput($data['user_id']);
         $description = testInput($data['description']);
         $avatar = testInput($data['avatar']);
     }
@@ -153,9 +153,9 @@
     function isConfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
-            $_SESSION["checkEventAdd"] = $check;
+            $_SESSION["checkUserAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
+                header('Location:' . getUrl(). 'UserAdd/userAddConfirm');
             }
         }
     }
@@ -165,7 +165,7 @@
         $res = null;
         if(!empty($value)){
             $res = $value;
-        } elseif((isset($_SESSION['checkEventAdd']) && $_SESSION['checkEventAdd'] == 5) && isset($_SESSION[$nameValue])){
+        } elseif((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 5) && isset($_SESSION[$nameValue])){
             $res =  $_SESSION[$nameValue]; 
         }
 
