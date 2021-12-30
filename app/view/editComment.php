@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../../web/css/comments.css"/>
     <script async src="../../../web/js/addRealFileBtn.js"></script>
     <title>Event Comment</title>
@@ -49,11 +49,24 @@
                 <button type="button" id="uploadTrigger">Browse</button>
             </div>
             <div><img id="avatar-preview" style="margin-left: 175px;"></div>
+            <?php if(isset($validate)) {
+                if(array_key_exists('avatar', $validate)){
+                    echo "<div class='error'>". $validate['avatar'] ."</div>";
+                }
+            } ?>
             <br>
             <div>
                 <label class="input-form">Nội dung</label>
                 <textarea form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"></textarea>
             </div>
+            <?php if(isset($validate)) {
+                if(array_key_exists('content', $validate)){
+                    echo '<div class="error">' . $validate['content'] .'</div>';
+                }
+                if(array_key_exists('contentLength', $validate)){
+                    echo '<div class="error">' . $validate['contentLength'] .'</div>';
+                }
+            } ?>
             <input class="center-block" type="submit" name="submit" value="Sửa">
         </form>
         

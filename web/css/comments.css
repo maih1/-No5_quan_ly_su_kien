@@ -7,8 +7,6 @@
 }
 
 #avatarform {
-  /* border: 2px solid #97a8bc; */
-  /* margin-top: 10px; */
   width: 87%;
   padding-left: 50px;
   padding-right: 50px;
@@ -47,11 +45,6 @@ img[src] {
   height: 40px;
 }
 
-/* input[type="file"] {  
-  direction: rtl;
-  color: transparent;
-} */
-
 #comment-area{
   border:2px solid #97a8bc; 
 }
@@ -87,9 +80,16 @@ img[src] {
   width: 160px;
   height: 60px;
 }
+
 .hidden {
   display: none;
 }
+
+.error {
+  color: red;
+  margin-left: 175px;
+}
+
 ul, li {
 	margin: 0px;
 	list-style-type: none;
