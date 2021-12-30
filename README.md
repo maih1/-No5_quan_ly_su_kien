@@ -10,7 +10,7 @@
     - web 
         - avatar
             - tmp
-            - {id - avata}
+            - {id - avatar}
         - css
         - image
         - js
