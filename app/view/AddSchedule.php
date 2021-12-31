@@ -55,7 +55,7 @@
         </div>
         <br>
         <label id="section-name">&#9650; Thêm mới</label>
-        <form id="avatarform" method="POST" <?php echo 'action="../addSchedule/' . $event_id . '"'?>">
+        <form id="form" method="POST" <?php echo 'action="../addSchedule/' . $event_id . '"'?>">
             <input type="hidden" value="<?php echo $rand; ?>" name="randCheck" />
             <div class="data">
                 <label class="input-form">Thời gian</label>
@@ -91,7 +91,7 @@
             } ?>
             <div class="data">
                 <label class="input-form">Nội dung</label>
-                <textarea form="avatarform" name="detail" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"><?php echo ($dataInput['3'] ?? ''); ?></textarea>
+                <textarea form="form" name="detail" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"><?php echo ($dataInput['3'] ?? ''); ?></textarea>
             </div>
             <?php if(isset($validate)) {
                     if(array_key_exists('detail', $validate)){

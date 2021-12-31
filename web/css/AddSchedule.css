@@ -6,7 +6,7 @@
   font-family: sans-serif;
 }
 
-#avatarform {
+#form {
   width: 87%;
   padding-left: 50px;
   padding-right: 50px;
@@ -274,7 +274,7 @@ tbody tr:hover {
     padding-right: 15px;
   }
 }
-.edit {
+.edit, .btn-back {
     cursor: pointer;
     color: black;
     background-color: #4f81bd;
@@ -292,5 +292,19 @@ tbody tr:hover {
 }
 
 .btn-back {
-  
+  width: 100px;
+  height: 60px;
+  background-color: #514fbd;
+  border-radius: 10px; 
+}
+.div-right {
+  height: 50px;
+  width: 100px;
+  margin-left: 680px;
+  margin-top: 5px;
+}
+
+.div-left {
+  float: left;
+  width: 400px;
 }
