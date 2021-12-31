@@ -3,19 +3,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../../web/css/comments.css"/>
-    <script async src="../../../web/js/addRealFileBtn.js"></script>
-    <title>Edit Event Comment</title>
+    <link rel="stylesheet" type="text/css" href="../../web/css/comments.css"/>
+    <script async src="../../web/js/addRealFileBtn.js"></script>
+    <title>Add Event Comment</title>
 </head>
 <body>
     <div id="mainform">
         <div>
             <h3><?php echo 'Tên sự kiện: '. $eventName[0]['name']; ?></h3>
-            <?php if(isset($validate)) {
-                if(array_key_exists('bad_comment_id', $validate)){
-                    echo "<div class='error'>". $validate['bad_comment_id'] ."</div>";
-                }
-            } ?>
         </div>
         <br>
         <div>
@@ -34,8 +29,9 @@
                         foreach($listComments as $row) {
                             echo '<tr>
                                 <td>No'.$count.'</td>
-                                <td><img src="../../../web/avatar/' . $event_id . '/' . $row['id'] . '/' .$row['avatar'].'"></td>
+                                <td><img src="../../web/avatar/' . $event_id . '/' . $row['id'] . '/' .$row['avatar'].'"></td>
                                 <td>'.$row['content'].'</td>
+                                <td><button class="edit" onclick="window.location.href=\'../editComment/'.$row['event_id'].'/'.$row['id'].'\'">Sửa</button></td>
                                 </tr>
                             ';
                             $count++;
@@ -45,8 +41,8 @@
             </table>
         </div>
         <br>
-        <label id="section-name">&#9650; Sửa comment</label>
-        <form id="avatarform" enctype="multipart/form-data" <?php echo 'action="../../editComment/' . $event_id . '/' . $comment_id . '"'; ?> method="POST" >
+        <label id="section-name">&#9650; Thêm mới comment</label>
+        <form id="avatarform" enctype="multipart/form-data" <?php echo 'action="../addComment/' . $event_id . '"'; ?> method="POST" >
             <div style="display: flex">
                 <label class="input-form" for="avatar">Avatar</label>
                 <input type="file" class="hidden" id="file" name="file"/>
@@ -72,7 +68,7 @@
                     echo '<div class="error">' . $validate['contentLength'] .'</div>';
                 }
             } ?>
-            <input class="center-block" type="submit" name="submit" value="Sửa">
+            <input class="center-block" type="submit" name="submit" value="Thêm mới">
         </form>
         
     </div>

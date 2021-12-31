@@ -17,7 +17,6 @@
 
 img {
   width: 150px;
-  /* height: 100px; */
   display: none;
 }
 
@@ -54,8 +53,8 @@ img[src] {
   width: 120px;
   height: 40px;
   color: rgb(0, 0, 0);
-  background-color: #e4f6ff;
-  border: 1px solid #3e6595;
+  background-color: #4f81bd;
+  border: 2px solid #385D8A;
   cursor: pointer;
 }
 
@@ -66,9 +65,8 @@ img[src] {
 .center-block {
   cursor: pointer;
   color: black;
-  background-color: #e4f6ff;
-  border-style: solid;
-  border-color: #4f81bd;
+  background-color: #4f81bd;
+  border: 2px solid #385D8A;
   float: none;
   display: block;
   margin-top: 50px;
@@ -90,6 +88,14 @@ img[src] {
   margin-left: 175px;
 }
 
+.edit {
+  cursor: pointer;
+  color: black;
+  background-color: #4f81bd;
+  border: 1px solid #385D8A;
+  float: none;
+  border-radius: 5px;
+}
 ul, li {
 	margin: 0px;
 	list-style-type: none;

@@ -6,7 +6,6 @@
 		$sql = "SELECT * FROM `events` WHERE id = '$event_id'";
         $result = $conn -> prepare($sql);
         $result->execute();
-        $data = [];
         $_result = $result->fetchAll();
         return $_result;
 	}
