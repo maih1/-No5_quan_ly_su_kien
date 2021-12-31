@@ -12,7 +12,7 @@
 
 <body>
 
-    <form method="POST" action="UserAddInput.php" enctype="multipart/form-data">
+    <form method="POST" action="" enctype="multipart/form-data">
 
         <!-- User name -->
         <?php if (getError('name')) { ?>
@@ -22,15 +22,18 @@
         <input id="name" type="text" name="name" maxlength="100" value="<?php getValue($name, 'name'); ?>"><br>
 
         <!-- User type -->
-        <?php if (getError('type')) { ?>
-            <span class="error"><?php echo getError('type'); ?></span><br>
-        <?php } ?>
-        <section class="input-form">
+        <label class="input-form" for="type"><?php echo "Phân loại"; ?></label>
+        <?php foreach($_type as $i => $i_value){ ?>
+            <input class="radio_type" type="radio" name="type" 
+                <?php if (isset($type) && $type == $i_value) echo "checked";?> value="<?=$i_value?>">
+            <label for="radio_gender"><?php echo $i_value;?></label>
+        <?php } ?><br>
+        <!-- <section class="input-form">
             <p>Phân loại</p>
-            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>" checked><label >Sinh viên</label>
-            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" ><label >Giáo viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked><label >Giáo viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>"><label >Sinh viên</label>
             <input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>"><label >Sinh viên cũ</label>
-        </section>
+        </section> -->
         <br>
         <!-- User id -->
         <?php if (getError('user_id')) { ?>
@@ -56,7 +59,7 @@
         <textarea id="description" name="description" maxlength="1000"><?php getValue($description, 'description'); ?></textarea><br>
 
         <div class="button-submit">
-            <button class="center-block" type="submit" name='submit' formaction="<?php isConfirm(); ?>">Xác Nhận</button>
+            <button class="center-block" name='submit'>Xác Nhận</button>
         </div>
 
     </form>

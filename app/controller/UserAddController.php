@@ -4,6 +4,7 @@ require_once "./app/model/UserAddModel.php";
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
+$_type = array(1 => "giao vien", 2 => "sinh vien", 3 => "sinh vien cu");
 
 function getUrl()
 {
@@ -19,7 +20,7 @@ function getUrl()
 function userAddInput()
 {
     global $name, $type, $user_id, $description, $avatar;
-    global $check;
+    global $check, $_type;
     unset($_SESSION['check_add']);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -35,7 +36,7 @@ function userAddInput()
             $check++;
         }
 
-    
+
         $_SESSION['type'] = $type;
         // $check++;
 
@@ -66,6 +67,7 @@ function userAddInput()
         } else {
             uploadAvatar();
         }
+        isConfirm();
     }
 
     require_once "./app/view/useradd/UserAddInput.php";

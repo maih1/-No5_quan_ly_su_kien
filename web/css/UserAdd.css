@@ -106,10 +106,3 @@ span.error {
     width: 545px;
     background-color: #ffffff;
 }
-
-#user-complete {
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: italic;
-    text-decoration: underline;
-    color: black;
-}
