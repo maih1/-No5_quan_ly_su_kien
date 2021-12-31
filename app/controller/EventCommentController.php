@@ -16,6 +16,7 @@
 
             $validate = [];
             $validate['avatar'] = empty($filename) ? 'Hãy chọn avatar' : '';
+            $validate['avatar_duplicate'] = file_exists($targetFilePath) ? 'Ảnh đã tồn tại, hay đổi ảnh khác' : '';
             $validate['content'] = empty($content) ? 'Hãy nhập nội dung lịch trình' : '';
             $validate['contentLength'] = strlen($content) > 1000 ? 'Không nhập quá 1000 ký tự' : '';
 
@@ -42,7 +43,6 @@
         }
         $eventName = getEventName($event_id);
         $listComments = getComments($event_id);
-
         
         require_once "./app/view/editComment.php";
     }

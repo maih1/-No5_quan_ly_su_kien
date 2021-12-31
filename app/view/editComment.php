@@ -53,6 +53,9 @@
                 if(array_key_exists('avatar', $validate)){
                     echo "<div class='error'>". $validate['avatar'] ."</div>";
                 }
+                if(array_key_exists('avatar_duplicate', $validate)){
+                    echo "<div class='error'>". $validate['avatar_duplicate'] ."</div>";
+                }
             } ?>
             <br>
             <div>
