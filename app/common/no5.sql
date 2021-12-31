@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 08:37 AM
+-- Generation Time: Dec 21, 2021 at 07:55 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -51,7 +51,7 @@ CREATE TABLE `events` (
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
+  `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -78,7 +78,7 @@ CREATE TABLE `event_comments` (
 CREATE TABLE `event_timelines` (
   `id` int(10) NOT NULL,
   `event_id` int(10) NOT NULL,
-  `form` time NOT NULL,
+  `from` time NOT NULL,
   `to` time NOT NULL,
   `name` varchar(250) NOT NULL,
   `detail` text NOT NULL,
@@ -125,13 +125,15 @@ ALTER TABLE `events`
 -- Indexes for table `event_comments`
 --
 ALTER TABLE `event_comments`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `event_timelines`
 --
 ALTER TABLE `event_timelines`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `event_id` (`event_id`);
 
 --
 -- Indexes for table `users`
@@ -173,6 +175,22 @@ ALTER TABLE `event_timelines`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `event_comments`
+--
+ALTER TABLE `event_comments`
+  ADD CONSTRAINT `event_comments_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
+
+--
+-- Constraints for table `event_timelines`
+--
+ALTER TABLE `event_timelines`
+  ADD CONSTRAINT `event_timelines_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

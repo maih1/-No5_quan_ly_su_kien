@@ -11,14 +11,9 @@ if(customBtn) {
 if(realFileBtn) {
     realFileBtn.addEventListener("change", function() {
     if (realFileBtn.value) {
-        // customTxt.innerHTML = realFileBtn.value.match(
-        //   /[\/\\]([\w\d\s\.\-\(\)]+)$/
-        // )[1];
         customTxt.value = realFileBtn.value.match(
             /[\/\\]([\w\d\s\.\-\(\)]+)$/
         )[1];
-    } else {
-        customTxt.innerHTML = "No file chosen, yet.";
-    }
+    } 
     });
 }
