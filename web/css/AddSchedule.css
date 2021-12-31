@@ -33,7 +33,7 @@
   width: 40%;
   height: 40px;
 }
-#input-time{
+.input-time{
   border:2px solid #97a8bc;
   margin-bottom: 25px;
   padding: 12px 20px;
@@ -289,4 +289,8 @@ tbody tr:hover {
     color: red;
     margin-left: 200px;
     margin-bottom: 20px;
+}
+
+.btn-back {
+  
 }
