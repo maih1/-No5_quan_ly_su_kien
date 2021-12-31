@@ -2,7 +2,8 @@
 <head>
 	<title>Sửa sự kiện</title>
 	<meta charset=UTF-8>
-    <link rel="stylesheet" href="../web/css/EventAdd.css">
+    <link rel="stylesheet" href="../web//css///EventEdit.css">
+
 </head>
 <body>
     <form class="event-complete" method="post" action="">   
