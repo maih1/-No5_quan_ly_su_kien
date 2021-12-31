@@ -11,9 +11,14 @@
 			<?php
 			//$term=$_GET["term"];
 			//echo $term;
-			echo $_GET["url"];
-			if (isset($_GET["term"]))
-			echo $_GET["term"];	
+			// echo $_GET["url"];
+			// if (isset($_GET["term"]))
+			// echo $_GET["term"];
+			$a = explode("?", filter_var(trim($_SERVER['REQUEST_URI'], "?")));
+			$b = explode("&", $a[1]);
+			var_dump($a);
+			var_dump($b);
+			var_dump(explode("=", $b[0]));
 		?>
         <label class="term" for="term">Từ khóa</label>
         <input id="term" type="text" name="term" maxlength="100" > </input>        
