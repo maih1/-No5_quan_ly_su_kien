@@ -27,8 +27,8 @@
         <?php } ?>
         <section class="input-form">
             <p>Phân loại</p>
-            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked><label >Giáo viên</label>
-            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>"><label >Sinh viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>" checked><label >Sinh viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" ><label >Giáo viên</label>
             <input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>"><label >Sinh viên cũ</label>
         </section>
         <br>

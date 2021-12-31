@@ -28,7 +28,7 @@
 
         <!-- User avatar -->
         <label class="input-form" for="avatar">Avatar</label>
-        <img id="output" src="<?php echo $_SESSION['avatar']; ?>" />
+        <img id="output" src="<?php echo '../'.$_SESSION['avatar']; ?>" />
         
         <!-- User description -->
         <label class="input-form" for="description">Mô tả thêm</label>
