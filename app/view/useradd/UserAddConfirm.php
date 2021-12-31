@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng ký người dùng</title>
-    <link rel="stylesheet" href="web/css/UserAdd.css">
-    <script type="text/javascript" async src="web/js/UserAddPreviewImg.js"></script>
+    <link rel="stylesheet" href="../web/css/UserAdd.css">
+    <script type="text/javascript" async src="../web/js/UserAddPreviewImg.js"></script>
 </head>
 
 <body>

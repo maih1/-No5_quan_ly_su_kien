@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="web/css/UserAdd.css" type="text/css" />
-    <script type="text/javascript" async src="web/js/UserAddRealFileBtn.js"></script>
+    <link rel="stylesheet" href="../web/css/UserAdd.css" type="text/css" />
+    <script type="text/javascript" async src="../web/js/UserAddRealFileBtn.js"></script>
     <title>Đăng ký người dùng</title>
 </head>
 
@@ -18,7 +18,7 @@
         <?php if (getError('name')) { ?>
             <span class="error"><?php echo getError('name'); ?></span><br>
         <?php } ?>
-        <label class="input-form" for="name" style="color: red;">Họ và tên</label>
+        <label class="input-form" for="name">Họ và tên</label>
         <input id="name" type="text" name="name" maxlength="100" value="<?php getValue($name, 'name'); ?>"><br>
 
         <!-- User type -->
@@ -27,11 +27,11 @@
         <?php } ?>
         <section class="input-form">
             <p>Phân loại</p>
-            <label ><input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked>Giáo viên</label>
-            <label ><input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>">Sinh viên</label>
-            <label ><input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>">Sinh viên cũ</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked><label >Giáo viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>"><label >Sinh viên</label>
+            <input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>"><label >Sinh viên cũ</label>
         </section>
-
+        <br>
         <!-- User id -->
         <?php if (getError('user_id')) { ?>
             <span class="error"><?php echo getError('user_id'); ?></span><br>
