@@ -81,15 +81,13 @@
         if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
         && empty($_SESSION['leader']) && empty($_SESSION['description'])
         && empty($_SESSION['nameAvatar']) && empty($_SESSION['avatar'])) {
-            // header('Location:' . getUrl(). 'EventAdd/eventAddInput');
-            header('Location:' . getUrl(). '?controller=EventAdd&action=eventAddInput');
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         }
 
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
        
             if(isset($_POST['back-page'])) {                
-                // header('Location:' . getUrl(). 'EventAdd/eventAddInput');
-                header('Location:' . getUrl(). '?controller=EventAdd&action=eventAddInput');
+                header('Location:' . getUrl(). 'EventAdd/eventAddInput');
             }
 
             if(isset($_POST['submit-comfirm'])) {
@@ -118,8 +116,7 @@
                     unset($_SESSION['avatar']);
                     unset($_SESSION['nameAvatar']);
                     unset($_SESSION['description']);
-                    // header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
-                    header('Location:' . getUrl(). '?controller=EventAdd&action=EventAddComplete');
+                    header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
         }
             }
         }        
@@ -130,8 +127,7 @@
         require_once "./app/view/eventadd/EventAddComplete.php";
         
         if (!$_SESSION['check_add']) {
-            // header('Location:' . getUrl(). 'EventAdd/eventAddInput');
-            header('Location:' . getUrl(). '?controller=EventAdd&action=eventAddInput');
+            header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         } 
     }
 
@@ -159,8 +155,7 @@
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                // header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
-                header('Location:' . getUrl(). '?controller=EventAdd&action=eventAddComfirm');
+                header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
             }
         }
     }
