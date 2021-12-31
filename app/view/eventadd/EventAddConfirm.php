@@ -2,8 +2,11 @@
 <head>
 	<title>Đăng ký sự kiện</title>
 	<meta charset=UTF-8>
-    <link rel="stylesheet" href="../web/css/EventAdd.css">
-    <script async src="../web/js/EventAddPreviewImg.js"></script>
+    <!-- <link rel="stylesheet" href="../web/css/EventAdd.css">
+    <script async src="../web/js/EventAddPreviewImg.js"></script> -->
+
+    <link rel="stylesheet" href="web/css/EventAdd.css">
+    <script async src="web/js/EventAddPreviewImg.js"></script>
 </head>
 <body>
     <form method="post" action="">   
@@ -21,7 +24,8 @@
         <label id="des"><?php echo $_SESSION['description'];?></label><br>         
         
         <label class="input-form" for="avatar">Avatar</label>
-        <img id="output" src="<?php echo '../'.$_SESSION['avatar']; ?>"/>
+        <!-- <img id="output" src="<?php //echo '../'.$_SESSION'avatar']; ?>"/> -->
+        <img id="output" src="<?php echo $_SESSION['avatar']; ?>"/>
         
         <div class="button-submit">
             <button class="center-block" name='back-page'  >Sửa lại</button>    
