@@ -9,9 +9,7 @@
 
 </head>
 <body>
-    <?php
-        require '../model/user.php';
-    ?>
+    
     <form action="" method="get">
         <div class="form_search" >
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
@@ -37,9 +35,7 @@
 
         <div class="resutl">
             <p>Số sinh viên tìm thấy: 
-                <?php 
-                    echo $count;
-                ?>
+            <?php if(isset($count)) echo ' ',sizeof($count); else echo ' ',0;?>
             </p>
             <table>
             <tr>
@@ -49,9 +45,7 @@
                 <th id="th2">Mô tả chi tiết</th>
                 <th id="th">Action</th>
             </tr>
-            <?php
-                require '../controller/user_action.php';
-            ?>
+            
         </div>
     </form>
 </body>
