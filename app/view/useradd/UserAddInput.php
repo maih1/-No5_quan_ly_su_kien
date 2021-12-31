@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="web/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="web/css/UserAdd.css" type="text/css" />
     <script type="text/javascript" async src="web/js/UserAddRealFileBtn.js"></script>
     <title>Đăng ký người dùng</title>
 </head>
 
 <body>
 
-    <form method="post" action="UserAddInput.php" enctype="multipart/form-data">
+    <form method="POST" action="UserAddInput.php" enctype="multipart/form-data">
 
         <!-- User name -->
         <?php if (getError('name')) { ?>
@@ -25,11 +25,11 @@
         <?php if (getError('type')) { ?>
             <span class="error"><?php echo getError('type'); ?></span><br>
         <?php } ?>
-        <section class="input-form" for="type">
+        <section class="input-form">
             <p>Phân loại</p>
-            <label for="teacher_type"><input id="teacher_type" type="radio" name="user_type" value="<?php getValue($type, 'type'); ?>" checked>Giáo viên</label>
-            <label for="student_type"><input id="student_type" type="radio" name="user_type" value="<?php getValue($type, 'type'); ?>">Sinh viên</label>
-            <label for="old_student_type"><input id="old_student_type" type="radio" name="user_type" value="<?php getValue($type, 'type'); ?>">Sinh viên cũ</label>
+            <label ><input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked>Giáo viên</label>
+            <label ><input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>">Sinh viên</label>
+            <label ><input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>">Sinh viên cũ</label>
         </section>
 
         <!-- User id -->

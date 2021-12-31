@@ -5,7 +5,6 @@
     function addError($attribute, $error) { 
         global $errors;
         $errors[$attribute] = $error;
-        // print_r($errors);
     }
 
     //get the error for an attribute

@@ -35,7 +35,7 @@
 
             if(empty($type)) {
                 $_SESSION['type'] = null;
-                addError('type', 'Hãy nhập slogan');
+                addError('type', 'Hãy chọn phân loại');
             }  else {
                 $_SESSION['type'] = $type;
                 $check++;
