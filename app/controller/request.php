@@ -13,8 +13,8 @@ if (isset($_POST['submit_button'])) {
     if (isset($_POST['user_request'])) {
         $request = $_POST['user_request'];
         if (strlen($request) < 4) {
-            echo "Hãy nhập login id tối thiểu 4 kí tự </br>";
-            echo "<html><a href='../view/request_input.php'>Nhập lại</a></html>";
+            echo'<script>alert("Hãy nhập login id tối thiểu 4 kí tự")</script>';
+            include '../view/request_input.php';
         } else {
             foreach ($result as $row) {
                 if ($row['user_id'] != $request) {
@@ -38,8 +38,8 @@ if (isset($_POST['submit_button'])) {
                     echo $query_1 . "<br>" . $ex->getMessage();
                 }
             } else {
-                echo "Login id không tồn tại trong hệ thống </br>";
-                echo "<html><a href='../view/request_input.php'>Nhập lại</a></html>";
+                echo'<script>alert("Login id không tồn tại trong hệ thống")</script>';
+                include '../view/request_input.php';
             }
         }
     }
