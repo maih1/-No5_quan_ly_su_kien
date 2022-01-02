@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 07:55 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 02, 2022 lúc 12:41 PM
+-- Phiên bản máy phục vụ: 10.4.21-MariaDB
+-- Phiên bản PHP: 7.3.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `no5`
+-- Cơ sở dữ liệu: `no5`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Cấu trúc bảng cho bảng `admins`
 --
 
 CREATE TABLE `admins` (
@@ -40,7 +40,7 @@ CREATE TABLE `admins` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Cấu trúc bảng cho bảng `events`
 --
 
 CREATE TABLE `events` (
@@ -51,13 +51,20 @@ CREATE TABLE `events` (
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
   `updated` datetime NOT NULL,
-  `created` datetime NOT NULL DEFAULT current_timestamp()
+  `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `events`
+--
+
+INSERT INTO `events` (`id`, `name`, `slogan`, `leader`, `avatar`, `description`, `updated`, `created`) VALUES
+(2, 'Nguyen Thu Thao', 'LaConTrai', 'PVM', 'a1.jpg', 'Thao that ra la 1 nguoi dan ong', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_comments`
+-- Cấu trúc bảng cho bảng `event_comments`
 --
 
 CREATE TABLE `event_comments` (
@@ -72,13 +79,13 @@ CREATE TABLE `event_comments` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_timelines`
+-- Cấu trúc bảng cho bảng `event_timelines`
 --
 
 CREATE TABLE `event_timelines` (
   `id` int(10) NOT NULL,
   `event_id` int(10) NOT NULL,
-  `from` time NOT NULL,
+  `form` time NOT NULL,
   `to` time NOT NULL,
   `name` varchar(250) NOT NULL,
   `detail` text NOT NULL,
@@ -90,7 +97,7 @@ CREATE TABLE `event_timelines` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -105,92 +112,74 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admins`
+-- Chỉ mục cho bảng `admins`
 --
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `login_id` (`login_id`);
 
 --
--- Indexes for table `events`
+-- Chỉ mục cho bảng `events`
 --
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `event_comments`
+-- Chỉ mục cho bảng `event_comments`
 --
 ALTER TABLE `event_comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `event_id` (`event_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `event_timelines`
+-- Chỉ mục cho bảng `event_timelines`
 --
 ALTER TABLE `event_timelines`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `event_id` (`event_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `user_id` (`user_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `admins`
+-- AUTO_INCREMENT cho bảng `admins`
 --
 ALTER TABLE `admins`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `events`
+-- AUTO_INCREMENT cho bảng `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `event_comments`
+-- AUTO_INCREMENT cho bảng `event_comments`
 --
 ALTER TABLE `event_comments`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `event_timelines`
+-- AUTO_INCREMENT cho bảng `event_timelines`
 --
 ALTER TABLE `event_timelines`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `event_comments`
---
-ALTER TABLE `event_comments`
-  ADD CONSTRAINT `event_comments_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
-
---
--- Constraints for table `event_timelines`
---
-ALTER TABLE `event_timelines`
-  ADD CONSTRAINT `event_timelines_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
