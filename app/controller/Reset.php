@@ -1,8 +1,7 @@
 <?php
-include '../model/query.php';
 
+include '../model/Query.php';
 $result = take_Name_ID();
-
 $k = 1;
 foreach ($result as $row) {
     if (isset($_POST["button_reset$k"])) {
@@ -11,10 +10,10 @@ foreach ($result as $row) {
             $i = $row["user_id"];
             $new_password = $_POST["input_reset$k"];
             $new_password = trim($new_password);
+
             if (strlen($new_password) < 6) {
                 echo '<script>alert("Mật khẩu phải tối thiểu 6 kí tự")</script>';
-                //unset($result);                
-                include '../view/reset_view.php';
+                echo '<script>window.location="../view/reset_view.php";</script>';
             } else {
                 resetPassWord($new_password, $i);
                 header('Location: ../view/reset_view.php');
@@ -26,3 +25,6 @@ foreach ($result as $row) {
     $k++;
 }
 ?>
+
+
+
