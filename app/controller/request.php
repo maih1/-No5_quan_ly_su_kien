@@ -14,7 +14,7 @@ if (isset($_POST['submit_button'])) {
         $request = $_POST['user_request'];
         if (strlen($request) < 4) {
             echo'<script>alert("Hãy nhập login id tối thiểu 4 kí tự")</script>';
-            include '../view/request_input.php';
+            include '../view/Request_input.php';
         } else {
             foreach ($result as $row) {
                 if ($row['user_id'] != $request) {
@@ -32,14 +32,14 @@ if (isset($_POST['submit_button'])) {
                     $query_1 = "UPDATE admins SET admins.reset_password_token = UNIX_TIMESTAMP(now(6)) WHERE admins.login_id = '$key'";
                     $stmt = $conn->prepare($query_1);
                     $stmt->execute();
-                    header('Location: ../view/login.php');
+                    header('Location: ../view/Login.php');
                     exit();
                 } catch (Exception $ex) {
                     echo $query_1 . "<br>" . $ex->getMessage();
                 }
             } else {
                 echo'<script>alert("Login id không tồn tại trong hệ thống")</script>';
-                include '../view/request_input.php';
+                include '../view/Request_input.php';
             }
         }
     }
