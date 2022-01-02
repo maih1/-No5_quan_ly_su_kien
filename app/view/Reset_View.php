@@ -11,13 +11,8 @@
             <form action="../controller/Reset.php" method="POST">
                 <table>
                     <?php
-                    include '../common/db.php';
-                    $query = 'SELECT users.name, users.user_id  FROM users INNER JOIN admins ON admins.login_id = users.user_id WHERE admins.login_id = users.user_id AND admins.reset_password_token <> ""';
-
-                    $sql = $conn->prepare($query);
-                    $sql->setFetchMode(PDO::FETCH_ASSOC);
-                    $sql->execute();
-                    $result = $sql->fetchAll();
+                    include '../model/Query.php';
+                    $result = take_Name_ID();
 
                     echo
                     '<tr>
