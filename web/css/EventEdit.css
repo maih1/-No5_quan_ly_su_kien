@@ -114,7 +114,7 @@ span.error {
     color: black;
 }
 
-.error_message{
+.error{
     box-sizing: content-box;
     color: #FF0000;
     margin-left: 160px;

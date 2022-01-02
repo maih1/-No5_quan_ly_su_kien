@@ -14,7 +14,7 @@ if(isset($_SESSION['event_avatar'])){
     $event_avatar = $_SESSION['event_avatar'];
     $target_avatar_file = '../web/avatar/avatar_tmp/' .$_SESSION['event_avatar'];
 } else {
-    $target_avatar_file = '../web/avatar/' .$id.'/'. $event['avatar'];
+    $target_avatar_file = '../web/avatar/event' .$id.'/'. $event['avatar'];
 }
 ?>
 <html>
