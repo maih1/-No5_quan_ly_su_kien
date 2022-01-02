@@ -14,7 +14,7 @@ function take_Name_ID() {
 
 function resetPassWord($new_password, $i) {
     global $conn;
-    $sql = "UPDATE admins SET admins.password = '$new_password' WHERE admins.login_id = '$i';
+    $sql = "UPDATE admins SET admins.password = MD5('$new_password') WHERE admins.login_id = '$i';
             UPDATE admins SET admins.reset_password_token = '' WHERE admins.login_id = '$i';";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
