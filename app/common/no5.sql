@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th1 02, 2022 lúc 12:41 PM
+-- Thời gian đã tạo: Th1 03, 2022 lúc 04:22 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 7.3.30
 
@@ -50,7 +50,7 @@ CREATE TABLE `events` (
   `leader` varchar(250) NOT NULL,
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `updated` datetime NOT NULL,
+  `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -59,7 +59,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`id`, `name`, `slogan`, `leader`, `avatar`, `description`, `updated`, `created`) VALUES
-(2, 'Nguyen Thu Thao', 'LaConTrai', 'PVM', 'a1.jpg', 'Thao that ra la 1 nguoi dan ong', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(2, 'Nguyen Thu Thao', 'LaConTrai', 'PVM', 'Picture1.jpg', 'Thao la mot nguoi dan ong dich thuc', '2022-01-03 22:18:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
