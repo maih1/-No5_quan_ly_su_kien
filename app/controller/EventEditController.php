@@ -2,11 +2,8 @@
 
 require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/EventEditModel.php";
-// global $event_name,$event_leader,$event_slogan,$event_description,$event_avatar;
-$event_name=$event_leader=$event_slogan=$event_description=$event_avatar ='';
 
 function eventEditInput($event_id){
-    global $event, $event_name;
     $event = getEventbyId($event_id);
     $event_name = $event['name'];
     $event_slogan = $event['slogan'];
@@ -20,8 +17,8 @@ function eventEditInput($event_id){
         $event_slogan= test_input($_POST["event_slogan"]);
         $event_leader= test_input($_POST["event_leader"]);
         $event_description= test_input($_POST["event_description"]);
-
-        if(isset($_FILES)) {
+         
+        if(file_exists($_FILES["upload-file"]["tmp_name"] )) {
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
             $temp_name = $_FILES["upload-file"]["tmp_name"];// khi upload file len file luu lai vi tri tam thoi, khi đủ điều kiện sẽ chuyển file từ vị trí tạm thời vào target_dir
             $new_avatar = 1; // True, có avatar mới
@@ -53,12 +50,22 @@ function eventEditInput($event_id){
         }
 
         if($new_avatar){
-            $target_dir = "../web/avatar/event_tmp/";
+            $target_dir = "web/avatar/event_tmp/";
             $target_file = $target_dir . $file_name;
             move_uploaded_file($temp_name, $target_file);
+            $_SESSION['new_avatar'] = "../../". $target_file;
+        }else {
+            $_SESSION['new_avatar'] = "../../web/avatar/event/" . $event_id ."/". $event_avatar;
         }
 
+
         if($checkValidate){
+            $_SESSION['name'] = $event_name;
+            $_SESSION['slogan'] = $event_slogan;
+            $_SESSION['leader'] = $event_leader;
+            $_SESSION['avatar'] = $event_avatar;
+            $_SESSION['description'] = $event_description;
+            // $_SESSION['new_avatar'] = $new_avatar;
             header('Location:' . getUrl(). 'EventEdit/eventEditConfirm/'. $event_id);
         }
 
@@ -68,8 +75,19 @@ function eventEditInput($event_id){
 }
 
 function eventEditConfirm($event_id){
-  
+    
     require_once "./app/view/eventedit/EventEditConfirm.php";
+    if($_SERVER['REQUEST_METHOD'] == 'POST' ) {
+        if(isset($_POST['back-page'])) {
+            header ('Location:' .getUrl() .'EventEdit/EventEditInput/'.$event_id  );
+        }
+
+        if(isset($_POST['submit-confirm'])) {
+            updateEventById($event_id, $_SESSION['name'],$_SESSION['slogan'],$_SESSION['leader'],$_SESSION['avatar'],$_SESSION['description']);
+            header('Location:' . getUrl(). 'EventEdit/EventEditComplete/'. $event_id);
+        }
+    }
+
 }
 
 function eventEditComplete($event_id){
