@@ -88,9 +88,8 @@ function eventEditInput($event_id){
             $_SESSION['name'] = $event_name;
             $_SESSION['slogan'] = $event_slogan;
             $_SESSION['leader'] = $event_leader;
-            $_SESSION['avatar'] = $event_avatar;
             $_SESSION['description'] = $event_description;
-            // $_SESSION['new_avatar'] = $new_avatar;
+
             header('Location:' . getUrl(). 'EventEdit/eventEditConfirm/'. $event_id);
         }
 
@@ -128,6 +127,8 @@ function eventEditConfirm($event_id){
             unset($_SESSION['leader']);
             unset($_SESSION['avatar']);
             unset($_SESSION['description']);
+            unset($_SESSION['cur_name_avatar']);
+            unset($_SESSION['new_name_avatar']);
             header('Location:' . getUrl(). 'EventEdit/EventEditComplete/'. $event_id);
         }
     }
