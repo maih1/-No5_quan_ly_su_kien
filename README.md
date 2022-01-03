@@ -9,8 +9,9 @@
             - {tên từng phần}
     - web 
         - avatar
-            - tmp
-            - {id - avata}
+            - {tên từng phần}_tmp
+            - {tên từng phần}
+                - {id - avatar}
         - css
         - image
         - js
@@ -24,7 +25,7 @@
     - Tên hàm và phương thức sử dụng camelCase
         - Ví dụ: eventAddInput, eventAddCofirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
-        - Ví dụ: view/evnetadd/
+        - Ví dụ: view/evnet_add/
 
 + DB
     - servername = "localhost";
