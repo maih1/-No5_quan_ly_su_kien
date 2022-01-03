@@ -2,10 +2,11 @@
 
 require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/EventEditModel.php";
-
+// global $event_name,$event_leader,$event_slogan,$event_description,$event_avatar;
+$event_name=$event_leader=$event_slogan=$event_description=$event_avatar ='';
 
 function eventEditInput($event_id){
-    
+    global $event, $event_name;
     $event = getEventbyId($event_id);
     $event_name = $event['name'];
     $event_slogan = $event['slogan'];
@@ -19,8 +20,6 @@ function eventEditInput($event_id){
         $event_slogan= test_input($_POST["event_slogan"]);
         $event_leader= test_input($_POST["event_leader"]);
         $event_description= test_input($_POST["event_description"]);
-
-        print_r($_FILES);
 
         if(isset($_FILES)) {
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
@@ -60,16 +59,16 @@ function eventEditInput($event_id){
         }
 
         if($checkValidate){
-            eventEditConfirm($event_id);
+            header('Location:' . getUrl(). 'EventEdit/eventEditConfirm/'. $event_id);
         }
 
     }
-    
+
     require_once "./app/view/eventedit/EventEditInput.php";
 }
 
 function eventEditConfirm($event_id){
-    
+  
     require_once "./app/view/eventedit/EventEditConfirm.php";
 }
 
@@ -83,5 +82,12 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
-
+function getUrl() {
+    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+    $url = "/";
+    for($i = 0; $i < count($urls)-1; $i++){
+        $url = $url . $urls[$i] . "/";
+    }
+    return $url;
+    }
 ?>
