@@ -1,33 +1,28 @@
 <?php
-    require_once '../view/UserSearchView.php';
-    require_once '../model/user.php';
-    if(isset($_GET['search'])){
-        foreach ($_query as $row) { ?>
-        <tr>
-                <td id="td1"><?php echo $row['id']; ?></td>
-                <td id="td2"><?php echo $row['name']; ?></td>
-                <td id="td3"><?php
-                    foreach ($classify as $k => $v) {
-                        if($row['type'] == $k){
-                            echo "$v", PHP_EOL;  
-                        }
-                    }
-                    ?></td>
-                <td id="td3"><?php echo $row['description']; ?></td>
-                <td id="td">
-                    <button id="butt" type="submit" name="del">Xóa</button>
-                    <button id="butt" type="submit" name="edit">Sửa</button>
-                </td>
-        </tr>
-        <?php
-        }
-    }
-    if(isset($_GET['del'])) {
-            //if($del === true) {
-                echo "xóa thành công";
-                header("location: ../view/user_search_view.php");
-            //}
-            if( !$d_count) echo "Deletion failed";
+    require_once './app/view/usersearch/UserSearchView.php';
+    require_once './app/model/UserSearchModel.php';
+    
+    function userSearchF() {
+        global $search,$key;
+		
+		$a = explode("?", filter_var(trim($_SERVER['REQUEST_URI'], "?")));
+		if (count($a) >1){
+			$b = explode("&", $a[1]);
+		}
+		if (isset($b))
+			foreach ($b as $value) {
+				$temp=explode("=", $value);
+				$_GET[$temp[0]]=$temp[1];
+		}
+		if (isset($_GET['key']))
+			$key=$_GET['key'];
+		if (isset($_GET['del'])){ 
+			userDel($_GET['del']);
+			$search = userSeach($_GET['key']);
+		}
+		if (isset($_GET['submit'])){
+			$search = userSeach($_GET['key']);
+		}
     }
     
 ?>
