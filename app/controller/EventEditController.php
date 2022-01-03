@@ -9,7 +9,26 @@ function eventEditInput($event_id){
     $event_slogan = $event['slogan'];
     $event_leader = $event['leader'];
     $event_description = $event['description'];
-    $event_avatar = $event['avatar'];
+    $event_avatar = '../../web/avatar/event/'. $event_id .'/' .$event['avatar'];
+
+    if( isset($_SESSION["name"]) ){
+        $event_name = $_SESSION["name"];
+    }
+
+    if( isset($_SESSION["slogan"]) ){
+        $event_slogan = $_SESSION["slogan"];
+    }
+    if( isset($_SESSION["leader"]) ){
+        $event_leader = $_SESSION["leader"];
+    }
+
+    if( isset($_SESSION["new_avatar"]) ){
+        $event_avatar = $_SESSION["new_avatar"];
+    }
+
+    if( isset($_SESSION["desciption"]) ){
+        $event_description = $_SESSION["description"];
+    }
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){  
 
@@ -54,7 +73,7 @@ function eventEditInput($event_id){
             $target_file = $target_dir . $file_name;
             move_uploaded_file($temp_name, $target_file);
             $_SESSION['new_avatar'] = "../../". $target_file;
-        }else {
+        }else if(!isset($_SESSION['new_avatar'])){
             $_SESSION['new_avatar'] = "../../web/avatar/event/" . $event_id ."/". $event_avatar;
         }
 

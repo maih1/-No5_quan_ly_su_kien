@@ -46,7 +46,7 @@
         <!-- avatar cu -->
         <div style = "display: flex">
             <label class="input-form" for="avatar">Avatar</label>
-            <img class='avatar' src="../../web/avatar/event/<?php echo $event_id; ?>/<?php echo $event_avatar; ?>"/> <br>
+            <img class='avatar' src="<?php echo $event_avatar; ?>"/> <br>
         </div>
 
 

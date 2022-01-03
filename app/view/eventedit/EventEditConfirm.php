@@ -3,7 +3,7 @@
 	<title>Sửa sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../../web/css/EventEdit.css">
-    <script async src="../web/js/EventEditScript.js"></script>
+    <script async src="../../web/js/EventEditScript.js"></script>
 </head>
 <body>
     <form method="post" action="">   
