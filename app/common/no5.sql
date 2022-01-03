@@ -50,7 +50,7 @@ CREATE TABLE `events` (
   `leader` varchar(250) NOT NULL,
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `updated` datetime NOT NULL,
+  `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

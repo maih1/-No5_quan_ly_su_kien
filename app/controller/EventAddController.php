@@ -5,15 +5,6 @@
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;
     
-    function getUrl() {
-        $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-        $url = "/";
-        for($i = 0; $i < count($urls)-1; $i++){
-            $url = $url . $urls[$i] . "/";
-        }
-        return $url;
-    }
-
 
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar;
@@ -71,12 +62,12 @@
             }
         }
         
-        require_once "./app/view/eventadd/EventAddInput.php";
+        require_once "./app/view/event_add/EventAddInput.php";
     }
 
 
-    function eventAddComfirm(){
-        require_once "./app/view/eventadd/EventAddConfirm.php";
+    function eventAddConfirm(){
+        require_once "./app/view/event_add/EventAddConfirm.php";
 
         if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
         && empty($_SESSION['leader']) && empty($_SESSION['description'])
@@ -90,13 +81,13 @@
                 header('Location:' . getUrl(). 'EventAdd/eventAddInput');
             }
 
-            if(isset($_POST['submit-comfirm'])) {
+            if(isset($_POST['submit-confirm'])) {
                 if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
                 && isset($_SESSION['leader']) && isset($_SESSION['description'])
                 && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
                     
                     $id = getIdEnd() + 1;
-                    $target_dir = "web/avatar/".$id;
+                    $target_dir = "web/avatar/event/".$id;
                     if(!file_exists($target_dir)){
                         mkdir($target_dir, 0777);
                     }
@@ -124,7 +115,7 @@
 
 
     function eventAddComplete(){
-        require_once "./app/view/eventadd/EventAddComplete.php";
+        require_once "./app/view/event_add/EventAddComplete.php";
         
         if (!$_SESSION['check_add']) {
             header('Location:' . getUrl(). 'EventAdd/eventAddInput');
@@ -150,12 +141,12 @@
     }
 
 
-    function isComfirm(){
+    function isConfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
             $_SESSION["checkEventAdd"] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                header('Location:' . getUrl(). 'EventAdd/eventAddComfirm');
+                header('Location:' . getUrl(). 'EventAdd/eventAddConfirm');
             }
         }
     }
@@ -183,7 +174,7 @@
                 }
             } 
     
-            $target_dir = "web/avatar/tmp/";
+            $target_dir = "web/avatar/event_tmp/";
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
             
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
@@ -217,4 +208,12 @@
         return $check_file;
     }
     
+    function getUrl() {
+        $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+        $url = "/";
+        for($i = 0; $i < count($urls)-1; $i++){
+            $url = $url . $urls[$i] . "/";
+        }
+        return $url;
+    }
 ?>
