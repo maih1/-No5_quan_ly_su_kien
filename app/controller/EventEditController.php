@@ -48,7 +48,7 @@ function eventEditInput($event_id){
         if(!is_dir('../web/avatar/event_tmp')) {
             mkdir('../web/avatar/event_tmp', 0777, true);
         }
-
+        // upload file
         if($new_avatar){
             $target_dir = "web/avatar/event_tmp/";
             $target_file = $target_dir . $file_name;
@@ -84,6 +84,11 @@ function eventEditConfirm($event_id){
 
         if(isset($_POST['submit-confirm'])) {
             updateEventById($event_id, $_SESSION['name'],$_SESSION['slogan'],$_SESSION['leader'],$_SESSION['avatar'],$_SESSION['description']);
+            unset($_SESSION['name']);
+            unset($_SESSION['slogan']);
+            unset($_SESSION['leader']);
+            unset($_SESSION['avatar']);
+            unset($_SESSION['description']);
             header('Location:' . getUrl(). 'EventEdit/EventEditComplete/'. $event_id);
         }
     }
