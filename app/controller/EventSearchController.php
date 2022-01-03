@@ -10,22 +10,27 @@
         return $url;
     }
     function eventSearch() {
-        global $event_search_result,$b,$a;
+        global $event_search_result,$keyword;
+		
 		$a = explode("?", filter_var(trim($_SERVER['REQUEST_URI'], "?")));
 		if (count($a) >1){
 			$b = explode("&", $a[1]);
 		}
-		$temp;
 		if (isset($b))
 			foreach ($b as $value) {
 				$temp=explode("=", $value);
 				$_GET[$temp[0]]=$temp[1];
 			}
-		echo $_GET['term'];
-		if (isset($_GET['submit']))
-			$event_search_result= getEventSearchResult($_GET['term']);
-		//if (isset($_GET['delete'])) 
-			echo $_GET['delete'];
+		if (isset($_GET['keyword']))
+			$keyword=$_GET['keyword'];
+		if (isset($_GET['delete'])){ 
+			eventDeleteSQL($_GET['delete']);
+			$event_search_result= getEventSearchResult($_GET['keyword']);
+			
+		}
+		if (isset($_GET['submit'])){
+			$event_search_result= getEventSearchResult($_GET['keyword']);
+		}
 		require_once "./app/view/eventsearch/EventSearch.php";
     }
     function getValue($value, $nameValue){

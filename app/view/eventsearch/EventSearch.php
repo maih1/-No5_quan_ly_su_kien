@@ -4,12 +4,11 @@
 	<title>Tìm kiếm sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../web/css/EventSearch.css">
-	<script type="text/javascript" async src="../web/js/EventSearchFunction.js"></script>
 </head>
 <body>
     <form method="GET" enctype="multipart/form-data" >   
-        <label class="term" for="term">Từ khóa</label>
-        <input id="term" type="text" name="term" maxlength="100"> </input>        
+        <label class="keyword" for="keyword">Từ khóa</label>
+        <input id="keyword" type="text" name="keyword" maxlength="100" value="<?php echo $keyword;?>"> </input>        
         <div class="button-search">
             <button class="button-search-block" type="submit" name='submit' formaction="">Tìm kiếm</button>    
         </div> 
@@ -25,8 +24,8 @@
 				<th class="search-th"><?php echo $value[1];?></th>
 				<th class="search-th"><?php echo $value[2];?></th>
 				<th class="search-th"><?php echo $value[3];?></th>
-				<th class=search-th>
-				<button class="delete-button" type="button" name="delete" onclick="return confirm('Bạn chắc chắn muốn xóa sự kiện <?php echo $value[1]; ?>');">Xóa</button>
+				<th class=search-th> 
+				<button class="delete-button" type="submit" name="delete" onclick="return confirm('Bạn chắc chắn muốn xóa sự kiện <?php echo $value[1];?>');"value ="<?php echo $value[0];?>">Xóa</button>
 				<button class="delete-button" type="submit" name="edit" formaction="">Sửa</button>
 				<button class="action-button" type="submit" name="schedule" formaction="">Lịch trình</button>
 				<button class="action-button" type="submit" name="comment" formaction="">Comment</button>

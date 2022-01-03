@@ -14,14 +14,14 @@ form {
     padding-bottom: 40px;
     overflow: auto;  
 }
-.term{
+.keyword{
 	margin-left: 50px;
     margin-bottom: 15px;
     margin-right: 50px;
     display: inline-block;
     width: 100px;
 }
-#term{
+#keyword{
     background-color: #e4f6ff;
     border:1px solid #385D8A;
     margin-bottom: 25px;

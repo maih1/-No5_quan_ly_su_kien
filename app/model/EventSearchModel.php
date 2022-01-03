@@ -1,10 +1,10 @@
 <?php
     require_once "./app/common/DB.php";
-    function getEventSearchResult($term){
+    function getEventSearchResult($keyword){
         global $conn;
-        $term = "%".$_GET['term']."%";
-		$stmt = $conn -> prepare("SELECT id,name,slogan,leader FROM events WHERE name LIKE :term OR description LIKE :term OR leader LIKE :term OR slogan LIKE :term");
-		$stmt->bindParam(':term', $term);
+        $keyword = "%".$_GET['keyword']."%";
+		$stmt = $conn -> prepare("SELECT id,name,slogan,leader FROM events WHERE name LIKE :keyword OR description LIKE :keyword OR leader LIKE :keyword OR slogan LIKE :keyword");
+		$stmt->bindParam(':keyword', $keyword);
 		$stmt->execute();
 		$result = $stmt->fetchAll();
         return $result;
@@ -17,12 +17,10 @@
 		$result = $stmt->fetchAll();
         return $result;
     }
-	function eventDelete($id){
+	function eventDeleteSQL($id){
         global $conn;
 		$stmt = $conn -> prepare("DELETE FROM events WHERE id=:id");
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
-		$result = $stmt->fetchAll();
-        return $result;
     }
 ?>
