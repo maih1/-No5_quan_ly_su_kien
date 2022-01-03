@@ -1,5 +1,4 @@
 <?php
-    require_once './app/view/usersearch/UserSearchView.php';
     require_once './app/model/UserSearchModel.php';
     
     function userSearchF() {
@@ -18,11 +17,12 @@
 			$key=$_GET['key'];
 		if (isset($_GET['del'])){ 
 			userDel($_GET['del']);
-			$search = userSeach($_GET['key']);
+			//$search = userSeach($_GET['key']);
 		}
 		if (isset($_GET['submit'])){
 			$search = userSeach($_GET['key']);
 		}
+        require_once './app/view/usersearch/UserSearchView.php';
     }
     
 ?>

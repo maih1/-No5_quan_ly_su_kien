@@ -14,18 +14,17 @@
         return $result;
     }
 
-    // function user_seach_exact() {
-    //     global $conn;
-    //     $key = isset($_GET['key']) ? $_GET['key'] : '';
-    //     $key = "%".$_GET['key']."%";
-    //     $query = "SELECT * FROM users WHERE CONCAT(type) LIKE :key ";
-    //     $_query = $conn->prepare($query);
-    //     $_query->bindParam(':key', $key);
-    //     $_query->execute();
-    //     $count = $_query->fetchAll();
+    function user_seach_exact() {
+        global $conn;
+        $key = "%".$_GET['key']."%";
+        $query = "SELECT * FROM users WHERE CONCAT(type) LIKE :key ";
+        $_query = $conn->prepare($query);
+        $_query->bindParam(':key', $key);
+        $_query->execute();
+        $count = $_query->fetchAll();
 
-    //     return $count;
-    // }
+        return $count;
+    }
     
     function userDel($id) {
         global $conn;
