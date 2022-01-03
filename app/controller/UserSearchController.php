@@ -1,9 +1,10 @@
 <?php
     require_once './app/model/UserSearchModel.php';
-    
+    $classify = array("Sinh viên" => 1, "Giáo viên" => 2, "Sinh viên cũ" => 3);
+
     function userSearchF() {
-        global $search,$key;
-		
+        global $search, $key, $phanloai;
+		global $classify;
 		$a = explode("?", filter_var(trim($_SERVER['REQUEST_URI'], "?")));
 		if (count($a) >1){
 			$b = explode("&", $a[1]);
@@ -15,12 +16,19 @@
 		}
 		if (isset($_GET['key']))
 			$key=$_GET['key'];
+        if (isset($_GET['phanloai']))
+            $phanloai=$_GET['phanloai'];
+
 		if (isset($_GET['del'])){ 
 			userDel($_GET['del']);
 			//$search = userSeach($_GET['key']);
 		}
 		if (isset($_GET['submit'])){
-			$search = userSeach($_GET['key']);
+            if(!empty($key)) {
+                $search = userSearch($_GET['key']);
+            } else {
+                $search = userSearchExact($_GET['phanloai']);
+            }
 		}
         require_once './app/view/usersearch/UserSearchView.php';
     }

@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset=UTF-8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv=”Content-Type” content=”text/html; charset=UTF-8″/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User search</title>
     <link rel="stylesheet" href="../web/css/user_search_view.css">
 
 </head>
 <body>
-    <form method="GET" enctype="multipart/form-data">
+    <form method="GET">
         <div class="form_search" >
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
             <select id="phanloai" name="phanloai">    
                 <?php
-                //$classify = array(1 => "Sinh viên", 2 => "Giáo viên", 3 => "Sinh viên cũ");
-                $classify['1'] = "Sinh viên";
-                $classify['2'] = "Giáo viên";
-                $classify['3'] = "Sinh viên cũ";
-                foreach($classify as $row){
+                foreach($classify as $row => $q){
                     ?>
                         <option><?php echo $row; ?></option>
                     <?php   
@@ -52,8 +49,8 @@
                             <td id="td2"><?php echo $row['name']; ?></td>
                             <td id="td3"><?php
                                 foreach ($classify as $k => $v) {
-                                    if($row['type'] == $k){
-                                        echo "$v", PHP_EOL;  
+                                    if($row['type'] == $v){
+                                        echo "$k", PHP_EOL;  
                                     }
                                 }
                                 ?></td>
