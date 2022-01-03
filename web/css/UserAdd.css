@@ -27,7 +27,7 @@ form, .user-complete {
     width: 100px;
 }
 
-.selectdiv, .add-comfirm, #name, #slogan, #leader, #custom-text{
+.selectdiv, .add-confirm, #name, #user-id, #custom-text{
     background-color: #e4f6ff;
     border:1px solid #385D8A;
     margin-bottom: 25px;
@@ -42,7 +42,7 @@ form, .user-complete {
     margin-bottom: 25px;
     padding: 12px 20px;
     vertical-align: middle;
-    width: 75%;
+    width: 55%;
     height: 20%;
     display: inline-block;  
 }

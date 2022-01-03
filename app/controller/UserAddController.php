@@ -4,7 +4,7 @@ require_once "./app/model/UserAddModel.php";
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
-$_type = array(1 => "giao vien", 2 => "sinh vien", 3 => "sinh vien cu");
+$_type = array(1 => "Giáo viên", 2 => "Sinh viên", 3 => "Cựu sinh viên");
 
 function getUrl()
 {

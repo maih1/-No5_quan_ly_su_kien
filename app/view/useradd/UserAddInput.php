@@ -28,19 +28,13 @@
                 <?php if (isset($type) && $type == $i_value) echo "checked";?> value="<?=$i_value?>">
             <label for="radio_gender"><?php echo $i_value;?></label>
         <?php } ?><br>
-        <!-- <section class="input-form">
-            <p>Phân loại</p>
-            <input type="radio" name="type" value="<?php getValue($type, 'teacher_type'); ?>" checked><label >Giáo viên</label>
-            <input type="radio" name="type" value="<?php getValue($type, 'student_type'); ?>"><label >Sinh viên</label>
-            <input type="radio" name="type" value="<?php getValue($type, 'old_student_type'); ?>"><label >Sinh viên cũ</label>
-        </section> -->
         <br>
         <!-- User id -->
         <?php if (getError('user_id')) { ?>
             <span class="error"><?php echo getError('user_id'); ?></span><br>
         <?php } ?>
         <label class="input-form" for="user_id">ID</label>
-        <input id="user_id" type="text" name="user_id" maxlength="250" value="<?php getValue($user_id, 'user_id'); ?>"><br>
+        <input id="user-id" type="text" name="user_id" maxlength="250" value="<?php getValue($user_id, 'user_id'); ?>"><br>
 
         <!-- User avatar -->
         <?php if (getError('avatar')) { ?>
@@ -55,7 +49,7 @@
         <?php if (getError('description')) { ?>
             <span class="error"><?php echo getError('description'); ?></span><br>
         <?php } ?>
-        <label class="input-form" for="description">Mô tả chi tiết</label>
+        <label class="input-form" for="description">Mô tả thêm</label>
         <textarea id="description" name="description" maxlength="1000"><?php getValue($description, 'description'); ?></textarea><br>
 
         <div class="button-submit">
