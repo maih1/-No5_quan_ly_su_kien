@@ -1,0 +1,127 @@
+:root {
+  /* Form Variable */
+  --form-border: 2px solid #385d8a;
+  /* Input variable */
+  --input-background-color: #e4f6ff;
+  --input-border: 1px solid #385d8a;
+
+  /* Btn Submit Variable */
+  --submit-btn-background-color: #4f81bd;
+  --submit-btn-border: 2px solid #385d8a;
+
+  /* Other Btn Variable */
+  --others-btn-background-color: #4f81bdc2;
+  --others-btn-border: 1px solid #385d8a;
+}
+
+.edit-input {
+  background-color: var(--input-background-color);
+  border: var(--input-border);
+  padding: 12px 20px;
+}
+
+button {
+  padding: 12px 20px;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.submit-btn {
+  cursor: pointer;
+  background-color: var(--submit-btn-background-color);
+  border: var(--submit-btn-border);
+}
+
+.other-btn {
+  background-color: var(--others-btn-background-color);
+  border: var(--others-btn-border);
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+}
+
+html {
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: 15px;
+}
+
+body {
+  display: flex;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 800px;
+  padding: 32px;
+  border: var(--form-border);
+}
+
+form p.invalid-message {
+  margin: 4px;
+}
+
+.form-group,
+.input-group,
+.radio-group {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.form-group > label {
+  flex-basis: 20%;
+}
+
+.form_input {
+  flex-basis: 256px;
+}
+
+.input-group .radio-group + .radio-group {
+  padding-left: 15px;
+}
+
+.input-group .radio-group input + label {
+  padding-left: 10px;
+}
+
+input[type='radio'] {
+  margin: 0;
+}
+
+.input-group {
+  flex: 1;
+  padding: 0;
+}
+
+.form_input[name='description'] {
+  flex: 1;
+}
+
+.btn-group {
+  margin: 32px auto 0;
+}
+
+.btn-group button {
+  border-radius: 8px;
+  width: 120px;
+  padding: 12px 20px;
+}
+
+.img-group img {
+  width: 256px;
+}
+
+.img-dir {
+  width: 256px;
+}
+
+.input-browse-file {
+  display: none;
+}
