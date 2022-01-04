@@ -1,6 +1,5 @@
 <?php
 
-require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/EventEditModel.php";
 
 function eventEditInput($event_id){
@@ -98,12 +97,12 @@ function eventEditInput($event_id){
 
     }
 
-    require_once "./app/view/eventedit/EventEditInput.php";
+    require_once "./app/view/event_edit/EventEditInput.php";
 }
 
 function eventEditConfirm($event_id){
     
-    require_once "./app/view/eventedit/EventEditConfirm.php";
+    require_once "./app/view/event_edit/EventEditConfirm.php";
     if(!isset($_SESSION['check_input']))
     {
         header('Location:' . getUrl(). 'EventEdit/EventEditInput/'. $event_id);
@@ -143,7 +142,7 @@ function eventEditComplete($event_id){
         header('Location:' . getUrl(). 'EventEdit/EventEditInput/'. $event_id);
         
     }
-    require_once "./app/view/eventedit/EventEditComplete.php";
+    require_once "./app/view/event_edit/EventEditComplete.php";
 
 }
 
