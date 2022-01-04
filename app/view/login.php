@@ -11,34 +11,34 @@
         <form action = "welcome" method = "post">
 
             <div>
-                <label>Người dùng</label>
-                <input type = "text" class = "txt" name = "login_id"><br/>
                 <?php if(isset($validate)) {
                     if(array_key_exists('login_id_empty', $validate)){
-                        echo "<div class='error'>". $validate['login_id_empty'] ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 100px'>". $validate['login_id_empty']."</div>";
                     }
                     if(array_key_exists('login_id_len', $validate)){
-                        echo "<div class='error'>". $validate['login_id_len'] ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 50px'>". $validate['login_id_len'] ."</div>";
                     }
                 }
                 ?>
+                <label>Người dùng</label>
+                <input type = "text" class = "txt" name = "login_id"><br/>
             </div>
             
             <div class="class_pass">
-                <label>Password</label>
-                <input type = "password" class = "txt" name = "password"><br/>
                 <?php if(isset($validate)) {
                     if(array_key_exists('pw_empty', $validate)){
-                        echo "<div class='error'>". $validate['pw_empty'] ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 100px'>". $validate['pw_empty'] ."</div>";
                     }
                     if(array_key_exists('pw_len', $validate)){
-                        echo "<div class='error'>". $validate['pw_len'] ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 50px'>". $validate['pw_len'] ."</div>";
                     }
                     if(isset($bad_credentials)) {
-                        echo "<div class='error'>". $bad_credentials ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 150px'>". $bad_credentials ."</div>";
                     }
                 }
                 ?>
+                <label>Password</label>
+                <input type = "password" class = "txt" name = "password"><br/>
             </div>
             <br>
             <div>
