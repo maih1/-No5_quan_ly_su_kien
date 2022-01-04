@@ -27,11 +27,7 @@ form, .event-complete {
     width: 100px;
 }
 
-<<<<<<< HEAD
-.selectdiv, .add-comfirm, #name, #slogan, #leader, #custom-text{
-=======
 .selectdiv, .add-confirm, #name, #slogan, #leader, #custom-text{
->>>>>>> origin/test_2
     background-color: #e4f6ff;
     border:1px solid #385D8A;
     margin-bottom: 25px;
