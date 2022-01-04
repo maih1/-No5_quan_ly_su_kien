@@ -12,3 +12,4 @@ require_once "./app/controller/". $controller ."Controller.php";
 
 $function($paths[2] ?? '', $paths[3] ?? '');
 ?>
+© 2022 GitHub, Inc.
