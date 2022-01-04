@@ -1,12 +1,34 @@
 # No5_quan_ly_su_kien
 
++ Cấu trúc folder
+    - app
+        - common
+        - controller
+        - model
+        - view
+            - {tên từng phần}
+    - web 
+        - avatar
+            - {tên từng phần}
+                - {id - avatar}
+                - tmp
+                - ví dụ: web/avatar/event/id, web/avatar/event/tmp
+                
+        - css
+        - image
+        - js
+    - index.php
+        - Chương trình chỉ chạy ở file index.php
+        - file index sẽ require các file controller để chạy chương trình
+
+
 + Quy tắc đặt tên:
     - Tên file đặt theo PascalCase
-        - Ví dụ: EventAddModel, EventAddController
+        - Ví dụ: EventAddModel.php, EventAddController.php
     - Tên hàm và phương thức sử dụng camelCase
         - Ví dụ: eventAddInput, eventAddCofirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
-        - Ví dụ: view/evnetadd/
+        - Ví dụ: view/evnet_add/
 
 + DB
     - servername = "localhost";
@@ -40,4 +62,8 @@
         - Ví dụ: EventAddController.php
     - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/TÊN FILE CONTROLLER/TÊN HÀM CHẠY TRONG FILECONTROLLER/ID
         - /ID có thể có hoặc không
+<<<<<<< HEAD
         - Ví dụ: http://localhost/No5_quan_ly_su_kien/EventEdit/eventEditInput/2
+=======
+        - Ví dụ: http://localhost/web/No5_quan_ly_su_kien/EventAdd/eventAddInput
+>>>>>>> origin/test_2
