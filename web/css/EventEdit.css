@@ -1,0 +1,130 @@
+* { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    font-size: 15px;
+}
+
+form, .event-complete {
+    border: 2px solid #385D8A;
+    margin: auto;
+    margin-top: 70px;
+    width: 60%;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+    overflow: auto;  
+}
+
+.event-complete{
+    text-align: center;
+}
+
+.input-form, .input-form-login {
+    padding: 11px 20px;
+    margin-bottom: 15px;
+    margin-right: 35px;
+    display: inline-block;
+    width: 100px;
+}
+
+.selectdiv, .add-comfirm, #name, #slogan, #leader, #custom-text{
+    background-color: #e4f6ff;
+    border:1px solid #385D8A;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    width: 40%;
+    display: inline-block;  
+}
+
+#description, #des {
+    background-color: #e4f6ff;
+    border:1px solid #385D8A;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    vertical-align: middle;
+    width: 75%;
+    height: 20%;
+    display: inline-block;  
+}
+
+input[type="file"] {  
+    direction: rtl;
+    color: transparent;
+}
+
+#custom-button {
+    padding: 10px;
+    width: 120px;
+    height: 45px;
+    color: rgb(0, 0, 0);
+    background-color: #4f81bdc2;
+    border:1px solid #385D8A;
+    cursor: pointer;
+}
+
+#custom-button:hover {
+  background-color: #e4f6ff;
+}
+
+.button-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-block {
+    cursor: pointer;
+    color: black;
+    background-color: #4f81bd;
+    border:2px solid #385D8A;
+    float: none;
+    margin-top: 50px;
+    margin-right: 20px;
+    margin-left: 20px;
+
+    padding: 12px 20px;
+    border-radius: 10px; 
+    width: 160px;
+    height: 60px;
+}
+
+#output {
+    width: 100px;
+    height: 100px;
+    background-color: #4f81bd;
+    vertical-align: middle;
+}
+
+span.error {
+    box-sizing: content-box;
+    color: #FF0000;
+    margin-left: 160px;    
+    margin-bottom: 10px;
+    display: inline-block;
+    height: 20px;
+    padding: 7px 20px;
+    width: 545px;
+    background-color: #ffffff;
+}
+
+#event-complete {
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    text-decoration: underline;
+    color: black;
+}
+
+.error{
+    box-sizing: content-box;
+    color: #FF0000;
+    margin-left: 160px;
+    margin-bottom: 10px;
+    display: inline-block;
+    height: 20px;
+    padding: 7px 20px;
+    width: 545px;
+    background-color: #ffffff;
+}
+
+img {  width: 150px;  display: none;}
+img[src] {  display: block;  border: 2px solid #97a8bc;}
