@@ -27,11 +27,7 @@ form, .event-complete {
     width: 100px;
 }
 
-<<<<<<< HEAD
 .selectdiv, .add-comfirm, #name, #slogan, #leader, #custom-text{
-=======
-.selectdiv, .add-confirm, #name, #slogan, #leader, #custom-text{
->>>>>>> origin/test_2
     background-color: #e4f6ff;
     border:1px solid #385D8A;
     margin-bottom: 25px;
@@ -116,4 +112,23 @@ span.error {
     font-style: italic;
     text-decoration: underline;
     color: black;
+}
+
+.error{
+    box-sizing: content-box;
+    color: #FF0000;
+    margin-left: 160px;
+    margin-bottom: 10px;
+    display: inline-block;
+    height: 20px;
+    padding: 7px 20px;
+    width: 545px;
+    background-color: #ffffff;
+}
+
+img {  width: 150px;  display: none;}
+img[src] {  display: block;  border: 2px solid #97a8bc;}
+
+#custom-text{
+    width: 360px;
 }
