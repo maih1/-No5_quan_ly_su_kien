@@ -36,7 +36,7 @@ function userAddInput()
         if (empty($user_id)) {
             $_SESSION['user_id'] = null;
             addError('user_id', 'Hãy nhập ID');
-        } elseif (strlen($user_id) >= 10) {
+        } elseif (strlen($user_id) >= 10 || preg_match('/[^A-Za-z0-9]/', $user_id)) {
             addError('user_id', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
         } else {
             $_SESSION['user_id'] = $user_id;
