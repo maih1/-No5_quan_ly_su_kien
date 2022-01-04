@@ -44,7 +44,8 @@ function eventEditInput($event_id){
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
             $temp_name = $_FILES["upload-file"]["tmp_name"];// khi upload file len file luu lai vi tri tam thoi, khi đủ điều kiện sẽ chuyển file từ vị trí tạm thời vào target_dir
             $new_avatar = 1; // True, có avatar mới
-            $event_avatar = $_FILES["upload-file"]["tmp_name"];
+
+            // $event_avatar = $_FILES["upload-file"]["tmp_name"];
             $_SESSION['new_name_avatar'] = $file_name;
         } else if(!isset($_SESSION['new_avatar'])){
             $event_avatar ='../../web/avatar/event/'. $event_id .'/' . $event['avatar'];
@@ -79,6 +80,7 @@ function eventEditInput($event_id){
             move_uploaded_file($temp_name, $target_file);
             $_SESSION['new_avatar'] = "../../". $target_file;
             $_SESSION['target_file'] = $target_file;
+            $event_avatar = "../../". $target_file;
 
         }else if(!isset($_SESSION['new_avatar'])){
             $_SESSION['new_avatar'] = $event_avatar;
