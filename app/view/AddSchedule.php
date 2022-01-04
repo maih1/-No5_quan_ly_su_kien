@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../../web/css/AddSchedule.css"/>
-    <link rel="stylesheet" type="text/css" href="../../web/css/jquery.datetimepicker.css"/>
+    <link rel="stylesheet" type="text/css" href="../../../web/css/jquery.datetimepicker.css"/>
     <script src="../../web/js/AddSchedule.js" type="text/javascript"></script>
     <title>Add Schedule</title>
 </head>
@@ -55,7 +55,7 @@
         </div>
         <br>
         <label id="section-name">&#9650; Thêm mới</label>
-        <form id="form" method="POST" <?php echo 'action="../addSchedule/' . $event_id . '"'?>">
+        <form id="form" method="POST" <?php echo 'action="../../addSchedule/' . $event_id . '"'?>">
             <input type="hidden" value="<?php echo $rand; ?>" name="randCheck" />
             <div class="data">
                 <label class="input-form">Thời gian</label>
@@ -125,8 +125,8 @@
         </form>
         
     </div>
-    <script src="../../web/js/jquery.js"></script>
-    <script src="../../web/js/jquery.datetimepicker.full.js"></script>
+    <script src="../../../web/js/jquery.js"></script>
+    <script src="../../../web/js/jquery.datetimepicker.full.js"></script>
     <script>
         jQuery('#timeFrom').datetimepicker({
             datepicker:false,

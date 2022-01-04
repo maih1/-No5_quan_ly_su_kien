@@ -4,11 +4,11 @@ if(isset($_GET['url'])){
     $paths = explode("/", filter_var(trim($_GET["url"], "/")));
     $controller = $paths[0];
     $function = $paths[1]  ?? '';
-} else {
-    $controller = 'Login';
-    $function = 'welcome';
-}
-require_once "./app/controller/". $controller ."Controller.php";
+    require_once "./app/controller/". $controller ."Controller.php";
 
-$function($paths[2] ?? '', $paths[3] ?? '');
+    $function($paths[2] ?? '', $paths[3] ?? '');
+} else {
+    header('Location:Login/welcome');
+}
+
 ?>
