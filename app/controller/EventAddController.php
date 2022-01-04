@@ -4,7 +4,6 @@
     
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;
-    
 
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar;

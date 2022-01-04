@@ -1,6 +1,8 @@
 <?php
 	require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventSearchModel.php";
+
+    
     function getUrl() {
         $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
         $url = "/";
