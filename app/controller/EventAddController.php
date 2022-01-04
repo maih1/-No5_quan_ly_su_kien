@@ -107,6 +107,7 @@
                     unset($_SESSION['avatar']);
                     unset($_SESSION['nameAvatar']);
                     unset($_SESSION['description']);
+                    unset($_SESSION['checkEventAdd']);
                     header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
         }
             }
