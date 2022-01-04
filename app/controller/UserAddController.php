@@ -6,15 +6,6 @@ $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
 $_type = array(1 => "Giáo viên", 2 => "Sinh viên", 3 => "Cựu sinh viên");
 
-function getUrl()
-{
-    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-    $url = "/";
-    for ($i = 0; $i < count($urls) - 1; $i++) {
-        $url = $url . $urls[$i] . "/";
-    }
-    return $url;
-}
 
 
 function userAddInput()
@@ -70,13 +61,13 @@ function userAddInput()
         isConfirm();
     }
 
-    require_once "./app/view/useradd/UserAddInput.php";
+    require_once "./app/view/user_add/UserAddInput.php";
 }
 
 
 function userAddConfirm()
 {
-    require_once "./app/view/useradd/UserAddConfirm.php";
+    require_once "./app/view/user_add/UserAddConfirm.php";
 
     if (
         empty($_SESSION['name']) && empty($_SESSION['type'])
@@ -100,7 +91,7 @@ function userAddConfirm()
             ) {
 
                 $id = getIdEnd() + 1;
-                $target_dir = "web/avatar/" . $id;
+                $target_dir = "web/avatar/user/" . $id;
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0777);
                 }
@@ -129,7 +120,7 @@ function userAddConfirm()
 
 function userAddComplete()
 {
-    require_once "./app/view/useradd/UserAddComplete.php";
+    require_once "./app/view/user_add/UserAddComplete.php";
 
     if (!$_SESSION['check_add']) {
         header('Location:' . getUrl() . 'UserAdd/userAddInput');
@@ -195,7 +186,7 @@ function uploadAvatar()
             }
         }
 
-        $target_dir = "web/avatar/tmp/";
+        $target_dir = "web/avatar/user_tmp/";
         $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
 
         move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
@@ -230,4 +221,14 @@ function checkFileUpload()
     }
 
     return $check_file;
+}
+
+function getUrl()
+{
+    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+    $url = "/";
+    for ($i = 0; $i < count($urls) - 1; $i++) {
+        $url = $url . $urls[$i] . "/";
+    }
+    return $url;
 }
