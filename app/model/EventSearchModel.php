@@ -19,6 +19,14 @@
     }
 	function eventDeleteSQL($id){
         global $conn;
+		$stmt = $conn -> prepare("DELETE FROM event_comments WHERE event_id=:id");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		
+		$stmt = $conn -> prepare("DELETE FROM event_timelines WHERE event_id=:id");
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		
 		$stmt = $conn -> prepare("DELETE FROM events WHERE id=:id");
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
