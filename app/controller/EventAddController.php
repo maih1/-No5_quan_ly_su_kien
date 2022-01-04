@@ -1,4 +1,5 @@
 <?php
+    require_once "./app/common/CheckLogin.php";
     require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventAddModel.php";
     
@@ -206,14 +207,5 @@
         }
 
         return $check_file;
-    }
-    
-    function getUrl() {
-        $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-        $url = "/";
-        for($i = 0; $i < count($urls)-1; $i++){
-            $url = $url . $urls[$i] . "/";
-        }
-        return $url;
     }
 ?>
