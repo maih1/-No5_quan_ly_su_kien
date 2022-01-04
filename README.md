@@ -9,15 +9,18 @@
             - {tên từng phần}
     - web 
         - avatar
-            - {tên từng phần}_tmp
             - {tên từng phần}
                 - {id - avatar}
+                - tmp
+                - ví dụ: web/avatar/event/id, web/avatar/event/tmp
+                
         - css
         - image
         - js
     - index.php
         - Chương trình chỉ chạy ở file index.php
         - file index sẽ require các file controller để chạy chương trình
+
 
 + Quy tắc đặt tên:
     - Tên file đặt theo PascalCase
