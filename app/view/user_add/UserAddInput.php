@@ -22,6 +22,9 @@
         <input id="name" type="text" name="name" maxlength="100" value="<?php getValue($name, 'name'); ?>"><br>
 
         <!-- User type -->
+        <?php if (getError('type')) { ?>
+            <span class="error"><?php echo getError('type'); ?></span><br>
+        <?php } ?>
         <label class="input-form" for="type"><?php echo "Phân loại"; ?></label>
         <?php foreach($_type as $i => $i_value){ ?>
             <input class="radio_type" type="radio" name="type" 
@@ -34,8 +37,6 @@
                         echo "checked";
                     }
                       
-                } elseif (!isset($type) && !isset($_SESSION['checkUserAdd']) && $i == 'Sinh viên'){
-                    echo "checked"; 
                 }
                 ?> value="<?=$i?>">
             <label for="radio_gender"><?php echo $i;?></label>

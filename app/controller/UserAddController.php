@@ -30,18 +30,25 @@ function userAddInput()
         }
 
 
-        $_SESSION['type'] = $type;
+        if (empty($_POST['type'])) {
+            $_SESSION['type'] = null;
+            addError('type', 'Hãy chọn phân loại');
+        } else {
+            $type = testInput($_POST['type']);
+            $_SESSION['type'] = $type;
+            $check++;
+        }
 
-        $exit_userId = $conn->prepare("SELECT * FROM users WHERE user_id = :user_id");
-        $exit_userId->bindParam(':user_id', $user_id);
-        $exit_userId->execute();
+        $exist_userId = $conn->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $exist_userId->bindParam(':user_id', $user_id);
+        $exist_userId->execute();
 
         if (empty($user_id)) {
             $_SESSION['user_id'] = null;
             addError('user_id', 'Hãy nhập ID');
         } elseif (strlen($user_id) >= 10 || preg_match('/[^A-Za-z0-9]/', $user_id)) {
             addError('user_id', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
-        } elseif ($exit_userId->rowCount() > 0){
+        } elseif ($exist_userId->rowCount() > 0) {
             addError('user_id', 'ID đã tồn tại');
         } else {
             $_SESSION['user_id'] = $user_id;
@@ -139,7 +146,6 @@ function load($data)
 {
     global $name, $type, $user_id, $description, $avatar;
     $name = testInput($data['name']);
-    $type = testInput($data['type']);
     $user_id = testInput($data['user_id']);
     $description = testInput($data['description']);
     $avatar = testInput($data['avatar']);
@@ -158,7 +164,7 @@ function testInput($data)
 function isConfirm()
 {
     global $check;
-    if ($check == 4 && isset($_POST['submit'])) {
+    if ($check == 5 && isset($_POST['submit'])) {
         $_SESSION["checkUserAdd"] = $check;
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location:' . getUrl() . 'UserAdd/userAddConfirm');
@@ -174,7 +180,7 @@ function getValue($value, $nameValue)
     $res = null;
     if (!empty($value)) {
         $res = $value;
-    } elseif ((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 4) && isset($_SESSION[$nameValue])) {
+    } elseif ((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 5) && isset($_SESSION[$nameValue])) {
         $res =  $_SESSION[$nameValue];
     }
 
