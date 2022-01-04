@@ -46,7 +46,7 @@ CREATE TABLE `admins` (
 CREATE TABLE `events` (
   `id` int(10) NOT NULL,
   `name` varchar(250) NOT NULL,
-  `slogan` char(10) NOT NULL,
+  `slogan` varchar(250) NOT NULL,
   `leader` varchar(250) NOT NULL,
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
