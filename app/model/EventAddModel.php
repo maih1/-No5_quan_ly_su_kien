@@ -1,5 +1,5 @@
 <?php
-    require_once "./app/common/DB.php";
+    require_once "./app/common/db.php";
 
     function getAll(){
         global $conn;

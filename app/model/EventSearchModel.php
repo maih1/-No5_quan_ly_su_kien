@@ -1,5 +1,5 @@
 <?php
-    require_once "./app/common/DB.php";
+    require_once "./app/common/db.php";
     function getEventSearchResult($keyword){
         global $conn;
         $keyword = "%".$_GET['keyword']."%";
