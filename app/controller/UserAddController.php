@@ -117,6 +117,7 @@ function userAddConfirm()
                 unset($_SESSION['avatar']);
                 unset($_SESSION['nameAvatar']);
                 unset($_SESSION['description']);
+                unset($_SESSION['checkUserAdd']);
                 header('Location:' . getUrl() . 'UserAdd/UserAddComplete');
             }
         }
@@ -194,7 +195,7 @@ function uploadAvatar()
             }
         }
 
-        $target_dir = "web/avatar/user_tmp/";
+        $target_dir = "web/avatar/user/tmp/";
         $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
 
         move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
