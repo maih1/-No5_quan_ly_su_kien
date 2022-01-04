@@ -128,3 +128,7 @@ span.error {
 
 img {  width: 150px;  display: none;}
 img[src] {  display: block;  border: 2px solid #97a8bc;}
+
+#custom-text{
+    width: 360px;
+}
