@@ -13,7 +13,7 @@
 
     function getIdEnd(){
         global $conn;
-        $stmt = $conn -> prepare("SELECT `id` FROM `users`;");
+        $stmt = $conn -> prepare("SELECT `id` FROM `users` ORDER BY `users`.`id` ASC");
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
         $length = count($data) - 1;
