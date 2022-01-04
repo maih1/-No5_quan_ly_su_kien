@@ -125,7 +125,6 @@ function eventEditConfirm($event_id){
             unset($_SESSION['name']);
             unset($_SESSION['slogan']);
             unset($_SESSION['leader']);
-            unset($_SESSION['avatar']);
             unset($_SESSION['description']);
             unset($_SESSION['cur_name_avatar']);
             unset($_SESSION['new_name_avatar']);
