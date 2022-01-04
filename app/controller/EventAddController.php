@@ -174,7 +174,7 @@
                 }
             } 
     
-            $target_dir = "web/avatar/event_tmp/";
+            $target_dir = "web/avatar/event/tmp/";
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
             
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
