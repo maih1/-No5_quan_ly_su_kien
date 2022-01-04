@@ -53,7 +53,7 @@
         <textarea id="description" name="description" maxlength="1000"><?php getValue($description, 'description'); ?></textarea><br>
 
         <div class="button-submit">
-            <button class="center-block" name='submit'>Xác Nhận</button>
+            <button class="center-block" name='submit' formaction="<?php isConfirm(); ?>">Xác Nhận</button>
         </div>
 
     </form>
