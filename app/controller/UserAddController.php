@@ -1,18 +1,19 @@
 <?php
 require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/UserAddModel.php";
+require_once "./app/common/db.php";
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
 
-$_type = array("Giáo viên" => 1, "Sinh viên" => 2, "Cựu sinh viên" => 3);
+$_type = array("Sinh viên" => 1, "Giáo viên" => 2, "Cựu sinh viên" => 3);
 
 
 
 function userAddInput()
 {
     global $name, $type, $user_id, $description, $avatar;
-    global $check, $_type;
+    global $check, $_type, $conn;
     unset($_SESSION['check_add']);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -30,14 +31,18 @@ function userAddInput()
 
 
         $_SESSION['type'] = $type;
-        // $check++;
 
+        $exit_userId = $conn->prepare("SELECT * FROM users WHERE user_id = :user_id");
+        $exit_userId->bindParam(':user_id', $user_id);
+        $exit_userId->execute();
 
         if (empty($user_id)) {
             $_SESSION['user_id'] = null;
             addError('user_id', 'Hãy nhập ID');
         } elseif (strlen($user_id) >= 10 || preg_match('/[^A-Za-z0-9]/', $user_id)) {
             addError('user_id', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
+        } elseif ($exit_userId->rowCount() > 0){
+            addError('user_id', 'ID đã tồn tại');
         } else {
             $_SESSION['user_id'] = $user_id;
             $check++;

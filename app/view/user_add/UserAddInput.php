@@ -34,7 +34,7 @@
                         echo "checked";
                     }
                       
-                } elseif (!isset($type) && !isset($_SESSION['checkUserAdd']) && $i == 'Giáo viên'){
+                } elseif (!isset($type) && !isset($_SESSION['checkUserAdd']) && $i == 'Sinh viên'){
                     echo "checked"; 
                 }
                 ?> value="<?=$i?>">
