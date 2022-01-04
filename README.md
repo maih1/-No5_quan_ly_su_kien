@@ -62,4 +62,8 @@
         - Ví dụ: EventAddController.php
     - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/TÊN FILE CONTROLLER/TÊN HÀM CHẠY TRONG FILECONTROLLER/ID
         - /ID có thể có hoặc không
+<<<<<<< HEAD
+        - Ví dụ: http://localhost/No5_quan_ly_su_kien/EventEdit/eventEditInput/2
+=======
         - Ví dụ: http://localhost/web/No5_quan_ly_su_kien/EventAdd/eventAddInput
+>>>>>>> origin/test_2
