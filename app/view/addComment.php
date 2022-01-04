@@ -29,7 +29,7 @@
                         foreach($listComments as $row) {
                             echo '<tr>
                                 <td>No'.$count.'</td>
-                                <td><img src="../../web/avatar/' . $event_id . '/' . $row['id'] . '/' .$row['avatar'].'"></td>
+                                <td><img src="../../web/avatar/event/' . $event_id . '/' . $row['id'] . '/' .$row['avatar'].'"></td>
                                 <td>'.$row['content'].'</td>
                                 <td><button class="edit" onclick="window.location.href=\'../editComment/'.$row['event_id'].'/'.$row['id'].'\'">Sửa</button></td>
                                 </tr>
