@@ -19,7 +19,7 @@
             
         </div>
         <div class="div-right">
-            <button class="btn-back" onclick="window.location.href='../test/14'">Quay lại</button>
+            <button class="btn-back" onclick="window.location.href='../../EventSearch/eventSearch'">Quay lại</button>
         </div>
         <br>
         <div>
@@ -45,7 +45,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Chịu trách nhiệm: '.$row['PoC'].'</td>
-                                <td><button class="edit" onclick="window.location.href=\'../test/'.$row['id'].'\'">sửa</button></td>
+                                <td><button class="edit" onclick="window.location.href=\'../editSchedule/'. $event_id . '/' . $row['id'].'\'">sửa</button></td>
                             </tr>';
                             $count++;
                         }

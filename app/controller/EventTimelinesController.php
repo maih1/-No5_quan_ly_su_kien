@@ -1,9 +1,7 @@
 <?php
 	require_once "./app/model/EventTimelinesModel.php";
 	require_once "./app/model/EventsModel.php";
-	function test($id){
-		echo "test" . $id;
-	}
+
 	function addSchedule($event_id) {
 
 		if(isset($_POST['submit']) && $_POST['randCheck'] == $_SESSION['checkInsert']) {
