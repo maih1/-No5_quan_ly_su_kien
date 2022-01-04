@@ -16,6 +16,11 @@
             
             $login_id = $_POST['login_id'];
             $password = $_POST['password'];
+
+            $login_id = strip_tags($login_id);
+            $login_id = addslashes($login_id);
+            $password = strip_tags($password);
+            $password = addslashes($password);
             
             $accounts = listAccs();
             
