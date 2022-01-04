@@ -4,7 +4,6 @@
 	<title>Sửa sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../../web/css/EventEdit.css">
-    <script type="text/javascript" async src="../../web/js/EventEditScript.js"></script>
     <script type="text/javascript" async src="../../web/js/EventAddRealFileBtn.js"></script>
     
 </head>
