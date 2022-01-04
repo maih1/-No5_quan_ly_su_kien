@@ -25,8 +25,20 @@
         <label class="input-form" for="type"><?php echo "Phân loại"; ?></label>
         <?php foreach($_type as $i => $i_value){ ?>
             <input class="radio_type" type="radio" name="type" 
-                <?php if (isset($type) && $type == $i_value) echo "checked";?> value="<?=$i_value?>">
-            <label for="radio_gender"><?php echo $i_value;?></label>
+                <?php 
+                if (isset($type) && $type == $i) {
+                    echo "checked";
+                } elseif ((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 4) && isset($_SESSION['type'])){
+                    
+                    if($i == $_SESSION['type']){
+                        echo "checked";
+                    }
+                      
+                } elseif (!isset($type) && !isset($_SESSION['checkUserAdd']) && $i == 'Giáo viên'){
+                    echo "checked"; 
+                }
+                ?> value="<?=$i?>">
+            <label for="radio_gender"><?php echo $i;?></label>
         <?php } ?><br>
         <br>
         <!-- User id -->

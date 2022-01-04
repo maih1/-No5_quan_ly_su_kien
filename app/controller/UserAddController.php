@@ -4,7 +4,8 @@ require_once "./app/model/UserAddModel.php";
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
-$_type = array(1 => "Giáo viên", 2 => "Sinh viên", 3 => "Cựu sinh viên");
+
+$_type = array("Giáo viên" => 1, "Sinh viên" => 2, "Cựu sinh viên" => 3);
 
 
 
@@ -36,7 +37,7 @@ function userAddInput()
             $_SESSION['user_id'] = null;
             addError('user_id', 'Hãy nhập ID');
         } elseif (strlen($user_id) >= 10) {
-            addError('leader', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
+            addError('user_id', 'Không nhập quá 10 ký tự chữ hoặc số tiếng Anh');
         } else {
             $_SESSION['user_id'] = $user_id;
             $check++;
@@ -162,6 +163,8 @@ function isConfirm()
 
 function getValue($value, $nameValue)
 {
+    global $_type;
+
     $res = null;
     if (!empty($value)) {
         $res = $value;

@@ -22,7 +22,7 @@
     }
 
     function add(){
-        global $conn;
+        global $conn, $_type;
         $check_add = false;
         try{
             $stmt = $conn->prepare("INSERT INTO `users`(`type`, `name`, `user_id`, `avatar`, `description`) 
@@ -34,7 +34,7 @@
             $stmt->bindParam(':avatar', $avatar);
             $stmt->bindParam(':description', $description);
 
-            $type = $_SESSION['type'];
+            $type = $_type[$_SESSION['type']];
             $name = $_SESSION['name'];
             $user_id = $_SESSION['user_id'];
             $avatar = $_SESSION['nameAvatar'];
