@@ -16,7 +16,7 @@
     <div class="home">
         <p style="margin-left: 200px;">
             Người dùng<br>
-            <a href="nd_timkiem.php">Tìm kiếm</a><br>
+            <a href="../UserSearch/userSearchF">Tìm kiếm</a><br>
             <a href="../UserAdd/userAddInput">Thêm mới</a><br>
         </p>
         <p style="margin-left: 200px;">
