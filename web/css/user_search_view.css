@@ -1,3 +1,8 @@
+body {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    font-size : 15px;
+}
+
 form {
     margin: auto;
     margin-top: 80px;
@@ -16,15 +21,16 @@ label {
 #key{
     display: inline-flex;
     width: 205px;
-    border: 1px solid #385D8A;
+    border: 2px solid #97a8bc;
     padding: 12px 20px;
     margin-left: 20px;
     margin-bottom: 10px;
 }
 
 select {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     display: inline-flex;
-    border: 1px solid #385D8A;
+    border: 2px solid #97a8bc;
     padding: 12px 20px;
     -moz-appearance: none; 
     -webkit-appearance: none;
@@ -58,7 +64,7 @@ table {
 }
 
 th, td{
-    border: 1px solid #385D8A;
+    border: 2px solid #97a8bc;
     text-align: left;
     padding-left: 15px;
     padding-top: 3px;
@@ -72,8 +78,8 @@ th {
 }
 
 #butt {
-    background-color: rgb(107, 181, 211);
-    border: 1px solid rgb(107, 181, 211);
+    background-color: #e4f6ff;
+    border: 2px solid #97a8bc;
     width: 55px;
     height: 25px;
     margin-left: 4px;
