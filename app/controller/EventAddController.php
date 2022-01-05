@@ -9,7 +9,7 @@
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar;
         global $check;
-        unset($_SESSION['check_add']);
+        unset($_SESSION['check_event_add']);
         
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
@@ -98,7 +98,7 @@
                     $check_add = add();
                 }
                 
-                $_SESSION['check_add'] = $check_add;
+                $_SESSION['check_event_add'] = $check_add;
 
                 if($check_add){
                     unset($_SESSION['name']);
@@ -118,7 +118,7 @@
     function eventAddComplete(){
         require_once "./app/view/event_add/EventAddComplete.php";
         
-        if (!$_SESSION['check_add']) {
+        if (!$_SESSION['check_event_add']) {
             header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         } 
     }

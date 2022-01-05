@@ -7,7 +7,7 @@
 <body>
     <form class="event-complete" method="post" action="">   
         <p>Bạn đã đăng ký thành công sự kiện.</p>
-        <a id='event-complete' href="<?php echo getUrl().'Home/home';?>">Trở về trang chủ</a>
+        <a id='event-complete' href="<?php echo getUrl().'Login/home';?>">Trở về trang chủ</a>
   </form>
 </body>
 </html>
