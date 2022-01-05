@@ -5,7 +5,7 @@
     $query = "SELECT * FROM users WHERE CONCAT(name, user_id, description) LIKE '%".$key."%'";
     $_query = $conn->prepare($query);
     $_query->execute();
-    $count = $query->fetchAll();
+    $count = $_query->fetchAll();
 
 
     $id = isset($_GET['id']) ? $_GET['id'] : '';
