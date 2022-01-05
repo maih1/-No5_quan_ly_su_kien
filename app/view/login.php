@@ -42,7 +42,7 @@
             </div>
             <br>
             <div>
-                <a href="request.php" style="color: black; margin-right: 50px;"><i>Quên password</i></a>
+                <a href="../Request/request" style="color: black; margin-right: 50px;"><i>Quên password</i></a>
             </div>
             <input type = "submit" class = "submit" name = "login" value = "Đăng nhập">
         </form>
