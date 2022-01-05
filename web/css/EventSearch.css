@@ -48,6 +48,9 @@ form {
     width: 140px;
     height: 40px;
 }
+.search-table{
+margin-top:30px;
+}
 .search-no-th{
 	
 	text-align: left;
