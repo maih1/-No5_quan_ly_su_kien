@@ -14,25 +14,15 @@
     <br><br>
     Click here to <a href = "./logout">Logout</a>
     <div class="home">
-        <p style="margin-left: 170px;">
-            Phòng học<br>
-            <a href="ph_timkiem.php">Tìm kiếm</a><br>
-            <a href="ph_themmoi.php">Thêm mới</a><br>
-        </p>
         <p style="margin-left: 200px;">
             Người dùng<br>
             <a href="nd_timkiem.php">Tìm kiếm</a><br>
-            <a href="nd_themmoi.php">Thêm mới</a><br>
+            <a href="../UserAdd/userAddInput">Thêm mới</a><br>
         </p>
         <p style="margin-left: 200px;">
             Sự kiện<br>
             <a href="../EventSearch/eventSearch">Tìm kiếm</a><br>
             <a href="../EventAdd/eventAddInput">Thêm mới</a><br>
-        </p>
-        <p style="margin-left: 200px;">
-            Tổ chức sự kiện<br>
-            <a href="tc_timkiem.php">Tìm kiếm</a><br>
-            <a href="tc_themmoi.php">Thêm mới</a><br>
         </p>
     </div>
 </body>

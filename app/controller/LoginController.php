@@ -25,6 +25,8 @@
             $validate['login_id_len'] = ($validate['login_id_empty'] == '' && strlen($login_id) < 4) ? 'Hãy nhập username tối thiểu 4 kí tự' : '';
             $validate['pw_len'] = ($validate['pw_empty'] == '' && strlen($password) < 6) ? 'Hãy nhập password tối thiểu 6 kí tự' : '';
             
+            $password = md5($password);
+
             $checkValidate = 1;
             foreach($validate as $key => $value) {
                 if($value != '') {

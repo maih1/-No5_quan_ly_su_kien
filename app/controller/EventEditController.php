@@ -151,11 +151,11 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
-function getUrl() {
-    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-    $url = "/";
-    for($i = 0; $i < count($urls)-1; $i++){
-        $url = $url . $urls[$i] . "/";
-    }
-    return $url;
-    }
+// function getUrl() {
+//     $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
+//     $url = "/";
+//     for($i = 0; $i < count($urls)-1; $i++){
+//         $url = $url . $urls[$i] . "/";
+//     }
+//     return $url;
+//     }
