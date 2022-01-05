@@ -43,7 +43,7 @@ form, .event-complete {
     padding: 12px 20px;
     vertical-align: middle;
     width: 65%;
-    height: 20%;
+    height: 150px;
     display: inline-block;  
 }
 
@@ -86,6 +86,17 @@ input[type="file"] {
     border-radius: 10px; 
     width: 160px;
     height: 60px;
+}
+
+#back-home {
+    /* padding: 10px; */
+    float: right;
+    width: 65px;
+    height: 30px;
+    color: rgb(0, 0, 0);
+    background-color: #4f81bdc2;
+    border:1px solid #385D8A;
+    cursor: pointer;
 }
 
 #output {
