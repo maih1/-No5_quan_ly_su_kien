@@ -12,9 +12,9 @@
         <div class="button-search">
             <button class="button-search-block" type="submit" name='submit' formaction="">Tìm kiếm</button>    
         </div> 
-		<p > số sự kiện tìm thấy:<?php if(isset($event_search_result)) echo ' ',sizeof($event_search_result); else echo ' ',0;?> </p>
-		<table >
-		<tr><th class="search-no-th">No</th><th class="search-th">Tên sự kiện</th><th class="search-th">Slogan</th><th class="search-th">Leader</th><th class="search-th">Action</th></tr>
+		<p > Số sự kiện tìm thấy:<?php if(isset($event_search_result)) echo ' ',sizeof($event_search_result); else echo ' ',0;?> </p>
+		<table class="search-table">
+		<tr ><th class="search-no-th">No</th><th class="search-th">Tên sự kiện</th><th class="search-th">Slogan</th><th class="search-th">Leader</th><th class="search-th">Action</th></tr>
 		<?php
 		if (isset($event_search_result)) {
 			foreach ($event_search_result as $key => $value) {
@@ -28,7 +28,7 @@
 				<button class="delete-button" type="submit" name="delete" onclick="return confirm('Bạn chắc chắn muốn xóa sự kiện <?php echo $value[1];?>');"value ="<?php echo $value[0];?>">Xóa</button>
 				<button class="delete-button" type="button" name="edit" onclick="window.location.href='../EventEdit/eventEditInput/<?php echo $value[0];?>'" formaction="">Sửa</button>
 				<button class="action-button" type="button" name="schedule" onclick="window.location.href='../eventTimelines/addSchedule/<?php echo $value[0];?>/<?php echo $keyword;?>'" formaction="">Lịch trình</button>
-				<button class="action-button" type="button" name="comment" onclick="window.location.href='../EventComment/addComment/<?php echo $value[0]; ?>'" formaction="">Comment</button>
+				<button class="action-button" type="button" name="comment" onclick="window.location.href='../eventComment/addComment/<?php echo $value[0]; ?>'" formaction="">Comment</button>
 				</th>
 				</tr>
 				<?php
