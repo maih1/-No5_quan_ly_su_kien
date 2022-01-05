@@ -7,46 +7,47 @@ form {
     border: 2px solid #385D8A;
     margin: auto;
     margin-top: 70px;
-    width: 60%;
-    padding-left: 50px;
+    width: 900px;
+    padding-left: 30px;
     padding-right: 50px;
-    padding-top: 50px;
+    padding-top: 30px;
     padding-bottom: 40px;
     overflow: auto;  
 }
 .keyword{
-	margin-left: 50px;
+	margin-left: 40px;
     margin-bottom: 15px;
     margin-right: 50px;
     display: inline-block;
     width: 100px;
 }
 #keyword{
-    background-color: #e4f6ff;
-    border:1px solid #385D8A;
+    background-color: #d7d8da;
+    border:2px solid #8d949c;
     margin-bottom: 25px;
     padding: 12px 20px;
-    width: 60%;
+    width: 50%;
     display: inline-block;  
+	height: 35px;
 }
 .button-search {
     display: flex;
+	margin-left: 35%;
     align-items: center;
-    justify-content: center;
 }
 .button-search-block{
     cursor: pointer;
     color: black;
-    background-color: #4f81bd;
-    border:2px solid #385D8A;
+    background-color: #4f81bc;
+    border:2px solid #4f81bc;
     float: none;
 	font-weight:bold;
     margin-right: 20px;
     margin-left: 20px;
-    padding: 12px 20px;
-    border-radius: 10px; 
-    width: 160px;
-    height: 60px;
+    margin-bottom:20px;
+    
+    width: 140px;
+    height: 40px;
 }
 .search-no-th{
 	
@@ -57,12 +58,12 @@ form {
 .search-th{
 	text-align: left;
 	font-weight:lighter;
-    padding: 12px 60px;
+    padding: 5px 40px;
 }
 .action-button{
 	font-weight:bold;
-	margin-right: 5px;
-    width: 120px;
+	margin-right: 0px;
+    width: 100px;
     height: 30px;
     background-color: #324f75;
     border:1px solid #385D8A;
@@ -70,8 +71,8 @@ form {
 }
 .delete-button{
 	font-weight:bold;
-	margin-right: 5px;
-    width: 60px;
+	margin-right: 0px;
+    width: 50px;
     height: 30px;
     background-color: #324f75;
     border:1px solid #385D8A;
