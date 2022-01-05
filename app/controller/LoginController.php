@@ -53,7 +53,8 @@
     function home() {
         require_once './app/common/CheckLogin.php';
         require_once './app/view/home.php';
-        unset($_SESSION['check_event_add']);
+        unset($_SESSION['check-event-add-complete']);
+        unset($_SESSION['check-event-add-confirm']);
     }
 
     function logout() {

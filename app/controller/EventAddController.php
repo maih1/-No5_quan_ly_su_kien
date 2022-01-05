@@ -9,7 +9,7 @@
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar;
         global $check;
-        unset($_SESSION['check_event_add']);
+        unset($_SESSION['check-event-add-complete']);
         
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
@@ -98,7 +98,7 @@
                     $check_add = add();
                 }
                 
-                $_SESSION['check_event_add'] = $check_add;
+                $_SESSION['check-event-add-complete'] = $check_add;
 
                 if($check_add){
                     unset($_SESSION['name']);
@@ -107,7 +107,7 @@
                     unset($_SESSION['avatar']);
                     unset($_SESSION['nameAvatar']);
                     unset($_SESSION['description']);
-                    unset($_SESSION['checkEventAdd']);
+                    unset($_SESSION['check-event-add-confirm']);
                     header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
         }
             }
@@ -118,7 +118,7 @@
     function eventAddComplete(){
         require_once "./app/view/event_add/EventAddComplete.php";
         
-        if (!$_SESSION['check_event_add']) {
+        if (!$_SESSION['check-event-add-complete']) {
             header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         } 
     }
@@ -145,7 +145,7 @@
     function isConfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
-            $_SESSION["checkEventAdd"] = $check;
+            $_SESSION['check-event-add-confirm'] = $check;
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 header('Location:' . getUrl(). 'EventAdd/eventAddConfirm');
             }
@@ -157,7 +157,7 @@
         $res = null;
         if(!empty($value)){
             $res = $value;
-        } elseif((isset($_SESSION['checkEventAdd']) && $_SESSION['checkEventAdd'] == 5) && isset($_SESSION[$nameValue])){
+        } elseif((isset($_SESSION['check-event-add-confirm']) && $_SESSION['check-event-add-confirm'] == 5) && isset($_SESSION[$nameValue])){
             $res =  $_SESSION[$nameValue]; 
         }
 
@@ -191,7 +191,7 @@
         $check_file = true;
         $maxfilesize = 524288000;
 
-        $allowtypes = array('image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 
+        $allowtypes = array('image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 'image/webp', 
                             'image/png', 'image/svg', 'image/ico', 'image/cur', 'image/gif', 'image/apng');
         
         if(file_exists($_FILES["upload-file"]["tmp_name"])){
