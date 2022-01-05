@@ -1,4 +1,5 @@
 <?php
+	require_once './app/common/CheckLogin.php';
 	require_once "./app/model/EventTimelinesModel.php";
 	require_once "./app/model/EventsModel.php";
 
