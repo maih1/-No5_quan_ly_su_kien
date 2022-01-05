@@ -32,5 +32,12 @@
 		}
         require_once './app/view/usersearch/UserSearchView.php';
     }
+
+	function back(){
+		if(isset($_POST['back'])){
+			header('Location:' . getUrl(). 'Login/home');
+		}
+    }
+
     
 ?>
