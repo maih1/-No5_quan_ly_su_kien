@@ -17,6 +17,9 @@
                 }
             } ?>
         </div>
+        <div class="div-right">
+            <button class="btn-back" onclick="window.location.href='../../../EventSearch/eventSearch'">Quay lại</button>
+        </div>
         <br>
         <div>
             <label id="section-name"> &#9650; Comments đã đăng ký</label>

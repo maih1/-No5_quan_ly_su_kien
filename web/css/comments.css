@@ -96,6 +96,21 @@ img[src] {
   float: none;
   border-radius: 5px;
 }
+
+.btn-back {
+  width: 100px;
+  height: 60px;
+  background-color: #4f81bd;
+  border-radius: 10px; 
+}
+
+.div-right {
+  height: 50px;
+  width: 100px;
+  margin-left: 680px;
+  margin-top: 5px;
+}
+
 ul, li {
 	margin: 0px;
 	list-style-type: none;
