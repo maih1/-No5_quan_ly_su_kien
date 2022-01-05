@@ -26,7 +26,7 @@
         </p>
         <p style="margin-left: 200px;">
             Sự kiện<br>
-            <a href="sk_timkiem.php">Tìm kiếm</a><br>
+            <a href="../EventSearch/eventSearch">Tìm kiếm</a><br>
             <a href="sk_themmoi.php">Thêm mới</a><br>
         </p>
         <p style="margin-left: 200px;">

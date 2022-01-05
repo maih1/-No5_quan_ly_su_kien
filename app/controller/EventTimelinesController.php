@@ -2,8 +2,7 @@
 	require_once "./app/model/EventTimelinesModel.php";
 	require_once "./app/model/EventsModel.php";
 
-	function addSchedule($event_id) {
-
+	function addSchedule($event_id, $keyword) {
 		if(isset($_POST['submit']) && $_POST['randCheck'] == $_SESSION['checkInsert']) {
 			
 			//get data
@@ -52,7 +51,7 @@
 			}
 			
 		}
-		$nameSchedule = getNameEvent($event_id);
+		$nameSchedule = getEventName($event_id);
 		$listEventsSchedule = getListSchedule($event_id);
 
 		// show view
