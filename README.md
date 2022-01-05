@@ -1,5 +1,5 @@
 # No5_quan_ly_su_kien
-
++ Chương trình đặt trong htdocs(htdocs/No5_quan_ly_su_kien)(Windows), hoặc var/www/html(var/www/html/No5_quan_ly_su_kien)(Linux).
 + Cấu trúc folder
     - app
         - common
@@ -28,7 +28,7 @@
     - Tên hàm và phương thức sử dụng camelCase
         - Ví dụ: eventAddInput, eventAddCofirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
-        - Ví dụ: view/evnet_add/
+        - Ví dụ: view/event_add/
 
 + DB
     - servername = "localhost";
