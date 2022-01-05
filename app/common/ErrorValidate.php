@@ -12,6 +12,7 @@
         global $errors;
         return (isset($errors[$attribute])) ? $errors[$attribute] : '';
     }
+
     //get all errors for all attributes
     function getErrors() {
         global $errors;

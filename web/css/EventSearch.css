@@ -1,0 +1,82 @@
+* { 
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+    font-size: 15px;
+}
+
+form {
+    border: 2px solid #385D8A;
+    margin: auto;
+    margin-top: 70px;
+    width: 1100px;
+    padding-left: 30px;
+    padding-right: 50px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    overflow: auto;  
+}
+.keyword{
+	margin-left: 40px;
+    margin-bottom: 15px;
+    margin-right: 50px;
+    display: inline-block;
+    width: 100px;
+}
+#keyword{
+    background-color: #d7d8da;
+    border:2px solid #8d949c;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    width: 50%;
+    display: inline-block;  
+	height: 35px;
+}
+.button-search {
+    display: flex;
+	margin-left: 35%;
+    align-items: center;
+}
+.button-search-block{
+    cursor: pointer;
+    color: black;
+    background-color: #4f81bc;
+    border:2px solid #4f81bc;
+    float: none;
+	font-weight:bold;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom:20px;
+    width: 140px;
+    height: 40px;
+}
+.search-table{
+margin-top:30px;
+}
+.search-no-th{
+	
+	text-align: left;
+	margin-right:0px;
+	font-weight:lighter;
+}
+.search-th{
+	text-align: left;
+	font-weight:lighter;
+    padding: 5px 70px;
+}
+.action-button{
+	font-weight:bold;
+	margin-right: 0px;
+    width: 100px;
+    height: 30px;
+    background-color: #324f75;
+    border:1px solid #385D8A;
+    cursor: pointer;
+}
+.delete-button{
+	font-weight:bold;
+	margin-right: 0px;
+    width: 50px;
+    height: 30px;
+    background-color: #324f75;
+    border:1px solid #385D8A;
+    cursor: pointer;
+}
