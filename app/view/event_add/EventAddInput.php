@@ -6,7 +6,9 @@
     <script type="text/javascript" async src="../web/js/EventAddRealFileBtn.js"></script>
 </head>
 <body>
-    <form method="post" action="EventAddInput.php" enctype="multipart/form-data" >   
+    <form method="post" action="" enctype="multipart/form-data" >   
+        <button id="back-home" name="back-home" >Home</button><br>
+
         <?php if(getError('name')) {?>
             <span class="error"><?php  echo getError('name'); ?></span><br>
         <?php } ?>
