@@ -51,6 +51,6 @@
     - Viết chương trình theo hướng cấu trúc (không sử dụng class)
     - Tên file controller mặc định chữ cuối là "Controller"
         - Ví dụ: EventAddController.php
-    - url có dạng: http://localhost/'TÊN THƯ MỤC CHỨA CHƯƠNG TRÌNH TRONG htdocs'/TÊN FILE CONTROLLER/TÊN HÀM CHẠY TRONG FILECONTROLLER/ID
+    - url có dạng: http://localhost/No5_quan_ly_su_kien/TÊN FILE CONTROLLER/TÊN HÀM CHẠY TRONG FILECONTROLLER/ID
         - /ID có thể có hoặc không
-        - Ví dụ: http://localhost/web/No5_quan_ly_su_kien/EventAdd/eventAddInput
+        - Ví dụ: http://localhost/No5_quan_ly_su_kien/EventAdd/eventAddInput
