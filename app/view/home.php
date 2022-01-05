@@ -27,7 +27,7 @@
         <p style="margin-left: 200px;">
             Sự kiện<br>
             <a href="../EventSearch/eventSearch">Tìm kiếm</a><br>
-            <a href="sk_themmoi.php">Thêm mới</a><br>
+            <a href="../EventAdd/eventAddInput">Thêm mới</a><br>
         </p>
         <p style="margin-left: 200px;">
             Tổ chức sự kiện<br>
