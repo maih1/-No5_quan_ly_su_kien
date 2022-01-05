@@ -45,7 +45,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>Chịu trách nhiệm: '.$row['PoC'].'</td>
-                                <td><button class="edit" onclick="window.location.href=\'../editSchedule/'. $event_id . '/' . $row['id'].'\'">sửa</button></td>
+                                <td><button class="edit" onclick="window.location.href=\'../../../eventEditTimelines/editSchedule/'. $event_id . '/' . $row['id'].'\'">sửa</button></td>
                             </tr>';
                             $count++;
                         }
