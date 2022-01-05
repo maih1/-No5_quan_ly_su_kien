@@ -11,43 +11,50 @@
 
 <body>
     <form method="post" <?php echo 'action="../eventEditInput/' . $event_id . '"' ?> enctype="multipart/form-data">
-        <?php if (isset($validate)) {
+        <?php if (isset($validate) && $validate['name'] != '') {
             if (array_key_exists('name', $validate)) {
                 echo "<span class='error'>" . $validate['name'] . "</span>";
             }
+            if(array_key_exists('name_length', $validate)){
+                echo '<span class="error">' . $validate['name_length'] .'</span>';
+            }
         } ?>
         <label class="input-form" for="name">Tên sự kiện</label>
-        <input id="name" type="text" name="event_name" maxlength="100" value="<?php echo $event_name; ?>"><br>
+        <input id="name" type="text" name="event_name" maxlength="" value="<?php echo $event_name; ?>"><br>
 
-        <?php if (isset($validate)) {
+        <?php if (isset($validate) && $validate['slogan'] != '' ) {
             if (array_key_exists('slogan', $validate)) {
                 echo "<span class='error'>" . $validate['slogan'] . "</span>";
             }
+            if(array_key_exists('slogan_length', $validate)){
+                echo '<span class="error">' . $validate['slogan_length'] .'</span>';
+            }
         } ?>
         <label class="input-form" for="slogan">Slogan</label>
-        <input id="slogan" type="text" name="event_slogan" maxlength="250" value="<?php echo $event_slogan; ?>"><br>
+        <input id="slogan" type="text" name="event_slogan" maxlength="" value="<?php echo $event_slogan; ?>"><br>
 
-        <?php if (isset($validate)) {
+        <?php if (isset($validate)  && $validate['leader'] != ''  ) {
             if (array_key_exists('leader', $validate)) {
                 echo "<span class='error'>" . $validate['leader'] . "</span>";
             }
+            if(array_key_exists('leader_length', $validate)){
+                echo '<span class="error">' . $validate['leader_length'] .'</span>';
+            }
         } ?>
         <label class="input-form" for="leader">Leader</label>
-        <input id="leader" type="text" name="event_leader" maxlength="250" value="<?php echo $event_leader; ?>"><br>
+        <input id="leader" type="text" name="event_leader" maxlength="" value="<?php echo $event_leader; ?>"><br>
 
-        <?php if (isset($validate)) {
+        <?php if (isset($validate)  && $validate['description'] != ''  ) {
             if (array_key_exists('description', $validate)) {
                 echo "<span class='error'>" . $validate['description'] . "</span>";
+            }
+            if(array_key_exists('description_length', $validate)){
+                echo '<span class="error">' . $validate['description_length'] .'</span>';
             }
         } ?>
 
         <label class="input-form" for="description">Mô tả chi tiết</label>
-        <textarea id="description" name="event_description" maxlength="1000"><?php echo $event_description; ?> </textarea><br>
-
-        <?php if (isset($validate)) {
-            echo "<span class='error'></span>";
-        } ?>
-
+        <textarea id="description" name="event_description" maxlength=""><?php echo $event_description; ?> </textarea><br>
 
         <label class="input-form" for="avatar"></label>
         <input type="file" id="real-file" name="upload-file" hidden="hidden" accept="image/*" onchange="loadFile(event);" /><br>

@@ -38,7 +38,7 @@ function eventEditInput($event_id){
         $event_slogan= test_input($_POST["event_slogan"]);
         $event_leader= test_input($_POST["event_leader"]);
         $event_description= test_input($_POST["event_description"]);
-         
+        
         if(file_exists($_FILES["upload-file"]["tmp_name"] )) {
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
             $temp_name = $_FILES["upload-file"]["tmp_name"];// khi upload file len file luu lai vi tri tam thoi, khi đủ điều kiện sẽ chuyển file từ vị trí tạm thời vào target_dir
@@ -129,6 +129,7 @@ function eventEditConfirm($event_id){
             unset($_SESSION['description']);
             unset($_SESSION['cur_name_avatar']);
             unset($_SESSION['new_name_avatar']);
+            unset($_SESSION['new_avatar']);
             header('Location:' . getUrl(). 'EventEdit/EventEditComplete/'. $event_id);
         }
     }
@@ -151,11 +152,3 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
-// function getUrl() {
-//     $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-//     $url = "/";
-//     for($i = 0; $i < count($urls)-1; $i++){
-//         $url = $url . $urls[$i] . "/";
-//     }
-//     return $url;
-//     }
