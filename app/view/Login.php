@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div align="center" class="div_home">
+        <div class="div_home">
             <form>
                 <div id="div_label">
                     <label id="label">Người dùng</label>

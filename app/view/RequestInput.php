@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="../../web/style.css" rel="stylesheet">
+    <link href="../web/style.css" rel="stylesheet">
     <title>Request</title>
 </head>
 
 <body>
     <div class="div_home">
-        <form action='../controller/RequestController.php' method="POST">
+        <form action='../Request/request' method="POST">
 
             <div id="div_label">
                 <?php if (isset($validate)) {
@@ -30,10 +30,6 @@
 
             <div>
                 <button type="submit" name="submit_button" id="div_button">Gửi yêu cầu request password</button>
-            </div>
-
-            <div id="div_forgotPW">
-                <a href="../view/login.php"><i>Về trang Login</i></a>
             </div>
 
 

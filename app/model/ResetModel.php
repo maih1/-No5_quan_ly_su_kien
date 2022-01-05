@@ -22,9 +22,9 @@ function resetPassWord($new_password, $i) {
 
 function take_Users() {
     global $conn;
-    $query = 'SELECT * FROM admins';
+    $query = 'SELECT admins.login_id FROM admins';
     $sql = $conn->prepare($query);
-    $sql->setFetchMode(PDO::FETCH_ASSOC);
+    //$sql->setFetchMode(PDO::FETCH_ASSOC);
     $sql->execute();
     $result = $sql->fetchAll();
     return $result;
