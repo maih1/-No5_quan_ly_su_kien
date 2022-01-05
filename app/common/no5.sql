@@ -46,12 +46,12 @@ CREATE TABLE `admins` (
 CREATE TABLE `events` (
   `id` int(10) NOT NULL,
   `name` varchar(250) NOT NULL,
-  `slogan` char(10) NOT NULL,
+  `slogan` varchar(250) NOT NULL,
   `leader` varchar(250) NOT NULL,
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
+  `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
