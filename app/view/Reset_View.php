@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link href="../../web/style.css" rel="stylesheet">
+    <link href="../web/style.css" rel="stylesheet">
     <meta charset="utf-8">
     <title>Reset</title>
 </head>
@@ -13,7 +13,7 @@
         <form action="../controller/Reset.php" method="POST">
             <table>
                 <?php
-                include '../model/Query.php';
+                require_once './app/model/Query.php';
                 $result = take_Name_ID();
 
                 echo

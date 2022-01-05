@@ -6,8 +6,8 @@
 // Sửa lại phần validate, dùng php, thêm css
 // đường dẫn header với require_once các file view để hiển thị từ controller ra view hỏi Lưu và Nam.
 
-require_once './app/model/ResetModel.php';
-function reset()
+require_once './app/model/Query.php';
+function resets()
 {
     $result = take_Name_ID();
     //
@@ -29,5 +29,5 @@ function reset()
          }
         $k++;
     }
-    require_once './app/view/Reset.php';
+    require_once './app/view/Reset_View.php';
 }
