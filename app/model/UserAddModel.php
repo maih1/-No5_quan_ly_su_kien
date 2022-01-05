@@ -4,7 +4,7 @@
     function getAll(){
         global $conn;
 
-        $stmt = $conn -> prepare("SELECT * FROM `events`");
+        $stmt = $conn -> prepare("SELECT * FROM `users`");
         $stmt->execute();
         $data = [];
         $result = $stmt->fetchAll();
@@ -13,7 +13,7 @@
 
     function getIdEnd(){
         global $conn;
-        $stmt = $conn -> prepare("SELECT `id` FROM `events`;");
+        $stmt = $conn -> prepare("SELECT `id` FROM `users` ORDER BY `users`.`id` ASC");
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_COLUMN);
         $length = count($data) - 1;
@@ -22,21 +22,21 @@
     }
 
     function add(){
-        global $conn;
+        global $conn, $_type;
         $check_add = false;
         try{
-            $stmt = $conn->prepare("INSERT INTO `events`(`name`, `slogan`, `leader`, `avatar`, `description`) 
-                VALUES (:name, :slogan, :leader, :avatar, :description)");
+            $stmt = $conn->prepare("INSERT INTO `users`(`type`, `name`, `user_id`, `avatar`, `description`) 
+                VALUES (:type, :name, :user_id, :avatar, :description)");
 
+            $stmt->bindParam(':type', $type);
             $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':slogan', $slogan);
-            $stmt->bindParam(':leader', $leader);
+            $stmt->bindParam(':user_id', $user_id);
             $stmt->bindParam(':avatar', $avatar);
             $stmt->bindParam(':description', $description);
 
+            $type = $_type[$_SESSION['type']];
             $name = $_SESSION['name'];
-            $slogan = $_SESSION['slogan'];
-            $leader = $_SESSION['leader'];
+            $user_id = $_SESSION['user_id'];
             $avatar = $_SESSION['nameAvatar'];
             $description = $_SESSION['description'];
 
