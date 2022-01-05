@@ -24,12 +24,8 @@
 			$validate['PoC'] = empty($PoC) ? 'Hãy nhập người chịu trách nhiệm' : '';
 			$validate['PoCLen'] = strlen($PoC) > 100 ? 'Độ dài người chịu trách nhiệm không quá 100' : '';
 
-			// echo "</br>". preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from);
 			$validate['timeFormat'] = ((!preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from) || !preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $to)) && $validate['timefrom'] == '' && $validate['timeto'] == '') ? 'Không đúng định dạng thời gian' : '';
-			// foreach ($_POST as $key => $value) {
-			// 	$validate[$key.'Format'] = preg_match("/[<,']/", $value) ? 'Không chứa < hoặc \'' : '';
-			// }
-			print_r($validate);
+			
 
 			$checkValidate = 1;
 			foreach ($validate as $key => $value) {
@@ -41,7 +37,6 @@
 			
 			$dataInput = ['', '', '', '', ''];
 			if($checkValidate) { 
-				echo '1';
 				// insert database
 				 $result = editEventTimelines($event_id, $id, $from, $to, $name, $detail, $PoC);
 			} else {
