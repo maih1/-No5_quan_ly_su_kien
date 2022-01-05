@@ -1,10 +1,10 @@
 <?php
 
-include '../common/db.php';
+include './app/common/db.php';
 
 function take_Name_ID() {
     global $conn;
-    $query = 'SELECT users.name, users.user_id  FROM users INNER JOIN admins ON admins.login_id = users.user_id WHERE admins.login_id = users.user_id AND admins.reset_password_token <> ""';
+    $query = 'SELECT * FROM admins WHERE admins.reset_password_token != ""';
     $sql = $conn->prepare($query);
     $sql->setFetchMode(PDO::FETCH_ASSOC);
     $sql->execute();
@@ -22,7 +22,7 @@ function resetPassWord($new_password, $i) {
 
 function take_Users() {
     global $conn;
-    $query = 'SELECT * FROM users';
+    $query = 'SELECT * FROM admins';
     $sql = $conn->prepare($query);
     $sql->setFetchMode(PDO::FETCH_ASSOC);
     $sql->execute();
