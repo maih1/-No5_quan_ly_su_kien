@@ -1,6 +1,5 @@
 <?php
     require_once './app/common/CheckLogin.php';
-    require_once "./app/common/CheckLogin.php";
     require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventAddModel.php";
     
