@@ -80,6 +80,8 @@
                     $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/No5_quan_ly_su_kien/web/avatar/event/' . $event_id . '/' . $comment_id . '/';
                     if(!is_dir($targetDir_event)) {
                         mkdir($targetDir_event);
+                    }
+                    if(!is_dir($targetDir)) {
                         mkdir($targetDir);
                     }
                     $targetFilePath = $targetDir . $filename;
