@@ -1,5 +1,5 @@
 <?php 
-    require_once "./app/common/DB.php";
+    require_once "./app/common/db.php";
 
     /* Lấy dữ liệu từ bảng event
     * Kết nối db, trả về dữ liệu
