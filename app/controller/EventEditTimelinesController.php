@@ -1,5 +1,5 @@
 <?php
-	require_once "./app/model/EventTimelinesModel.php";
+	require_once "./app/model/EventEditTimelinesModel.php";
 	require_once "./app/model/EventsModel.php";
 
 	function editSchedule($event_id, $id) {
@@ -47,7 +47,7 @@
 				$dataInput[4] = $PoC;
 			}			
 		}
-		$nameSchedule = getNameEvent($event_id);
+		$nameSchedule = getEventName($event_id);
 		$listSchedule = getListSchedule($event_id);
 
 		// show view

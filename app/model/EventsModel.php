@@ -1,7 +1,7 @@
 <?php 	
 	require_once "./app/common/db.php";
 
-	function getNameEvent($event_id) {
+	function getEventName($event_id) {
 		global $conn;
 		$sql = "SELECT * FROM `events` WHERE id = '$event_id'";
         $result = $conn -> prepare($sql);
