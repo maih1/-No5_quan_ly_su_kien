@@ -17,7 +17,7 @@
                 <?php
                 foreach($classify as $row => $q){
                     ?>
-                        <option><?php echo $row; ?></option>
+                        <option><?php echo $q; ?></option>
                     <?php   
                 } 
             ?>
