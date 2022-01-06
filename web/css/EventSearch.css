@@ -7,7 +7,7 @@ form {
     border: 2px solid #385D8A;
     margin: auto;
     margin-top: 70px;
-    width: 1150px;
+    width: 1100px;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 30px;
@@ -49,18 +49,25 @@ form {
     height: 40px;
 }
 .search-table{
-margin-top:30px;
+	margin-top:30px;
 }
 .search-no-th{
 	
 	text-align: left;
-	margin-right:0px;
+	width:50px;
 	font-weight:lighter;
 }
 .search-th{
 	text-align: left;
 	font-weight:lighter;
+    padding: 5px 20px;
+	width:140px;
+}
+.action-th{
+	text-align: left;
+	font-weight:lighter;
     padding: 5px 70px;
+	width:320px;
 }
 .action-button{
 	font-weight:bold;
@@ -79,4 +86,15 @@ margin-top:30px;
     background-color: #324f75;
     border:1px solid #385D8A;
     cursor: pointer;
+}
+#back {
+    margin-left: 1000px;
+    width: 110px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: #4f81bd;
+    border:1px solid #4f81bd;
+    cursor: pointer;
+    border-radius: 5px; 
 }
