@@ -11,6 +11,8 @@
 
 <body>
     <form method="post" <?php echo 'action="../eventEditInput/' . $event_id . '"' ?> enctype="multipart/form-data">
+        <button id="back-home" name="back-home" >Quay lại</button><br>
+
         <?php if (isset($validate) && $validate['name'] != '') {
             if (array_key_exists('name', $validate)) {
                 echo "<span class='error'>" . $validate['name'] . "</span>";
