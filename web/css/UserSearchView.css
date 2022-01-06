@@ -89,9 +89,17 @@ th {
 }
 
 #back {
-    margin-left: 780px;
-    width: 100px;
-    height: 60px;
+    margin-left: 790px;
+    width: 110px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
     background-color: #4f81bd;
-    border-radius: 10px; 
+    border:1px solid #4f81bd;
+    cursor: pointer;
+    border-radius: 5px; 
 }
+
+#back:hover {
+    background-color: #e4f6ff;
+  }
