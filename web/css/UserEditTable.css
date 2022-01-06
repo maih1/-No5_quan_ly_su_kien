@@ -64,7 +64,8 @@ form {
 }
 
 form p.invalid-message {
-  margin: 4px;
+  margin-left: 20%;
+  color: red;
 }
 
 .form-group,
@@ -124,4 +125,25 @@ input[type='radio'] {
 
 .input-browse-file {
   display: none;
+}
+
+/* User Edit Complete */
+.box-complete-message {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 200px;
+  border: var(--form-border);
+  justify-content: center;
+  align-items: center;
+}
+
+.box-complete-message > .complete-message {
+  font-size: 16px;
+}
+
+.box-complete-message > .back-message {
+  font-size: 14px;
+  font-style: italic;
 }

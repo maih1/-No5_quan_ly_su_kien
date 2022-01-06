@@ -10,11 +10,19 @@
 </head>
 
 <body>
-    <form class="edit-form" method="POST" action="">
-        <p class="invalid-message invalid-name"></p>
+    <form class="edit-form" method="POST" enctype="multipart/form-data">
+        <?php
+
+        if ($errors['name'] != '') {
+        ?>
+        <p class="invalid-message invalid-name">
+            <?php print $errors['name'];
+        }
+            ?></p>
         <div class="form-group">
             <label for="name">Họ và tên</label>
-            <input class="edit-input form_input" type="text" name="name" value="<?php print $cur_user_value["name"] ?>">
+            <input class="edit-input form_input" type="text" name="name"
+                value="<?php print $name != null ? $name : $cur_user_value['name'] ?>">
         </div>
         <p class="invalid-message invalid-type"></p>
         <div class="form-group">
@@ -22,23 +30,30 @@
             <div class="input-group form_input">
 
                 <?php
-                foreach ($transfer_type as $key => $value) {
-                    $is_checked = $key == $cur_user_value["type"] ? 'checked' : '';
-                    print "
+                    foreach ($transfer_type as $key => $value) {
+                        $is_checked = $key == ($type != null ? $type : $cur_user_value['type']) ? 'checked' : '';
+                        print "
                     <div class='radio-group'>
                         <input type='radio' $is_checked value='$key' name='type'>
                         <label for='$value'>$value</label>
                     </div>
                 ";
-                }
-                ?>
+                    }
+                    ?>
             </div>
         </div>
-        <p class="invalid-message invalid-userid"></p>
+        <?php
+
+            if ($errors['userid'] != '') {
+            ?>
+        <p class="invalid-message invalid-userid">
+            <?php print $errors['userid'];
+            }
+                ?></p>
         <div class="form-group">
             <label for="userid">Id</label>
             <input class="edit-input form_input" type="text" name="userid"
-                value="<?php print $cur_user_value["user_id"] ?>">
+                value="<?php print checkRenderData($userid, 'user_id') ?>">
         </div>
         <p class="invalid-message invalid-avatar"></p>
         <div class="form-group">
@@ -46,16 +61,25 @@
             <div class="img-group">
                 <img src="" alt="">
                 <div class="choose-img-group">
-                    <input class="edit-input img-dir" type="text" name="avatar">
+                    <input class="edit-input img-dir" readonly type="text" name="avatar"
+                        value=<?php print checkRenderData($avatar, 'avatar') ?>>
                     <button class="other-btn btn-browse-file" type="button">Browser</button>
-                    <input class="input-browse-file" type="file" accept="image/*">
+                    <input class="input-browse-file" type="file" accept="image/*" name="upload-file">
                 </div>
             </div>
         </div>
-        <p class="invalid-message invalid-description"></p>
+        <?php
+
+                if ($errors['description'] != '') {
+                ?>
+        <p class="invalid-message invalid-description">
+            <?php print $errors['description'];
+                }
+                    ?></p>
         <div class="form-group">
             <label for="description">Mô tả thêm</label>
-            <textarea class="edit-input form_input" type="text" name="description" rows="4" maxlength="1000"></textarea>
+            <textarea class="edit-input form_input" type="text" name="description" rows="4"
+                maxlength="1000"><?php print checkRenderData($description, 'description') ?></textarea>
         </div>
         <div class="btn-group">
             <button class="submit-btn">Xác nhận</button>
