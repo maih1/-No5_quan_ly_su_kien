@@ -2,6 +2,16 @@
 
 require_once './app/common/db.php';
 
+
+function listAccs() {
+    global $conn;
+    $sql = "SELECT * FROM admins";
+    $result = $conn -> prepare($sql);
+    $result -> execute();
+    return $result;
+}
+
+
 function take_Name_ID() {
     global $conn;
     $query = 'SELECT * FROM admins WHERE admins.reset_password_token != ""';

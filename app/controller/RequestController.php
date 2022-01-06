@@ -1,6 +1,6 @@
 <?php
 
-require_once './app/model/ResetModel.php';
+require_once './app/model/AdminsModel.php';
 
 function getUrl()
 {
