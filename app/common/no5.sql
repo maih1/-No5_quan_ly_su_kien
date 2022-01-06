@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 07:55 AM
+-- Generation Time: Jan 06, 2022 at 09:13 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -33,9 +33,16 @@ CREATE TABLE `admins` (
   `password` varchar(64) NOT NULL,
   `actived_flag` int(1) NOT NULL DEFAULT 1,
   `reset_password_token` varchar(100) NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
+  `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `login_id`, `password`, `actived_flag`, `reset_password_token`, `updated`, `created`) VALUES
+(1, 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, '', '2022-01-06 14:58:00', '2022-01-06 14:58:00');
 
 -- --------------------------------------------------------
 
@@ -54,6 +61,14 @@ CREATE TABLE `events` (
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`id`, `name`, `slogan`, `leader`, `avatar`, `description`, `updated`, `created`) VALUES
+(1, 'Chào đón sinh viên K66', 'Chào tân sinh viên', 'Giảng viên', 'K66.jpg', 'Đón tân sinh viên nhập học', '2022-01-06 14:48:17', '2022-01-06 14:48:17'),
+(2, 'Công bố điểm chuẩn năm 2021', 'Công bố điểm chuẩn', 'Giảng viên', 'HUS.jpg', 'Công bố điểm chuẩn', '2022-01-06 14:55:19', '2022-01-06 14:55:19');
+
 -- --------------------------------------------------------
 
 --
@@ -68,6 +83,14 @@ CREATE TABLE `event_comments` (
   `updated` datetime NOT NULL,
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `event_comments`
+--
+
+INSERT INTO `event_comments` (`id`, `event_id`, `avatar`, `content`, `updated`, `created`) VALUES
+(1, 1, 'HUS.jpg', 'Chào tân sinh viên', '2022-01-06 15:03:31', '2022-01-06 15:03:31'),
+(2, 1, 'HUS.jpg', 'Chào tân sinh viên', '2022-01-06 15:06:44', '2022-01-06 15:06:44');
 
 -- --------------------------------------------------------
 
@@ -87,6 +110,14 @@ CREATE TABLE `event_timelines` (
   `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `event_timelines`
+--
+
+INSERT INTO `event_timelines` (`id`, `event_id`, `from`, `to`, `name`, `detail`, `PoC`, `updated`, `created`) VALUES
+(1, 1, '08:00:00', '09:00:00', 'Đón tiếp', 'Đón tiếp sinh viên', 'Sinh viên tình nguyện', '2022-01-06 15:01:25', '2022-01-06 15:01:25'),
+(2, 1, '10:00:00', '11:00:00', 'Văn nghệ', 'Tổ chức văn nghệ', 'Giảng viên A', '2022-01-06 15:02:38', '2022-01-06 15:02:38');
+
 -- --------------------------------------------------------
 
 --
@@ -100,9 +131,18 @@ CREATE TABLE `users` (
   `user_id` char(15) NOT NULL,
   `avatar` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `updated` datetime NOT NULL DEFAULT current_timestamp(), 
+  `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `type`, `name`, `user_id`, `avatar`, `description`, `updated`, `created`) VALUES
+(1, 2, 'Nguyễn Văn A', 'user1', 'HUS.jpg', 'Giảng viên', '2022-01-06 15:10:23', '2022-01-06 15:10:23'),
+(2, 1, 'Trần Văn B', 'user2', 'hus1.jpg', 'Sinh viên', '2022-01-06 15:11:41', '2022-01-06 15:11:41'),
+(3, 3, 'Vũ Thị C', 'user3', 'hus2.jpg', 'Cựu sinh viên', '2022-01-06 15:12:31', '2022-01-06 15:12:31');
 
 --
 -- Indexes for dumped tables
@@ -150,31 +190,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `event_comments`
 --
 ALTER TABLE `event_comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `event_timelines`
 --
 ALTER TABLE `event_timelines`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
