@@ -66,7 +66,7 @@
         <div class="form-group">
             <label for="avatar">Avatar</label>
             <div class="img-group">
-                <img src=<?php print "../../web/avatar/$id/" . checkRenderData($avatar, 'avatar') ?> alt="">
+                <img src=<?php print checkExistAvatar() ?>>
                 <div class="choose-img-group">
                     <input class="edit-input img-dir" readonly type="text" name="avatar"
                         value=<?php print checkRenderData($avatar, 'avatar') ?>>

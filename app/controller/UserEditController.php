@@ -139,7 +139,7 @@ function validateData()
         $errors['description'] = '';
     }
     if (isset($avatar)) {
-        if (empty($avatar)) {
+        if (empty($avatar) || strlen($avatar) == 0) {
             $errors['avatar'] = 'Hãy chọn avatar';
         } else {
             uploadAvatar();
@@ -178,18 +178,27 @@ function checkFileUpload()
 
     if (file_exists($_FILES["upload-file"]["tmp_name"])) {
         if ($_FILES["upload-file"]['error'] != 0) {
-            $check_file = false;
+            return false;
         }
         if ($_FILES["upload-file"]["size"] > $maxfilesize) {
-            $check_file = false;
+            return false;
         }
         if (!in_array($_FILES["upload-file"]["type"], $allowtypes)) {
-            $check_file = false;
+            return false;
         }
     }
-
-    return $check_file;
+    return true;
 }
+
+function checkExistAvatar()
+{
+    global $id, $avatar;
+    $prefix = "../../";
+    $ava_fromdb = "web/avatar/$id/" . checkRenderData($avatar, 'avatar');
+    $ava_fromtmp = "web/avatar/tmp" . checkRenderData($avatar, 'avatar');
+    return file_exists($ava_fromdb) ? $prefix . $ava_fromdb : (file_exists($ava_fromtmp) ? $prefix . $ava_fromtmp : "");
+}
+
 
 function uploadAvatar()
 {
