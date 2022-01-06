@@ -33,11 +33,6 @@
         require_once './app/view/UserSearchView.php';
     }
 
-	function back(){
-		if(isset($_POST['back'])){
-			header('Location:' . getUrl(). 'Login/home');
-		}
-    }
 
     
 ?>

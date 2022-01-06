@@ -88,6 +88,18 @@ input[type="file"] {
     height: 60px;
 }
 
+#back-home {
+    /* padding: 10px; */
+    float: right;
+    width: 80px;
+    height: 60px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: #4f81bdc2;
+    border:1px solid #385D8A;
+    cursor: pointer;
+}
+
 #output {
     width: 100px;
     height: 100px;
