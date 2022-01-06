@@ -21,6 +21,8 @@ function userAddInput()
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         load($_POST);
 
+        backhome();
+        
         if (empty($name)) {
             $_SESSION['name'] = null;
             addError('name', 'Hãy nhập họ và tên');
@@ -238,4 +240,12 @@ function checkFileUpload()
     }
 
     return $check_file;
+}
+
+function backhome(){
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['back-home'])){
+            header('Location:' . getUrl(). 'Login/home');
+        }
+    }
 }
