@@ -8,7 +8,7 @@ require_once './app/common/CheckLogin.php';
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
 
-$_type = array("Sinh viên" => 1, "Giáo viên" => 2, "Cựu sinh viên" => 3);
+$_type = array("Giáo viên" => 1, "Sinh viên" => 2, "Cựu sinh viên" => 3);
 
 
 
