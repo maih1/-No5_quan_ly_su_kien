@@ -275,7 +275,12 @@ function userEditConfirm($id)
                 $_SESSION['avatar'] = $target_file;
 
                 updateUser($id, $payload);
-                session_unset();
+                unset($_SESSION['name']);
+                unset($_SESSION['type']);
+                unset($_SESSION['userid']);
+                unset($_SESSION['avatar']);
+                unset($_SESSION['description']);
+                unset($_SESSION['loaded']);
                 header('Location: ' . getUrl() . "/UserEdit/UserEditComplete");
             } else if (isset($_POST['back'])) {
                 header('Location: ' . getUrl() . "/UserEdit/UserEditInput/$id");
