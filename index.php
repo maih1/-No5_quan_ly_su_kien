@@ -1,7 +1,16 @@
 <?php
 session_start();
+if(isset($_GET['url'])){
+    $paths = explode("/", filter_var(trim($_GET["url"], "/")));
 
-$paths = explode("/", filter_var(trim($_GET["url"], "/")));
-require_once "./app/controller/". $paths[0] ."Controller.php";
-$paths[1]($paths[2] ?? '');
+    if(isset($paths[1]) && $paths[1] == 'welcome' && (isset($_SESSION["check_user_pass"]) && $_SESSION["check_user_pass"] == true)){
+        header('Location:../Login/home');
+    } else {
+        require_once "./app/controller/". $paths[0] ."Controller.php";
+        $paths[1]($paths[2] ?? '', $paths[3] ?? '');
+    }
+
+} else {
+    header('Location:Login/welcome');
+}
 ?>
