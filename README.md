@@ -1,5 +1,5 @@
 # No5_quan_ly_su_kien
-+ Chương trình đặt trong htdocs(htdocs/No5_quan_ly_su_kien)(Windows), hoặc var/www/html(var/www/html/No5_quan_ly_su_kien)(Linux).
+
 + Cấu trúc folder
     - app
         - common
@@ -28,7 +28,7 @@
     - Tên hàm và phương thức sử dụng camelCase
         - Ví dụ: eventAddInput, eventAddCofirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
-        - Ví dụ: view/event_add/
+        - Ví dụ: view/evnet_add/
 
 + DB
     - servername = "localhost";
@@ -37,13 +37,22 @@
     - dbname = "no5";
 
 + CSS & HTML
-    - background button: #e4f6ff
-    - border: 2px solid #97a8bc
+    - border form: 2px solid #385D8A
+    - input:
+        - background-color: #e4f6ff;
+        - border:1px solid #385D8A; 
+    - button submit: 
+        - background-color: #4f81bd;
+        - border:2px solid #385D8A;
+    - button khác:
+        - background-color: #4f81bdc2;
+        - border:1px solid #385D8A;
     - text color : black
     - error color : red
     - font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif
     - padding input text : 12px 20px
     - font-size : 15px
+    - validate: hiển thị phía trên phần nội dung kiểm tra validate
 
 + PHP
     - Form search: là kiểu GET	
