@@ -1,0 +1,87 @@
+body {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    font-size : 15px;
+}
+
+form {
+    margin: auto;
+    margin-top: 80px;
+    width: 60%;
+    padding: 30px;
+}
+
+label {
+    display: inline-flex;
+    width: 100px;
+    padding: 12px 20px;
+    margin-left: 120px;
+    margin-bottom: 10px;
+}
+
+#key{
+    display: inline-flex;
+    width: 205px;
+    border: 2px solid #97a8bc;
+    padding: 12px 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+select {
+    font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    display: inline-flex;
+    border: 2px solid #97a8bc;
+    padding: 12px 20px;
+    -moz-appearance: none; 
+    -webkit-appearance: none;
+    appearance: none;
+   
+    float: none;
+    margin-left: 20px;
+    width: 250px;  
+    margin-right: 350px;
+
+    background: transparent;
+    background: url(../image/arrow.png) no-repeat right rgb(255, 255, 255);
+    -webkit-appearance: none; 
+    background-position-x: 244 px; 
+    background-repeat: no-repeat;
+}
+
+#search {
+    margin-left: 330px;
+    background-color: #e4f6ff;
+    padding: 12px 20px;
+    width: 130px;
+    margin-top: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-left: 10px;
+    margin-top: 30px;
+    width: 880px;
+}
+
+th, td{
+    border: 2px solid #97a8bc;
+    text-align: left;
+    padding-left: 15px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+
+}
+
+th {
+    text-align: center;
+    background-color: #e4f6ff;
+}
+
+#butt {
+    background-color: #e4f6ff;
+    border: 2px solid #97a8bc;
+    width: 55px;
+    height: 25px;
+    margin-left: 4px;
+    font-size: small;
+}

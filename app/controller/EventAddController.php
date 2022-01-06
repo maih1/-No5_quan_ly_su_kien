@@ -1,7 +1,7 @@
 <?php
     require_once './app/common/CheckLogin.php';
     require_once "./app/common/ErrorValidate.php";
-    require_once "./app/model/EventAddModel.php";
+    require_once "./app/model/EventsModel.php";
     
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;

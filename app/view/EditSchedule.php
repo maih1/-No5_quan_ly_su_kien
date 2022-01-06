@@ -17,7 +17,7 @@
             
         </div>
         <div class="div-right">
-        <button class="btn-back" onclick="window.location.href='../../EventSearch/eventSearch'">Quay lại</button>
+        <button class="btn-back" onclick="window.location.href='../../../EventSearch/eventSearch'">Quay lại</button>
         </div>
         <br>
         <div>
