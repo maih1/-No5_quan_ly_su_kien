@@ -26,9 +26,9 @@
     - Tên file đặt theo PascalCase
         - Ví dụ: EventAddModel.php, EventAddController.php
     - Tên hàm và phương thức sử dụng camelCase
-        - Ví dụ: eventAddInput, eventAddCofirm
+        - Ví dụ: eventAddInput, eventAddConfirm
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
-        - Ví dụ: view/evnet_add/
+        - Ví dụ: view/event_add/
 
 + DB
     - servername = "localhost";
