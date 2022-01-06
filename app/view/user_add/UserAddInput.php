@@ -32,7 +32,7 @@
                 <?php 
                 if (isset($type) && $type == $i) {
                     echo "checked";
-                } elseif ((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 4) && isset($_SESSION['type'])){
+                } elseif ((isset($_SESSION['checkUserAdd']) && $_SESSION['checkUserAdd'] == 5) && isset($_SESSION['type'])){
                     
                     if($i == $_SESSION['type']){
                         echo "checked";
