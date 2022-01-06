@@ -44,7 +44,8 @@ form, .event-complete {
     vertical-align: middle;
     width: 75%;
     height: 20%;
-    display: inline-block;  
+    display: inline-block;
+    resize: none  
 }
 
 input[type="file"] {  
@@ -56,7 +57,7 @@ input[type="file"] {
     padding: 10px;
     width: 120px;
     height: 45px;
-    color: rgb(0, 0, 0);
+    color: white;
     background-color: #4f81bdc2;
     border:1px solid #385D8A;
     cursor: pointer;
@@ -74,7 +75,7 @@ input[type="file"] {
 
 .center-block {
     cursor: pointer;
-    color: black;
+    color: white;
     background-color: #4f81bd;
     border:2px solid #385D8A;
     float: none;

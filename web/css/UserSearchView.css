@@ -52,7 +52,7 @@ select {
     margin-left: 330px;
     width: 110px;
     height: 50px;
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 10px;
     background-color: #4f81bd;
     border:1px solid #4f81bd;
@@ -61,7 +61,7 @@ select {
 }
 
 #search:hover {
-    background-color: #e4f6ff;
+    background-color: #629de4;
   }
 
 table {
@@ -86,6 +86,7 @@ th {
     border: 1px solid #385D8A;
     width: 55px;
     height: 25px;
+    color: white;
     margin-left: 4px;
     font-size: small;
 }
@@ -94,7 +95,7 @@ th {
     margin-left: 790px;
     width: 110px;
     height: 50px;
-    color: rgb(0, 0, 0);
+    color: white;
     padding: 10px;
     background-color: #4f81bd;
     border:1px solid #4f81bd;
@@ -103,5 +104,5 @@ th {
 }
 
 #back:hover {
-    background-color: #e4f6ff;
+    background-color: #629de4;
   }

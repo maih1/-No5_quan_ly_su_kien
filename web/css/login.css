@@ -7,17 +7,6 @@ body {
     margin: 100px auto;
     text-align: center;
     width: 600px;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    margin: 100px auto;
-    text-align: center;
-    width: 600px;
     font-size : 15px;
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 }
@@ -28,6 +17,8 @@ body {
     height: 25px;
     font-size : 15px;
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    background-color: #d7d8da;
+    border:2px solid #8d949c;
 }
 
 .submit{
@@ -54,7 +45,7 @@ label {
 
 .container{
     text-align: center;
-    border: 2px solid #97a8bc;
+    border:2px solid #385D8A;
     padding: 80px;
 }
 

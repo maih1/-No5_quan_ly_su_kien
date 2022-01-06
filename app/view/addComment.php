@@ -61,7 +61,7 @@
             <br>
             <div>
                 <label class="input-form">Nội dung</label>
-                <textarea form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"></textarea>
+                <textarea style="resize: none;" form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"></textarea>
             </div>
             <?php if(isset($validate)) {
                 if(array_key_exists('content', $validate)){
