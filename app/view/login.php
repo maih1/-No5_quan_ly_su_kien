@@ -30,7 +30,7 @@
                         echo "<div class='error' style='color:red; margin-left: 100px'>". $validate['pw_empty'] ."</div>";
                     }
                     if(array_key_exists('pw_len', $validate)){
-                        echo "<div class='error' style='color:red; margin-left: 50px'>". $validate['pw_len'] ."</div>";
+                        echo "<div class='error' style='color:red; margin-left: 150px'>". $validate['pw_len'] ."</div>";
                     }
                     if(isset($bad_credentials)) {
                         echo "<div class='error' style='color:red; margin-left: 150px'>". $bad_credentials ."</div>";
