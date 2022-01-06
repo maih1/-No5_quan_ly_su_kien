@@ -263,9 +263,12 @@ function userEditConfirm($id)
     if (!isset($_SESSION['name']) || !isset($_SESSION['type']) || !isset($_SESSION['userid']) || !isset($_SESSION['description'])) {
         header('Location: ' . getUrl() . "/UserEdit/UserEditInput/$id");
     } else {
+
+        print $_SESSION['nameAvatar'];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $payload = ['name' => $_SESSION['name'], 'type' => $_SESSION['type'], 'userid' => $_SESSION['userid'], 'description' => $_SESSION['description']];
+
             if (isset($_POST['submit'])) {
+                $payload = ['name' => $_SESSION['name'], 'type' => $_SESSION['type'], 'userid' => $_SESSION['userid'], 'description' => $_SESSION['description'], 'avatar' => $_SESSION['nameAvatar']];
                 $target_dir = "web/avatar/" . $id;
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0777);

@@ -45,11 +45,11 @@
         <div class="form-group">
             <label for="avatar">Avatar</label>
             <div class="img-group">
-                <img src="" alt="">
+                <img src=<?php print "../../web/avatar/tmp/" . $_SESSION['nameAvatar'] ?> alt="">
                 <div class="choose-img-group">
-                    <input class="edit-input img-dir" type="text" name="avatar">
-                    <button class="other-btn btn-browse-file" type="button">Browser</button>
-                    <input class="input-browse-file" type="file" accept="image/*" name="upload-file">
+                    <input class="edit-input img-dir" hidden type="text" name="avatar">
+                    <button class="other-btn btn-browse-file" hidden type="button">Browser</button>
+                    <input class="input-browse-file" disabled type="file" accept="image/*" name="upload-file">
                 </div>
             </div>
         </div>
