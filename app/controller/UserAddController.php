@@ -2,6 +2,8 @@
 require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/UserAddModel.php";
 require_once "./app/common/db.php";
+require_once './app/common/CheckLogin.php';
+
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
@@ -236,14 +238,4 @@ function checkFileUpload()
     }
 
     return $check_file;
-}
-
-function getUrl()
-{
-    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-    $url = "/";
-    for ($i = 0; $i < count($urls) - 1; $i++) {
-        $url = $url . $urls[$i] . "/";
-    }
-    return $url;
 }
