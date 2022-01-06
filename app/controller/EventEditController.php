@@ -118,7 +118,15 @@ function eventEditConfirm($event_id){
         }
 
         if(isset($_POST['submit-confirm'])) {
-            updateEventById($event_id, $_SESSION['name'],$_SESSION['slogan'],$_SESSION['leader'],$_SESSION['new_name_avatar'],$_SESSION['description']);
+            /* Nếu tồn tại ảnh ới thì update tên ảnh mới 
+            *  Nếu không tồn tại thì update tên ảnh cũ
+            */
+            if(isset($_SESSION['new_name_avatar'])){
+                $avatar = $_SESSION['new_name_avatar'];
+            }else {
+                $avatar = $_SESSION['cur_name_avatar'];
+            }
+            updateEventById($event_id, $_SESSION['name'],$_SESSION['slogan'],$_SESSION['leader'],$avatar,$_SESSION['description']);
 
             if(isset($_SESSION['new_name_avatar'])){
                 $event_avatar = 'web/avatar/event/'. $event_id .'/'. $_SESSION['new_name_avatar'] ;
