@@ -42,6 +42,7 @@ function eventEditInput($event_id){
         $event_description= test_input($_POST["event_description"]);
 
         backhome();
+        $new_avatar = 0;
 
         if(file_exists($_FILES["upload-file"]["tmp_name"] )) {
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
@@ -51,12 +52,12 @@ function eventEditInput($event_id){
             $_SESSION['new_name_avatar'] = $file_name;
         } else if(!isset($_SESSION['new_avatar'])){
             $event_avatar ='../../web/avatar/event/'. $event_id .'/' . $event['avatar'];
-            $new_avatar = 0; // False, không có avatar mới, dùng lại avatar cũ
+            // False, không có avatar mới, dùng lại avatar cũ
         }
 
         $validate = [];
         $validate['name'] = empty($event_name) ? 'Hãy nhập tên sự kiện' : '';
-        $validate['name_length'] = strlen($event_name) > 100 ? 'Không nhập quá 100 ký tự. ' : '';
+        $validate['name_length'] = mb_strlen($event_name) > 100 ? 'Không nhập quá 100 ký tự. ' : '';
         $validate['slogan'] = empty($event_slogan) ? 'Hãy nhập slogan ' : '' ;
         $validate['slogan_length'] = strlen($event_slogan) > 250 ? 'Không nhập quá 250 ký tự.' : '';
         $validate['leader'] = empty($event_leader) ? 'Hãy nhập tên Leader.' : '';
