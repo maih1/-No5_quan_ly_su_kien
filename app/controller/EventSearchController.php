@@ -20,7 +20,7 @@
 		return true;
 	}
 	function eventSearch() {
-		//error_reporting(0);
+		error_reporting(0);
         global $event_search_result,$keyword;
 		if (isset($_GET['keyword']))
 			$keyword=$_GET['keyword'];
@@ -34,14 +34,5 @@
 			$event_search_result= getEventSearchResult($_GET['keyword']);
 		}
 		require_once "./app/view/EventSearch.php";
-    }
-    function getValue($value, $nameValue){
-        $res = null;
-        if(!empty($value)){
-            $res = $value;
-        } elseif((isset($_SESSION['checkEventAdd']) && $_SESSION['checkEventAdd'] == 5) && isset($_SESSION[$nameValue])){
-            $res =  $_SESSION[$nameValue]; 
-        }
-        echo $res;
     }
 ?>
