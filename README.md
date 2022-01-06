@@ -48,11 +48,13 @@
         - background-color: #4f81bdc2;
         - border:1px solid #385D8A;
     - text color : black
+    - text color button: white
     - error color : red
     - font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif
     - padding input text : 12px 20px
     - font-size : 15px
     - validate: hiển thị phía trên phần nội dung kiểm tra validate
+    - textarea: resize: none
 
 + PHP
     - Form search: là kiểu GET	
