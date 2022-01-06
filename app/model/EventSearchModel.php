@@ -9,14 +9,6 @@
 		$result = $stmt->fetchAll();
         return $result;
     }
-	function getAll($id, $type){
-        global $conn;
-		$stmt = $conn -> prepare("SELECT * FROM events WHERE id=:id");
-		$stmt->bindParam(':id', $id);
-		$stmt->execute();
-		$result = $stmt->fetchAll();
-        return $result;
-    }
 	function eventDeleteSQL($id){
         global $conn;
 		$stmt = $conn -> prepare("DELETE FROM event_comments WHERE event_id=:id");
