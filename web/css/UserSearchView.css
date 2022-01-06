@@ -21,7 +21,7 @@ label {
 #key{
     display: inline-flex;
     width: 205px;
-    border: 2px solid #97a8bc;
+    border: 1px solid #385D8A;
     padding: 12px 20px;
     margin-left: 20px;
     margin-bottom: 10px;
@@ -30,7 +30,7 @@ label {
 select {
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     display: inline-flex;
-    border: 2px solid #97a8bc;
+    border: 1px solid #385D8A;
     padding: 12px 20px;
     -moz-appearance: none; 
     -webkit-appearance: none;
@@ -50,7 +50,9 @@ select {
 
 #search {
     margin-left: 330px;
-    background-color: #e4f6ff;
+    background-color: #4f81bd;
+    border:2px solid #385D8A;
+    border-radius: 10px; 
     padding: 12px 20px;
     width: 130px;
     margin-top: 10px;
@@ -64,8 +66,8 @@ table {
 }
 
 th, td{
-    border: 2px solid #97a8bc;
-    text-align: left;
+    border: 1px solid #385D8A;
+    text-align: center;
     padding-left: 15px;
     padding-top: 3px;
     padding-bottom: 2px;
@@ -74,12 +76,12 @@ th, td{
 
 th {
     text-align: center;
-    background-color: #e4f6ff;
+    background-color: #4f81bdc2;
 }
 
 #butt {
-    background-color: #e4f6ff;
-    border: 2px solid #97a8bc;
+    background-color: #4f81bdc2;
+    border: 1px solid #385D8A;
     width: 55px;
     height: 25px;
     margin-left: 4px;
@@ -88,8 +90,8 @@ th {
 
 #back {
     margin-left: 800px;
-    background-color: #e4f6ff;
-    border: 2px solid #97a8bc;
-    width: 70px;
+    background-color: #4f81bdc2;
+    border:1px solid #385D8A;
+    width: 65px;
     height: 30px;
 }

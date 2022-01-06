@@ -30,7 +30,7 @@
                 $search = userSearchExact($_GET['phanloai']);
             }
 		}
-        require_once './app/view/usersearch/UserSearchView.php';
+        require_once './app/view/UserSearchView.php';
     }
 
 	function back(){
