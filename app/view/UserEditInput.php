@@ -22,7 +22,7 @@
         <div class="form-group">
             <label for="name">Họ và tên</label>
             <input class="edit-input form_input" type="text" name="name"
-                value="<?php print $name != null ? $name : $cur_user_value['name'] ?>">
+                value=<?php print checkRenderData($name, 'name') ?>>
         </div>
         <p class="invalid-message invalid-type"></p>
         <div class="form-group">
@@ -55,7 +55,14 @@
             <input class="edit-input form_input" type="text" name="userid"
                 value="<?php print checkRenderData($userid, 'user_id') ?>">
         </div>
-        <p class="invalid-message invalid-avatar"></p>
+        <?php
+
+                if ($errors['avatar'] != '') {
+                ?>
+        <p class="invalid-message invalid-avatar">
+            <?php print $errors['avatar'];
+                }
+                    ?></p>
         <div class="form-group">
             <label for="avatar">Avatar</label>
             <div class="img-group">
@@ -70,12 +77,12 @@
         </div>
         <?php
 
-                if ($errors['description'] != '') {
-                ?>
+                    if ($errors['description'] != '') {
+                    ?>
         <p class="invalid-message invalid-description">
             <?php print $errors['description'];
-                }
-                    ?></p>
+                    }
+                        ?></p>
         <div class="form-group">
             <label for="description">Mô tả thêm</label>
             <textarea class="edit-input form_input" type="text" name="description" rows="4"

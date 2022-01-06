@@ -161,7 +161,6 @@ function validateData()
     $_SESSION['userid'] = $userid;
     $_SESSION['description'] = $description;
 
-
     if ($canSubmit) {
         header('Location: ' . getUrl() . "/UserEdit/UserEditConfirm/$id");
     }
@@ -194,8 +193,9 @@ function checkFileUpload()
 
 function uploadAvatar()
 {
-    global $avatar;
+    global $avatar, $errors;
     if (checkFileUpload()) {
+        $errors['avatar'] = '';
         if (isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])) {
             if (
                 !empty($_FILES["upload-file"]["name"]) &&
@@ -212,13 +212,15 @@ function uploadAvatar()
         $_SESSION['avatar'] =  $target_dir . $avatar;
         // print $_SESSION['avatar'];
         $_SESSION['nameAvatar'] = $avatar;
+    } else {
+        $errors['avatar'] = 'Hình ảnh không hợp lệ';
     }
 }
 
 function checkRenderData($first, $type)
 {
     global $cur_user_value;
-    return $first != null ? $first : $cur_user_value[$type];
+    return $first != null ? $first : ($cur_user_value != null ? $cur_user_value[$type] : '');
 }
 
 function userEditInput($inputid)
@@ -259,7 +261,6 @@ function userEditConfirm($id)
         header('Location: ' . getUrl() . "/UserEdit/UserEditInput/$id");
     } else {
 
-        print $_SESSION['nameAvatar'];
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (isset($_POST['submit'])) {

@@ -17,7 +17,6 @@
             <input class="edit-input form_input" disabled type="text" name="name"
                 value="<?php print $_SESSION['name'] ?>">
         </div>
-        <p class="invalid-message invalid-type"></p>
         <div class="form-group">
             <label for="type-group">Phân loại</label>
             <div class="input-group form_input">
@@ -41,7 +40,6 @@
             <input class="edit-input form_input" type="text" name="userid" disabled
                 value="<?php print $_SESSION['userid'] ?>">
         </div>
-        <p class="invalid-message invalid-avatar"></p>
         <div class="form-group">
             <label for="avatar">Avatar</label>
             <div class="img-group">
