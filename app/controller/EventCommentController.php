@@ -9,7 +9,7 @@
         if(isset($_POST['submit'])) {
             $filename = $_FILES["file"]['name'];
             $tempname = $_FILES["file"]['tmp_name'];
-            $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/No5_quan_ly_su_kien/web/avatar/event/' . $event_id . '/' . $comment_id . '/';
+            $targetDir = $_SERVER['DOCUMENT_ROOT'] . getUrl() . 'web/avatar/event/' . $event_id . '/' . $comment_id . '/';
             $targetFilePath = $targetDir . $filename;
             
             $content = $_POST['comment'];
@@ -76,8 +76,8 @@
                 $result = addEventComment($event_id, $filename, $content);
                 if($result) {
                     $comment_id = getLastId();
-                    $targetDir_event = $_SERVER['DOCUMENT_ROOT'] . '/No5_quan_ly_su_kien/web/avatar/event/' . $event_id . '/';
-                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/No5_quan_ly_su_kien/web/avatar/event/' . $event_id . '/' . $comment_id . '/';
+                    $targetDir_event = $_SERVER['DOCUMENT_ROOT'] . getUrl() . 'web/avatar/event/' . $event_id . '/';
+                    $targetDir = $_SERVER['DOCUMENT_ROOT'] . getUrl() . 'web/avatar/event/' . $event_id . '/' . $comment_id . '/';
                     if(!is_dir($targetDir_event)) {
                         mkdir($targetDir_event);
                     }

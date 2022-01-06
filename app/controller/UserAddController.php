@@ -22,7 +22,7 @@ function userAddInput()
         load($_POST);
 
         backhome();
-        
+
         if (empty($name)) {
             $_SESSION['name'] = null;
             addError('name', 'Hãy nhập họ và tên');
@@ -242,10 +242,18 @@ function checkFileUpload()
     return $check_file;
 }
 
-function backhome(){
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if(isset($_POST['back-home'])){
-            header('Location:' . getUrl(). 'Login/home');
+function backhome()
+{
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['back-home'])) {
+            unset($_SESSION['name']);
+            unset($_SESSION['type']);
+            unset($_SESSION['user_id']);
+            unset($_SESSION['avatar']);
+            unset($_SESSION['nameAvatar']);
+            unset($_SESSION['description']);
+            unset($_SESSION['checkUserAdd']);
+            header('Location:' . getUrl() . 'Login/home');
         }
     }
 }
