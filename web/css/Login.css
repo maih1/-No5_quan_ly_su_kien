@@ -17,8 +17,8 @@ body {
     height: 25px;
     font-size : 15px;
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
-    background-color: #d7d8da;
-    border:2px solid #8d949c;
+    background-color: #e4f6ff;
+    border:1px solid #385D8A;
 }
 
 .submit{
@@ -26,6 +26,7 @@ body {
     width: 150px;
     border-radius: 5px;
     border: none;
+    color: white;
     background-color: #4f81bd;
     margin-left: 120px;
     margin-top: 20px;
@@ -33,6 +34,9 @@ body {
     font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif;
 }
 
+.submit:hover {
+    background-color: #629de4;
+}
 label {
     width: 120px;
     display: inline-block;
