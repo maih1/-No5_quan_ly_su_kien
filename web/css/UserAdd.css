@@ -91,9 +91,10 @@ input[type="file"] {
 #back-home {
     /* padding: 10px; */
     float: right;
-    width: 65px;
-    height: 30px;
+    width: 80px;
+    height: 60px;
     color: rgb(0, 0, 0);
+    padding: 10px;
     background-color: #4f81bdc2;
     border:1px solid #385D8A;
     cursor: pointer;
