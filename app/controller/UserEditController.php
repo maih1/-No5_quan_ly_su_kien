@@ -47,11 +47,11 @@ if (isset($_SESSION['nameAvatar'])) {
 }
 
 
-function updateUserController($id)
-{
-    $updateData = ["name" => "Nguyễn Tử Hoàng Minh"];
-    updateUser($id, $updateData);
-}
+// function updateUserController($id)
+// {
+//     $updateData = ["name" => "Nguyễn Tử Hoàng Minh"];
+//     updateUser($id, $updateData);
+// }
 
 
 function getAllUserIds()
@@ -63,14 +63,14 @@ function getAllUserIds()
     return $all_user_id;
 }
 
-function curUserValue($user)
-{
-    global $transfer_type;
+// function curUserValue($user)
+// {
+//     global $transfer_type;
 
-    $return_value = $user;
-    $return_value["type"] = $transfer_type[$return_value["type"]];
-    return $return_value;
-}
+//     $return_value = $user;
+//     $return_value["type"] = $transfer_type[$return_value["type"]];
+//     return $return_value;
+// }
 
 function clearSession()
 {
@@ -89,11 +89,6 @@ function getDataFromForm($data)
     $avatar = $data['avatar'];
 }
 
-// function checkAvatar()
-// {
-//     $target_dir = "web/avatar/event/tmp/";
-//     $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
-// }
 
 function validateData()
 {

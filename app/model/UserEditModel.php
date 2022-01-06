@@ -48,7 +48,7 @@ function updateUser($id, $payload)
         $description = $payload["description"];
         $avatar = $payload["avatar"];
 
-        $udpate_user_query = $conn->prepare("UPDATE `users` SET `name` = '$name', `type` = '$type', `user_id` = '$userid', `avatar` = '$avatar', `description` = '$description' WHERE `id` = $id");
+        $udpate_user_query = $conn->prepare("UPDATE `users` SET `name` = '$name', `type` = '$type', `user_id` = '$userid', `avatar` = '$avatar', `description` = '$description', `updated` = NOW() WHERE `id` = $id");
         $udpate_user_query->execute();
     } catch (PDOException $e) {
         echo "Connection failed: " . $e->getMessage();
