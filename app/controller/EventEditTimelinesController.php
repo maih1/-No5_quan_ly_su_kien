@@ -1,9 +1,10 @@
 <?php
-	require_once "./app/model/EventEditTimelinesModel.php";
+	require_once "./app/model/EventTimelinesModel.php";
 	require_once "./app/model/EventsModel.php";
 
 	function editSchedule($event_id, $id) {
 		$schedule = getChosenEvent($event_id, $id);
+		// print_r($schedule);
 		if(isset($_POST['submit']) ) {
 			
 			//get data
@@ -24,7 +25,7 @@
 			$validate['PoC'] = empty($PoC) ? 'Hãy nhập người chịu trách nhiệm' : '';
 			$validate['PoCLen'] = strlen($PoC) > 100 ? 'Độ dài người chịu trách nhiệm không quá 100' : '';
 
-			$validate['timeFormat'] = ((!preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from) || !preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $to)) && $validate['timefrom'] == '' && $validate['timeto'] == '') ? 'Không đúng định dạng thời gian' : '';
+			// $validate['timeFormat'] = ((!preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from) || !preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $to)) && $validate['timefrom'] == '' && $validate['timeto'] == '') ? 'Không đúng định dạng thời gian' : '';
 			
 
 			$checkValidate = 1;

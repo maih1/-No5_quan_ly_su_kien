@@ -58,9 +58,9 @@
             <input type="hidden" value="<?php echo $rand; ?>" name="randCheck" />
             <div class="data">
                 <label class="input-form">Thời gian</label>
-                <input type="time" name="from" <?php echo 'value="' . ($dataInput['0'] ?? '') . '"';?> class="input-time" id="timeFrom">
+                <input type="time" name="from" <?php echo 'value="' . ($dataInput['0'] ?? $schedule['from']) . '"';?> class="input-time" id="timeFrom">
                 <label>đến</label>
-                <input type="time" name="to" <?php echo 'value="' . ($dataInput['1'] ?? '') . '"'; ?> class="input-time" id="timeTo"> 
+                <input type="time" name="to" <?php echo 'value="' . ($dataInput['1'] ?? $schedule['to']) . '"'; ?> class="input-time" id="timeTo"> 
             </div>
             <?php if(isset($validate)) {
                 if(array_key_exists('timefrom', $validate)){
@@ -75,7 +75,7 @@
             } ?>
             <div class="data">
                 <label class="input-form">Tên lịch trình</label>
-                <input type="text" name="name" <?php echo 'value="' . ($dataInput['2'] ?? '') . '"';?> id="custom-text">
+                <input type="text" name="name" <?php echo 'value="' . ($dataInput['2'] ?? $schedule['name']) . '"';?> id="custom-text">
             </div>
             <?php if(isset($validate)) {
                     if(array_key_exists('name', $validate)){
@@ -90,7 +90,7 @@
             } ?>
             <div class="data">
                 <label class="input-form">Nội dung</label>
-                <textarea form="form" name="detail" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"><?php echo ($dataInput['3'] ?? ''); ?></textarea>
+                <textarea form="form" name="detail" id="text-area" cols="60" rows="10" wrap="hard" maxlength="1000"><?php echo ($dataInput['3'] ?? $schedule['detail']); ?></textarea>
             </div>
             <?php if(isset($validate)) {
                     if(array_key_exists('detail', $validate)){
@@ -105,7 +105,7 @@
             } ?>
             <div class="data">
                 <label class="input-form">Người chịu trách nhiệm</label>
-                <input type="text" name="PoC" <?php echo 'value="' . ($dataInput['4'] ?? '') . '"'; ?> id="custom-text">
+                <input type="text" name="PoC" <?php echo 'value="' . ($dataInput['4'] ?? $schedule['PoC']) . '"'; ?> id="custom-text">
             </div>
             <?php if(isset($validate)) {
                     if(array_key_exists('PoC', $validate)){
