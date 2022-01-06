@@ -22,7 +22,7 @@ form {
     width: 100px;
 }
 #keyword{
-    background-color: #d7d8da;
+    background-color: #e1e9f4;
     border:2px solid #8d949c;
     margin-bottom: 25px;
     padding: 12px 20px;
@@ -35,61 +35,74 @@ form {
 	margin-left: 35%;
     align-items: center;
 }
+
 .button-search-block{
     cursor: pointer;
-    color: black;
+    color: white;
     background-color: #4f81bc;
-    border:2px solid #4f81bc;
+    border:2px solid #3c5c84;
     float: none;
-	font-weight:bold;
     margin-right: 20px;
     margin-left: 20px;
     margin-bottom:20px;
+	border-radius: 10px; 
     width: 140px;
-    height: 40px;
+    height: 50px;
+}
+.button-search-block:hover {
+    background-color: #629de4;
 }
 .search-table{
-margin-top:30px;
+	margin-top:30px;
 }
 .search-no-th{
 	
 	text-align: left;
-	margin-right:0px;
+	width:50px;
 	font-weight:lighter;
 }
 .search-th{
 	text-align: left;
 	font-weight:lighter;
-    padding: 5px 50px;
-	width: 100px;
+    padding: 5px 20px;
+	width:140px;
 }
 .action-th{
 	text-align: left;
 	font-weight:lighter;
-	width: 400px;
+    padding: 5px 70px;
+	width:320px;
 }
 .action-button{
-	font-weight:bold;
+	color:white;
 	margin-right: 0px;
     width: 100px;
     height: 30px;
-    background-color: #324f75;
-    border:1px solid #385D8A;
+    background-color: #92b1d5;
+    border:1px solid #435a7a;
     cursor: pointer;
 }
 .delete-button{
-	font-weight:bold;
+	color:white;
 	margin-right: 0px;
     width: 50px;
     height: 30px;
-    background-color: #324f75;
-    border:1px solid #385D8A;
+    background-color: #92b1d5;
+    border:1px solid #435a7a;
     cursor: pointer;
 }
 #back {
     margin-left: 1000px;
-    width: 100px;
-    height: 60px;
+    width: 110px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
     background-color: #4f81bd;
-    border-radius: 10px; 
+    border:1px solid #3c5c84;
+    cursor: pointer;
+    border-radius: 5px; 
+	font-weight:bold;
+}
+#back:hover {
+    background-color: #629de4;
 }
