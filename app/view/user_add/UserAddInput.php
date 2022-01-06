@@ -13,6 +13,7 @@
 <body>
 
     <form method="POST" action="" enctype="multipart/form-data">
+        <button id="back-home" name="back-home" >Quay lại</button><br>
 
         <!-- User name -->
         <?php if (getError('name')) { ?>

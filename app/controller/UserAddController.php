@@ -2,6 +2,8 @@
 require_once "./app/common/ErrorValidate.php";
 require_once "./app/model/UserAddModel.php";
 require_once "./app/common/db.php";
+require_once './app/common/CheckLogin.php';
+
 
 $name = $type = $user_id = $description = $avatar = null;
 $check = 0;
@@ -18,6 +20,8 @@ function userAddInput()
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         load($_POST);
+
+        backhome();
 
         if (empty($name)) {
             $_SESSION['name'] = null;
@@ -238,12 +242,18 @@ function checkFileUpload()
     return $check_file;
 }
 
-function getUrl()
+function backhome()
 {
-    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-    $url = "/";
-    for ($i = 0; $i < count($urls) - 1; $i++) {
-        $url = $url . $urls[$i] . "/";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['back-home'])) {
+            header('Location:' . getUrl() . 'Login/home');
+            unset($_SESSION['name']);
+            unset($_SESSION['type']);
+            unset($_SESSION['user_id']);
+            unset($_SESSION['avatar']);
+            unset($_SESSION['nameAvatar']);
+            unset($_SESSION['description']);
+            unset($_SESSION['checkUserAdd']);
+        }
     }
-    return $url;
 }
