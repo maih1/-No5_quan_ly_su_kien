@@ -13,7 +13,7 @@
         <form action="../Reset/resets" method="POST">
             <table>
                 <?php
-                require_once './app/model/ResetModel.php';
+                require_once './app/model/AdminsModel.php';
                 $result = take_Name_ID();
 
                 echo

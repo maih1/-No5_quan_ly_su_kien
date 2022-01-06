@@ -3,7 +3,6 @@
 	<title>Đăng ký sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../web/css/EventAdd.css">
-    <script async src="../web/js/EventAddPreviewImg.js"></script>
 </head>
 <body>
     <form method="post" action="">   

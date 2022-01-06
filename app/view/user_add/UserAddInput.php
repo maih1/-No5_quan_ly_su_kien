@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web/css/UserAdd.css" type="text/css" />
-    <script type="text/javascript" async src="../web/js/UserAddRealFileBtn.js"></script>
+    <script type="text/javascript" async src="../web/js/RealFileBtn.js"></script>
     <title>Đăng ký người dùng</title>
 </head>
 
