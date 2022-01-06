@@ -89,9 +89,9 @@ th {
 }
 
 #back {
-    margin-left: 800px;
-    background-color: #4f81bdc2;
-    border:1px solid #385D8A;
-    width: 65px;
-    height: 30px;
+    margin-left: 780px;
+    width: 100px;
+    height: 60px;
+    background-color: #4f81bd;
+    border-radius: 10px; 
 }
