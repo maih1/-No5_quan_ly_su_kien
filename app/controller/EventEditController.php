@@ -55,9 +55,9 @@ function eventEditInput($event_id){
         $validate['name_length'] = strlen($event_name) > 100 ? 'Không nhập quá 100 ký tự. ' : '';
         $validate['slogan'] = empty($event_slogan) ? 'Hãy nhập slogan ' : '' ;
         $validate['slogan_length'] = strlen($event_slogan) > 250 ? 'Không nhập quá 250 ký tự.' : '';
-        $validate['leader'] = empty($event_leader) ? 'Hãy nhập leader sự kiện.' : '';
+        $validate['leader'] = empty($event_leader) ? 'Hãy nhập tên Leader.' : '';
         $validate['leader_length'] = strlen($event_leader) > 250 ? 'Không nhập quá 250 ký tự.' : '';
-        $validate['description'] = empty($event_description) ? 'Hãy nhập mô tả sự kiện.' : '';
+        $validate['description'] = empty($event_description) ? 'Hãy nhập mô tả chi tiết.' : '';
         $validate['description_length'] = strlen($event_description) > 1000 ? 'Không nhập quá 1000 ký tự.' : '' ; 
         
         $checkValidate = 1;
