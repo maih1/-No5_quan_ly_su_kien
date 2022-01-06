@@ -126,7 +126,7 @@ function eventEditConfirm($event_id){
             }else {
                 $avatar = $_SESSION['cur_name_avatar'];
             }
-            updateEventById($event_id, $_SESSION['name'],$_SESSION['slogan'],$_SESSION['leader'],$avatar,$_SESSION['description']);
+            updateEventById($event_id, $_SESSION['event_name'],$_SESSION['slogan'],$_SESSION['leader'],$avatar,$_SESSION['description']);
 
             if(isset($_SESSION['new_name_avatar'])){
                 $event_avatar = 'web/avatar/event/'. $event_id .'/'. $_SESSION['new_name_avatar'] ;
