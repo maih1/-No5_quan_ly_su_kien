@@ -7,7 +7,7 @@
 </head>
 <body>
     <form method="GET" enctype="multipart/form-data" >   
-		<div ><button id="back" type="button" name="schedule" onclick="window.location.href='../Login/home'" formaction="">Quay lại</button> </div>
+		<div ><button id="back" type="button" name="schedule" onclick="window.location.href='../Login/home/'" formaction="">Quay lại</button> </div>
         <label class="keyword" for="keyword">Từ khóa</label>
         <input id="keyword" type="text" name="keyword" maxlength="100" value="<?php echo $keyword;?>"> </input>        
         <div class="button-search">
