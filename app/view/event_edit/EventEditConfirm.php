@@ -8,7 +8,7 @@
     <form method="post" action="">   
 
         <label class="input-form" for="name">Tên sự kiện</label>
-        <label class="add-comfirm"><?php echo $_SESSION['name'];?></label><br>        
+        <label class="add-comfirm"><?php echo $_SESSION['event_name'];?></label><br>        
         
         <label class="input-form" for="slogan">Slogan</label>
         <label class="add-comfirm"><?php echo $_SESSION['slogan'];?></label><br>                
