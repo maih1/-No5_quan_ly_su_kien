@@ -95,10 +95,15 @@ input[type="file"] {
     height: 60px;
     color: rgb(0, 0, 0);
     padding: 10px;
-    background-color: #4f81bdc2;
-    border:1px solid #385D8A;
+    background-color: #4f81bd;
+    border:1px solid #4f81bd;
     cursor: pointer;
+    border-radius: 5px; 
 }
+
+#back-home:hover {
+    background-color: #0047b2;
+  }
 
 #output {
     width: 100px;

@@ -246,6 +246,7 @@ function backhome()
 {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['back-home'])) {
+            header('Location:' . getUrl() . 'Login/home');
             unset($_SESSION['name']);
             unset($_SESSION['type']);
             unset($_SESSION['user_id']);
@@ -253,7 +254,6 @@ function backhome()
             unset($_SESSION['nameAvatar']);
             unset($_SESSION['description']);
             unset($_SESSION['checkUserAdd']);
-            header('Location:' . getUrl() . 'Login/home');
         }
     }
 }
