@@ -7,7 +7,7 @@
 </head>
 <body>
     <form method="post" action="" enctype="multipart/form-data" >   
-        <button id="back-home" name="back-home" >Home</button><br>
+        <button id="back-home" name="back-home" >Quay lại</button><br>
 
         <?php if(getError('name')) {?>
             <span class="error"><?php  echo getError('name'); ?></span><br>

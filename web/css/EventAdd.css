@@ -89,14 +89,15 @@ input[type="file"] {
 }
 
 #back-home {
-    /* padding: 10px; */
-    float: right;
-    width: 65px;
-    height: 30px;
-    color: rgb(0, 0, 0);
-    background-color: #4f81bdc2;
-    border:1px solid #385D8A;
     cursor: pointer;
+    color: black;
+    background-color: #4f81bd;
+    border-style: solid;
+    border-color: #385D8A;
+    width: 100px;
+    height: 60px;
+    border-radius: 10px;
+    float: right;
 }
 
 #output {
