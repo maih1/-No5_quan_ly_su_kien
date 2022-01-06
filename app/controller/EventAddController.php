@@ -86,8 +86,9 @@
                 if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
                 && isset($_SESSION['leader']) && isset($_SESSION['description'])
                 && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
+                    $check_add = add();
                     
-                    $id = getIdEnd() + 1;
+                    $id = getIdEnd();
                     $target_dir = "web/avatar/event/".$id;
                     if(!file_exists($target_dir)){
                         mkdir($target_dir, 0777);
@@ -96,7 +97,6 @@
                     $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
                     rename($tmp_file, $target_file);
                     $_SESSION['avatar'] = $target_file;
-                    $check_add = add();
                 }
                 
                 $_SESSION['check-event-add-complete'] = $check_add;
