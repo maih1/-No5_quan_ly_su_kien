@@ -4,7 +4,6 @@ require_once "./app/model/EventsModel.php";
 
 function eventEditInput($event_id){
 
-    
     $event = getEventbyId($event_id);
     $event_name = $event['name'];
     $event_slogan = $event['slogan'];
@@ -73,8 +72,8 @@ function eventEditInput($event_id){
             }
         }
 
-        if(!is_dir('../web/avatar/event/tmp')) {
-            mkdir('../web/avatar/event/tmp', 0777, true);
+        if(!is_dir('../../web/avatar/event/tmp')) {
+            mkdir('../../web/avatar/event/tmp', 0777, true);
         }
         // upload file
         if($new_avatar){
