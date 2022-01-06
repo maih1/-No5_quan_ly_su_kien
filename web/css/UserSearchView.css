@@ -20,11 +20,11 @@ label {
 
 #key{
     display: inline-flex;
-    width: 205px;
+    width: 208px;
     border: 1px solid #385D8A;
     padding: 12px 20px;
     margin-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 select {
@@ -50,33 +50,35 @@ select {
 
 #search {
     margin-left: 330px;
+    width: 110px;
+    height: 50px;
+    color: white;
+    padding: 10px;
     background-color: #4f81bd;
-    border:2px solid #385D8A;
-    border-radius: 10px; 
-    padding: 12px 20px;
-    width: 130px;
-    margin-top: 10px;
+    border:1px solid #4f81bd;
+    cursor: pointer;
+    border-radius: 5px; 
 }
+
+#search:hover {
+    background-color: #629de4;
+  }
 
 table {
     border-collapse: collapse;
     margin-left: 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     width: 880px;
 }
 
 th, td{
-    border: 1px solid #385D8A;
     text-align: center;
     padding-left: 15px;
     padding-top: 3px;
-    padding-bottom: 2px;
-
 }
 
 th {
     text-align: center;
-    background-color: #4f81bdc2;
 }
 
 #butt {
@@ -84,14 +86,23 @@ th {
     border: 1px solid #385D8A;
     width: 55px;
     height: 25px;
+    color: white;
     margin-left: 4px;
     font-size: small;
 }
 
 #back {
-    margin-left: 800px;
-    background-color: #4f81bdc2;
-    border:1px solid #385D8A;
-    width: 65px;
-    height: 30px;
+    margin-left: 790px;
+    width: 110px;
+    height: 50px;
+    color: white;
+    padding: 10px;
+    background-color: #4f81bd;
+    border:1px solid #4f81bd;
+    cursor: pointer;
+    border-radius: 5px; 
 }
+
+#back:hover {
+    background-color: #629de4;
+  }

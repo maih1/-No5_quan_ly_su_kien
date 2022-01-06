@@ -12,7 +12,7 @@
 <body>
     <form method="GET">
         <div class="form_search" >
-            <button id="back" name="back" >Back</button>
+            <button id="back" type="button" name="schedule" onclick="window.location.href='../Login/home'" formaction="">Quay lại</button>
             <br>
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
             <select id="phanloai" name="phanloai">    
@@ -37,27 +37,27 @@
             </p>
             <table>
             <tr>
-                <th id="th1">No</th>
-                <th id="th2">Tên thành viên</th>
-                <th id="th3">Phân loại</th>
-                <th id="th2">Mô tả chi tiết</th>
-                <th id="th">Action</th>
+                <th>No</th>
+                <th>Tên thành viên</th>
+                <th>Phân loại</th>
+                <th>Mô tả chi tiết</th>
+                <th>Action</th>
             </tr>
             <?php
                 if(isset($search)){
                     foreach ($search as $key => $row) { ?>
                     <tr>
-                            <td id="td1"><?php echo $row['id']; ?></td>
-                            <td id="td2"><?php echo $row['name']; ?></td>
-                            <td id="td3"><?php
+                            <td><?php echo $row['id']; ?></td>
+                            <td><?php echo $row['name']; ?></td>
+                            <td><?php
                                 foreach ($classify as $k => $v) {
                                     if($row['type'] == $k){
                                         echo "$v", PHP_EOL;  
                                     }
                                 }
                                 ?></td>
-                            <td id="td3"><?php echo $row['description']; ?></td>
-                            <td id="td">
+                            <td><?php echo $row['description']; ?></td>
+                            <td>
                                 <button id="butt" type="submit" name="del" onclick="return confirm('Bạn chắc chắn muốn xóa user <?php echo $row['name']; ?>');" value ="<?php echo $row[0];?>">Xóa</button>
 
                                 <button id="butt" type="submit" name="edit">Sửa</button>
