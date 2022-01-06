@@ -12,7 +12,7 @@
 <body>
     <form method="GET">
         <div class="form_search" >
-        <button id="back" type="button" name="schedule" onclick="window.location.href='../Login/home/'" formaction="">Back</button>
+        <button id="back" type="button" name="schedule" onclick="window.location.href='../Login/home'" formaction="">Quay lại</button>
             <br>
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
             <select id="phanloai" name="phanloai">    
