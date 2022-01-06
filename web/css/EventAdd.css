@@ -62,7 +62,7 @@ input[type="file"] {
     cursor: pointer;
 }
 
-#custom-button:hover {
+#custom-button:hover,  #back-home:hover, .center-block:hover{
   background-color: #e4f6ff;
 }
 
