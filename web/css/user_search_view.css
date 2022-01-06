@@ -85,3 +85,11 @@ th {
     margin-left: 4px;
     font-size: small;
 }
+
+#back {
+    margin-left: 800px;
+    background-color: #e4f6ff;
+    border: 2px solid #97a8bc;
+    width: 70px;
+    height: 30px;
+}

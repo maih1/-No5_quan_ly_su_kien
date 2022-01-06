@@ -12,6 +12,8 @@
 <body>
     <form method="GET">
         <div class="form_search" >
+            <button id="back" name="back" >Back</button>
+            <br>
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
             <select id="phanloai" name="phanloai">    
                 <?php
@@ -49,14 +51,14 @@
                             <td id="td2"><?php echo $row['name']; ?></td>
                             <td id="td3"><?php
                                 foreach ($classify as $k => $v) {
-                                    if($row['type'] == $v){
-                                        echo "$k", PHP_EOL;  
+                                    if($row['type'] == $k){
+                                        echo "$v", PHP_EOL;  
                                     }
                                 }
                                 ?></td>
                             <td id="td3"><?php echo $row['description']; ?></td>
                             <td id="td">
-                                <button id="butt" type="submit" name="del" onclick="return confirm('Bạn chắc chắn muốn xóa user <?php echo $row['name'];?>');"value ="<?php echo $row[0];?>">Xóa</button>
+                                <button id="butt" type="submit" name="del" onclick="return confirm('Bạn chắc chắn muốn xóa user <?php echo $row['name']; ?>');" value ="<?php echo $row[0];?>">Xóa</button>
 
                                 <button id="butt" type="submit" name="edit">Sửa</button>
                             </td>
