@@ -1,20 +1,11 @@
 <?php
+require_once './app/common/CheckLogin.php';
 require_once "./app/model/UserEditModel.php";
 $transfer_type = [0 => "Giáo viên", 1 => "Sinh viên", 2 => "Sinh viên cũ"];
 $id = $name = $userid = $type = $description = $avatar = null;
 $cur_user_value = null;
 $errors = ['name' => '', 'userid' => '', 'type' => '', 'avatar' => '', 'description' => ''];
 $canSubmit = false;
-
-function getUrl()
-{
-    $urls = explode("/", filter_var(trim($_SERVER['PHP_SELF'], "/")));
-    $url = "/";
-    for ($i = 0; $i < count($urls) - 1; $i++) {
-        $url = $url . $urls[$i] . "/";
-    }
-    return $url;
-}
 
 
 // $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');

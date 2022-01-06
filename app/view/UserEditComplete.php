@@ -12,7 +12,7 @@
 <body>
     <div class="box-complete-message">
         <p class="complete-message">Chỉnh sửa thông tin thành công</p>
-        <a href=<?php print "$url" . "UserEdit/UserEditInput/1" ?> class="back-message">Quay về trang chủ</a>
+        <a href=<?php print "$url" . 'Login/home' ?> class="back-message">Quay về trang chủ</a>
     </div>
 </body>
 
