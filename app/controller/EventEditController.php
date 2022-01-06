@@ -15,8 +15,8 @@ function eventEditInput($event_id){
     $_SESSION['cur_name_avatar'] = $event['avatar']; // tên ảnh cũ trong db
     $_SESSION['check_input'] = true;
 
-    if( isset($_SESSION["name"]) ){
-        $event_name = $_SESSION["name"];
+    if( isset($_SESSION["event_name"]) ){
+        $event_name = $_SESSION["event_name"];
     }
 
     if( isset($_SESSION["slogan"]) ){
@@ -91,7 +91,7 @@ function eventEditInput($event_id){
 
 
         if($checkValidate && isset($_POST['submit']) ){
-            $_SESSION['name'] = $event_name;
+            $_SESSION['event_name'] = $event_name;
             $_SESSION['slogan'] = $event_slogan;
             $_SESSION['leader'] = $event_leader;
             $_SESSION['description'] = $event_description;
@@ -136,7 +136,7 @@ function eventEditConfirm($event_id){
                 
 
             }
-            unset($_SESSION['name']);
+            unset($_SESSION['event_name']);
             unset($_SESSION['slogan']);
             unset($_SESSION['leader']);
             unset($_SESSION['description']);
@@ -170,7 +170,7 @@ function test_input($data) {
 
         if(isset($_POST['back-home'])){
             header('Location:' . getUrl(). 'EventSearch/eventSearch');
-            unset($_SESSION['name']);
+            unset($_SESSION['event_name']);
             unset($_SESSION['slogan']);
             unset($_SESSION['leader']);
             unset($_SESSION['description']);
