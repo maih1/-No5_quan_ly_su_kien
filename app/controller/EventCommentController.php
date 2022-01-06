@@ -46,7 +46,7 @@
         $eventName = getEventName($event_id);
         $listComments = getComments($event_id);
         
-        require_once "./app/view/editComment.php";
+        require_once "./app/view/EditComment.php";
 
     }
 
@@ -95,7 +95,7 @@
         $eventName = getEventName($event_id);
         $listComments = getComments($event_id);
 
-        require_once "./app/view/addComment.php";
+        require_once "./app/view/AddComment.php";
         
     }
 ?>
