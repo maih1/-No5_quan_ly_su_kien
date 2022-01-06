@@ -120,7 +120,7 @@
                     }
             }?>
             <div>
-                <button class="center-block" type="submit" name="submit">Submit</button>
+                <button class="center-block" type="submit" name="submit">Thêm mới</button>
             </div>
         </form>
         
