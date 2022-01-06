@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link href="../web/style.css" rel="stylesheet">
+    <link href="../web/css/Reset.css" rel="stylesheet">
     <meta charset="utf-8">
     <title>Reset</title>
 </head>

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link href="../web/style.css" rel="stylesheet">
+    <link href="../web/css/Reset.css" rel="stylesheet">
     <title>Request</title>
 </head>
 
