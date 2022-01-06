@@ -18,10 +18,11 @@
 		<tr ><th class="search-no-th">No</th><th class="search-th">Tên sự kiện</th><th class="search-th">Slogan</th><th class="search-th">Leader</th><th class="action-th">Action</th></tr>
 		<?php
 		if (isset($event_search_result)) {
+			$count=1;
 			foreach ($event_search_result as $key => $value) {
 				?>
 				<tr>
-				<th class="search-no-th"><?php echo $value[0];?></th>
+				<th class="search-no-th"><?php echo $count++;?></th>
 				<th class="search-th"><?php echo $value[1];?></th>
 				<th class="search-th"><?php echo $value[2];?></th>
 				<th class="search-th"><?php echo $value[3];?></th>
