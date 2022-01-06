@@ -61,7 +61,7 @@
 
 .center-block {
   cursor: pointer;
-  color: black;
+  color: white;
   background-color: #4f81bd;
   border-style: solid;
   border-color: #4f81bd;
@@ -75,6 +75,11 @@
   border-radius: 5px; 
   width: 160px;
   height: 60px;
+}
+
+.center-block:hover {
+  background-color: #e4f6ff;
+  color: black;
 }
 
 ul, li {
@@ -276,7 +281,7 @@ tbody tr:hover {
 }
 .edit, .btn-back {
     cursor: pointer;
-    color: black;
+    color: white;
     background-color: #4f81bd;
     border-style: solid;
     border-color: #4f81bd;
@@ -300,6 +305,7 @@ tbody tr:hover {
 
 .btn-back:hover {
   background-color: #e4f6ff;
+  color: black;
 }
 
 .div-right {
