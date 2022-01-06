@@ -14,7 +14,6 @@
     // }
     function eventSearch() {
         global $event_search_result,$keyword;
-		
 		$a = explode("?", filter_var(trim($_SERVER['REQUEST_URI'], "?")));
 		if (count($a) >1){
 			$b = explode("&", $a[1]);
