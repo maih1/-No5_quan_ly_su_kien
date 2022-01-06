@@ -3,7 +3,7 @@
 	<title>Đăng ký sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../web/css/EventAdd.css">
-    <script type="text/javascript" async src="../web/js/EventAddRealFileBtn.js"></script>
+    <script type="text/javascript" async src="../web/js/RealFileBtn.js"></script>
 </head>
 <body>
     <form method="post" action="" enctype="multipart/form-data" >   

@@ -13,7 +13,7 @@
 		if (isset($_GET['submit']) || isset($keyword)){
 			$event_search_result= getEventSearchResult($_GET['keyword']);
 		}
-		require_once "./app/view/eventsearch/EventSearch.php";
+		require_once "./app/view/EventSearch.php";
     }
     function getValue($value, $nameValue){
         $res = null;

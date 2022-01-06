@@ -59,8 +59,7 @@ img[src] {
 }
 
 #uploadTrigger:hover {
-  background-color: #e4f6ff;
-  color: black;
+  background-color: #629de4;
 }
 
 .center-block {
@@ -81,8 +80,7 @@ img[src] {
 }
 
 .center-block:hover {
-  background-color: #e4f6ff;
-  color: black;
+  background-color: #629de4;
 }
 
 .hidden {
@@ -112,8 +110,7 @@ img[src] {
 }
 
 .btn-back:hover {
-  background-color: #e4f6ff;
-  color: black;
+  background-color: #629de4;
 }
 
 .div-right {

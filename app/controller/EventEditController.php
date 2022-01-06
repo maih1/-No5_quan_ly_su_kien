@@ -3,6 +3,8 @@ require_once './app/common/CheckLogin.php';
 require_once "./app/model/EventsModel.php";
 
 function eventEditInput($event_id){
+
+    
     $event = getEventbyId($event_id);
     $event_name = $event['name'];
     $event_slogan = $event['slogan'];
@@ -33,12 +35,14 @@ function eventEditInput($event_id){
     }
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){  
-
+        
         $event_name= test_input($_POST["event_name"]);
         $event_slogan= test_input($_POST["event_slogan"]);
         $event_leader= test_input($_POST["event_leader"]);
         $event_description= test_input($_POST["event_description"]);
-        
+
+        backhome();
+
         if(file_exists($_FILES["upload-file"]["tmp_name"] )) {
             $file_name =$_FILES["upload-file"]["name"]; // avatar mới
             $temp_name = $_FILES["upload-file"]["tmp_name"];// khi upload file len file luu lai vi tri tam thoi, khi đủ điều kiện sẽ chuyển file từ vị trí tạm thời vào target_dir
@@ -85,7 +89,7 @@ function eventEditInput($event_id){
         }
 
 
-        if($checkValidate){
+        if($checkValidate && isset($_POST['submit']) ){
             $_SESSION['name'] = $event_name;
             $_SESSION['slogan'] = $event_slogan;
             $_SESSION['leader'] = $event_leader;
@@ -152,3 +156,19 @@ function test_input($data) {
     $data = htmlspecialchars($data);
     return $data;
   }
+  function backhome(){
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if(isset($_POST['back-home'])){
+            header('Location:' . getUrl(). 'EventSearch/eventSearch');
+            unset($_SESSION['name']);
+            unset($_SESSION['slogan']);
+            unset($_SESSION['leader']);
+            unset($_SESSION['description']);
+            unset($_SESSION['cur_name_avatar']);
+            unset($_SESSION['new_name_avatar']);
+            unset($_SESSION['new_avatar']);
+        }
+        
+    }
+}

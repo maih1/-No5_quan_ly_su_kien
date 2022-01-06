@@ -56,7 +56,7 @@
 }
 
 #custom-button:hover {
-  background-color: #00b28f;
+  background-color: #629de4;
 }
 
 .center-block {
@@ -78,8 +78,7 @@
 }
 
 .center-block:hover {
-  background-color: #e4f6ff;
-  color: black;
+  background-color: #629de4;
 }
 
 ul, li {
@@ -304,8 +303,7 @@ tbody tr:hover {
 }
 
 .btn-back:hover {
-  background-color: #e4f6ff;
-  color: black;
+  background-color: #629de4;
 }
 
 .div-right {
