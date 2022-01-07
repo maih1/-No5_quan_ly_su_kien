@@ -1,7 +1,7 @@
 <?php
     require_once './app/common/CheckLogin.php';
 	require_once "./app/common/ErrorValidate.php";
-    require_once "./app/model/EventSearchModel.php";
+    require_once "./app/model/EventsModel.php";
     function delete_directory($dirname) {
 		if (is_dir($dirname))
 			$dir_handle = opendir($dirname);
