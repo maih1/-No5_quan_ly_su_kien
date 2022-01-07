@@ -3,6 +3,7 @@
 	require_once "./app/common/ErrorValidate.php";
     require_once "./app/model/EventsModel.php";
     function delete_directory($dirname) {
+		error_reporting(0);
 		if (is_dir($dirname))
 			$dir_handle = opendir($dirname);
 			if (!$dir_handle)
@@ -33,6 +34,18 @@
 		if (isset($_GET['submit']) || isset($keyword)){
 			$event_search_result= getEventSearchResult($_GET['keyword']);
 		}
+		if (isset($_GET['edit'])) {
+			$id=$_GET['edit'];
+			unset($_SESSION['event_name']);
+            unset($_SESSION['slogan']);
+            unset($_SESSION['leader']);
+            unset($_SESSION['description']);
+            unset($_SESSION['cur_name_avatar']);
+            unset($_SESSION['new_name_avatar']);
+            unset($_SESSION['new_avatar']);
+			header('Location: ../EventEdit/eventEditInput/'.$id.'');
+		}
+		//"window.location.href=''"
 		require_once "./app/view/EventSearch.php";
     }
 ?>
