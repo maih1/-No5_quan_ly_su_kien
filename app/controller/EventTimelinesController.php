@@ -27,7 +27,7 @@
 			// echo "</br>". preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from);
 			$validate['timeFormat'] = ((!preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $from) || !preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $to)) && $validate['timefrom'] == '' && $validate['timeto'] == '') ? 'Không đúng định dạng thời gian' : '';
 			foreach ($_POST as $key => $value) {
-				$validate[$key.'Format'] = preg_match("/[<,']/", $value) ? 'Không chứa < hoặc \'' : '';
+				$validate[$key.'Format'] = preg_match("/[<,',$,&]/", $value) ? 'Không chứa <, $, & hoặc \'' : '';
 			}
 			// print_r($validate);
 
