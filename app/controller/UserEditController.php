@@ -1,7 +1,7 @@
 <?php
 require_once './app/common/CheckLogin.php';
 require_once "./app/model/UserEditModel.php";
-$transfer_type = [0 => "Giáo viên", 1 => "Sinh viên", 2 => "Sinh viên cũ"];
+$transfer_type = [0 => "Sinh viên", 1 => "Giáo viên", 2 => "Sinh viên cũ"];
 $id = $name = $userid = $type = $description = $avatar = null;
 $cur_user_value = null;
 $errors = ['name' => '', 'userid' => '', 'type' => '', 'avatar' => '', 'description' => ''];
@@ -153,7 +153,7 @@ function validateData()
     $_SESSION['description'] = $description;
 
     if ($canSubmit) {
-        header('Location: ' . getUrl() . "/UserEdit/UserEditConfirm/$id");
+        header('Location: ' . getUrl() . "UserEdit/UserEditConfirm/$id");
     }
 }
 
@@ -181,14 +181,17 @@ function checkFileUpload()
     return true;
 }
 
+
 function checkExistAvatar()
 {
     global $id, $avatar;
     $prefix = "../../";
-    $ava_fromdb = "web/avatar/$id/" . checkRenderData($avatar, 'avatar');
-    $ava_fromtmp = "web/avatar/tmp" . checkRenderData($avatar, 'avatar');
-    return file_exists($ava_fromdb) ? $prefix . $ava_fromdb : (file_exists($ava_fromtmp) ? $prefix . $ava_fromtmp : "");
+    $ava_fromdb = "web/avatar/user/$id/" . checkRenderData($avatar, 'avatar');
+    $ava_fromtmp = "web/avatar/user/tmp/" . checkRenderData($avatar, 'avatar');
+
+    return file_exists($ava_fromdb) ? ($prefix . $ava_fromdb) : (file_exists($ava_fromtmp) ? ($prefix . $ava_fromtmp) : "");
 }
+
 
 
 function uploadAvatar()
@@ -205,7 +208,7 @@ function uploadAvatar()
             }
         }
 
-        $target_dir = "web/avatar/tmp/";
+        $target_dir = "web/avatar/user/tmp/";
         $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
 
         move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
@@ -220,7 +223,8 @@ function uploadAvatar()
 function checkRenderData($first, $type)
 {
     global $cur_user_value;
-    return $first != null ? $first : ($cur_user_value != null ? $cur_user_value[$type] : '');
+    $check = $type == 'avatar' ? 'nameAvatar' : $type;
+    return $first != null ? $first : ($cur_user_value != null ? $cur_user_value[$type] : (isset($_SESSION[$type]) ? $_SESSION[$type] : ""));
 }
 
 function userEditInput($inputid)
@@ -249,23 +253,22 @@ function userEditInput($inputid)
         validateData();
     }
 
-    require_once "app/view/UserEditInput.php";
+    require_once "app/view/user_edit/UserEditInput.php";
 }
-
-
 
 function userEditConfirm($id)
 {
     global $transfer_type;
+    global $avatar;
     if (!isset($_SESSION['name']) || !isset($_SESSION['type']) || !isset($_SESSION['userid']) || !isset($_SESSION['description'])) {
-        header('Location: ' . getUrl() . "/UserEdit/UserEditInput/$id");
+        header('Location: ' . getUrl() . "UserEdit/UserEditInput/$id");
     } else {
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if (isset($_POST['submit'])) {
                 $payload = ['name' => $_SESSION['name'], 'type' => $_SESSION['type'], 'userid' => $_SESSION['userid'], 'description' => $_SESSION['description'], 'avatar' => $_SESSION['nameAvatar']];
-                $target_dir = "web/avatar/" . $id;
+                $target_dir = "web/avatar/user/" . $id;
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0777);
                 }
@@ -281,17 +284,17 @@ function userEditConfirm($id)
                 unset($_SESSION['avatar']);
                 unset($_SESSION['description']);
                 unset($_SESSION['loaded']);
-                header('Location: ' . getUrl() . "/UserEdit/UserEditComplete");
+                header('Location: ' . getUrl() . "UserEdit/UserEditComplete");
             } else if (isset($_POST['back'])) {
-                header('Location: ' . getUrl() . "/UserEdit/UserEditInput/$id");
+                header('Location: ' . getUrl() . "UserEdit/UserEditInput/$id");
             }
         }
-        require_once "app/view/UserEditConfirm.php";
+        require_once "app/view/user_edit/UserEditConfirm.php";
     }
 }
 
 function userEditComplete()
 {
     $url = getUrl();
-    require_once "app/view/UserEditComplete.php";
+    require_once "app/view/user_edit/UserEditComplete.php";
 }
