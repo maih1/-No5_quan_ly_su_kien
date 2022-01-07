@@ -1,4 +1,5 @@
 <?php
+    require_once './app/common/CheckLogin.php';
     require_once './app/model/UserAddModel.php';
     $_classify = array("Sinh viên" => 1, "Giáo viên" => 2, "Sinh viên cũ" => 3);
     $classify = array(1 => "Sinh viên", 2 => "Giáo viên", 3 => "Sinh viên cũ");
