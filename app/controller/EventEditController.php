@@ -72,8 +72,8 @@ function eventEditInput($event_id){
             }
         }
 
-        if(!is_dir('../../web/avatar/event/tmp')) {
-            mkdir('../../web/avatar/event/tmp', 0777, true);
+        if(!file_exists('web/avatar/event/tmp')) {
+            mkdir('web/avatar/event/tmp', 0777, true);
         }
         // upload file
         if($new_avatar){
