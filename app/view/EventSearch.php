@@ -28,9 +28,9 @@
 				<th class="search-th"><?php echo $value[3];?></th>
 				<th class="action-th"> 
 				<button class="delete-button" type="submit" name="delete" onclick="return confirm('Bạn chắc chắn muốn xóa sự kiện <?php echo $value[1];?>');"value ="<?php echo $value[0];?>">Xóa</button>
-				<button class="delete-button" type="button" name="edit" onclick="window.location.href='../EventEdit/eventEditInput/<?php echo $value[0];?>'" formaction="">Sửa</button>
-				<button class="action-button" type="button" name="schedule" onclick="window.location.href='../EventTimelines/addSchedule/<?php echo $value[0];?>/<?php echo $keyword;?>'" formaction="">Lịch trình</button>
-				<button class="action-button" type="button" name="comment" onclick="window.location.href='../EventComment/addComment/<?php echo $value[0]; ?>'" formaction="">Comment</button>
+				<button class="delete-button" type="submit" name="edit"  value ="<?php echo $value[0];?>">Sửa</button>
+				<button class="action-button" type="button" name="schedule" onclick="window.location.href='../EventTimelines/addSchedule/<?php echo $value[0];?>/<?php echo $keyword;?>'" >Lịch trình</button>
+				<button class="action-button" type="button" name="comment" onclick="window.location.href='../EventComment/addComment/<?php echo $value[0]; ?>'" >Comment</button>
 				</th>
 				</tr>
 				<?php
