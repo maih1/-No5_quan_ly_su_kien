@@ -14,11 +14,11 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
             backhome();
-            
+
             if(empty($name)) {
                 $_SESSION['name'] = null;
                 addError('name', 'Hãy nhập tên sự kiện');
-            } elseif(strlen($name) == 100) {
+            } elseif(mb_strlen($name) > 100) {
                 addError('name', 'Không nhập quá 100 ký tự');
             } else {
                 $_SESSION['name'] = $name;
@@ -28,7 +28,7 @@
             if(empty($slogan)) {
                 $_SESSION['slogan'] = null;
                 addError('slogan', 'Hãy nhập slogan');
-            } elseif(strlen($slogan) == 250) {
+            } elseif(mb_strlen($slogan) > 250) {
                 addError('slogan', 'Không nhập quá 250 ký tự');
             } else {
                 $_SESSION['slogan'] = $slogan;
@@ -38,7 +38,7 @@
             if(empty($leader)) {
                 $_SESSION['leader'] = null;
                 addError('leader', 'Hãy nhập tên leader');
-            } elseif(strlen($leader) == 250) {
+            } elseif(mb_strlen($leader) > 250) {
                 addError('leader', 'Không nhập quá 250 ký tự');
             } else {
                 $_SESSION['leader'] = $leader;
@@ -48,7 +48,7 @@
             if(empty($description)) {
                 $_SESSION['description'] = null;
                 addError('description', 'Hãy nhập mô tả chi tiết');
-            } elseif(strlen($description) == 1000) {
+            } elseif(mb_strlen($description) > 1000) {
                 addError('description', 'Không nhập quá 1000 ký tự');
             } else {
                 $_SESSION['description'] = $description;
