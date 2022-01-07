@@ -63,11 +63,12 @@
     }
 
     function userSearchExact($phanloai) {
-        global $conn, $_classify;
+        global $conn, $classify;
         $phanloai = $_GET['phanloai'];
-        $query = "SELECT * FROM users WHERE type = :classify ";
+        $key = array_search($phanloai, $classify);
+        $query = "SELECT * FROM users WHERE type = :key ";
         $_query = $conn->prepare($query);
-        $_query -> bindParam(":classify", $_classify[$phanloai]);
+        $_query -> bindParam(":key", $key);
         $_query->execute();
         $count = $_query->fetchAll();
 
