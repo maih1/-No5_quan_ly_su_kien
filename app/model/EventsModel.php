@@ -77,11 +77,11 @@
             $stmt->bindParam(':avatar', $avatar);
             $stmt->bindParam(':description', $description);
 
-            $name = $_SESSION['name'];
-            $slogan = $_SESSION['slogan'];
-            $leader = $_SESSION['leader'];
-            $avatar = $_SESSION['nameAvatar'];
-            $description = $_SESSION['description'];
+            $name = $_SESSION['ev_add_name'];
+            $slogan = $_SESSION['ev_add_slogan'];
+            $leader = $_SESSION['ev_add_leader'];
+            $avatar = $_SESSION['ev_add_name_avatar'];
+            $description = $_SESSION['ev_add_des'];
 
             $stmt->execute();
             $check_add = true;

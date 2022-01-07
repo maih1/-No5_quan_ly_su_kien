@@ -30,6 +30,10 @@
     - Do view của từng phần có thể nhiều hơn một trang, nên thêm một thư mục của file view
         - Ví dụ: view/evnet_add/
 
++ Tài khoản và mật khẩu đăng nhập khi chạy chương trình:
+    - Tài khoản: admin
+    - Mật khẩu: 123456
+
 + DB
     - servername = "localhost";
     - username = "root";

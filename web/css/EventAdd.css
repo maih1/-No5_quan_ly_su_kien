@@ -24,6 +24,7 @@ form, .event-complete {
     margin-bottom: 15px;
     margin-right: 35px;
     display: inline-block;
+    vertical-align: middle;
     width: 100px;
 }
 
@@ -33,10 +34,11 @@ form, .event-complete {
     margin-bottom: 25px;
     padding: 12px 20px;
     width: 40%;
+    vertical-align: middle;
     display: inline-block;  
 }
 
-#description, #des {
+#description, #des{
     background-color: #e4f6ff;
     border:1px solid #385D8A;
     margin-bottom: 25px;
@@ -46,6 +48,17 @@ form, .event-complete {
     height: 150px;
     display: inline-block;  
     resize: none;
+}
+
+.add-confirm, #des{
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+#des {
+    min-height: 150px;
+    height: auto;
 }
 
 input[type="file"] {  
@@ -61,6 +74,8 @@ input[type="file"] {
     background-color: #4f81bdc2;
     border:1px solid #385D8A;
     cursor: pointer;
+    vertical-align: middle;
+    margin-bottom: 25px;
 }
 
 #custom-button:hover,  #back-home:hover, .center-block:hover{
@@ -102,8 +117,8 @@ input[type="file"] {
 }
 
 #output {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     background-color: #4f81bd;
     vertical-align: middle;
 }
