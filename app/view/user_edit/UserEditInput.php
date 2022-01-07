@@ -20,6 +20,7 @@
         }
             ?></p>
         <div class="form-group">
+            <button class="submit-btn back-btn" name="edit-back">Quay lại</button>
             <label for="name">Họ và tên</label>
             <input class="edit-input form_input" type="text" name="name"
                 value=<?php print checkRenderData($name, 'name') ?>>
@@ -89,7 +90,7 @@
                 maxlength="1000"><?php print checkRenderData($description, 'description') ?></textarea>
         </div>
         <div class="btn-group">
-            <button class="submit-btn">Xác nhận</button>
+            <button class="submit-btn" name="submit">Xác nhận</button>
         </div>
     </form>
     <script type="text/javascript" src="../../web/js/UserEditInput.js"></script>

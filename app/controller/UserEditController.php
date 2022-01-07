@@ -1,6 +1,6 @@
 <?php
 require_once './app/common/CheckLogin.php';
-require_once "./app/model/UserEditModel.php";
+require_once "./app/model/UserModel.php";
 $transfer_type = [0 => "Sinh viên", 1 => "Giáo viên", 2 => "Sinh viên cũ"];
 $id = $name = $userid = $type = $description = $avatar = null;
 $cur_user_value = null;
@@ -248,9 +248,12 @@ function userEditInput($inputid)
         $name = $type = $userid = $description = null;
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        getDataFromForm($_POST);
-        validateData();
+        if (isset($_POST['submit'])) {
+            getDataFromForm($_POST);
+            validateData();
+        } else if (isset($_POST['edit-back'])) {
+            header("Location: " . getUrl() . 'Login/home');
+        }
     }
 
     require_once "app/view/user_edit/UserEditInput.php";

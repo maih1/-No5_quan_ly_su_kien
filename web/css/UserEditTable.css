@@ -55,6 +55,7 @@ body {
 }
 
 form {
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: auto;
@@ -127,6 +128,10 @@ input[type='radio'] {
   display: none;
 }
 
+.btn-browse-file {
+  cursor: pointer;
+}
+
 /* User Edit Complete */
 .box-complete-message {
   margin: auto;
@@ -146,4 +151,11 @@ input[type='radio'] {
 .box-complete-message > .back-message {
   font-size: 14px;
   font-style: italic;
+}
+
+.back-btn {
+  position: absolute;
+  top: 7.5%;
+  right: 10%;
+  border-radius: 10px;
 }
