@@ -90,7 +90,7 @@ CREATE TABLE `event_comments` (
 
 INSERT INTO `event_comments` (`id`, `event_id`, `avatar`, `content`, `updated`, `created`) VALUES
 (1, 1, 'HUS.jpg', 'Chào tân sinh viên', '2022-01-06 15:03:31', '2022-01-06 15:03:31'),
-(2, 1, 'HUS.jpg', 'Chào tân sinh viên', '2022-01-06 15:06:44', '2022-01-06 15:06:44');
+(2, 1, 'K66.jpg', 'Chào tân sinh viên', '2022-01-06 15:06:44', '2022-01-06 15:06:44');
 
 -- --------------------------------------------------------
 
