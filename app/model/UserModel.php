@@ -108,8 +108,12 @@ function add()
 
 function userSearch($key, $phanloai) {
         global $conn, $classify;
+        
         $key = "%".$key."%";
-        $query = "SELECT * FROM users WHERE (name LIKE :key OR description LIKE :key) AND type = :phanloai";
+        if ($phanloai=="")
+            $query = "SELECT * FROM users WHERE name LIKE :key OR description LIKE :key";
+        else
+            $query = "SELECT * FROM users WHERE (name LIKE :key OR description LIKE :key) AND type = :phanloai";
         $_query = $conn->prepare($query);
         $_query->bindParam(':phanloai', $phanloai);
         $_query->bindParam(':key', $key);
@@ -117,7 +121,7 @@ function userSearch($key, $phanloai) {
         $result = $_query->fetchAll();
         
         return $result;
-    }
+}
 
 function userDel($id)
 {
