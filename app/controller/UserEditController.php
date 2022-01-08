@@ -1,17 +1,12 @@
 <?php
 require_once './app/common/CheckLogin.php';
 require_once "./app/model/UserModel.php";
-$transfer_type = [0 => "Sinh viên", 1 => "Giáo viên", 2 => "Sinh viên cũ"];
+$transfer_type = ['1' => "Sinh viên", '2' => "Giáo viên", '3' => "Sinh viên cũ"];
 $id = $name = $userid = $type = $description = $avatar = null;
 $cur_user_value = null;
 $errors = ['name' => '', 'userid' => '', 'type' => '', 'avatar' => '', 'description' => ''];
 $canSubmit = false;
 
-
-// $pageRefreshed = isset($_SERVER['HTTP_CACHE_CONTROL']) && ($_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0' ||  $_SERVER['HTTP_CACHE_CONTROL'] == 'no-cache');
-// if ($pageRefreshed == 1) {
-//     unset($_SESSION['loaded']);
-// }
 
 if (isset($_SESSION['id'])) {
     $id = $_SESSION['id'];
@@ -37,14 +32,7 @@ if (isset($_SESSION['nameAvatar'])) {
     $avatar = $_SESSION['nameAvatar'];
 }
 
-
-// function updateUserController($id)
-// {
-//     $updateData = ["name" => "Nguyễn Tử Hoàng Minh"];
-//     updateUser($id, $updateData);
-// }
-
-
+// Get all users id
 function getAllUserIds()
 {
     $all_user_id_fromdb = getAllUserId();
@@ -54,15 +42,7 @@ function getAllUserIds()
     return $all_user_id;
 }
 
-// function curUserValue($user)
-// {
-//     global $transfer_type;
-
-//     $return_value = $user;
-//     $return_value["type"] = $transfer_type[$return_value["type"]];
-//     return $return_value;
-// }
-
+// I do this function to clear all the session
 function clearSession()
 {
     session_unset();
@@ -78,6 +58,14 @@ function getDataFromForm($data)
     $type = $data['type'];
     $description = $data['description'];
     $avatar = $data['avatar'];
+}
+
+// Check if the data data is not in the variable in controller, it will take the value in db, if not neither, it will take the value from the session
+function checkRenderData($first, $type)
+{
+    global $cur_user_value;
+    $check = $type == 'avatar' ? 'nameAvatar' : $type;
+    return $first != null ? $first : ($cur_user_value != null ? $cur_user_value[$type] : (isset($_SESSION[$type]) ? $_SESSION[$type] : ""));
 }
 
 
@@ -147,6 +135,7 @@ function validateData()
             $canSubmit = true;
         }
     }
+
     $_SESSION['name'] = $name;
     $_SESSION['type'] = $type;
     $_SESSION['userid'] = $userid;
@@ -159,9 +148,7 @@ function validateData()
 
 function checkFileUpload()
 {
-    $check_file = true;
     $maxfilesize = 524288000;
-
     $allowtypes = array(
         'image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp',
         'image/png', 'image/svg', 'image/ico', 'image/cur', 'image/gif', 'image/apng'
@@ -181,7 +168,7 @@ function checkFileUpload()
     return true;
 }
 
-
+// Check if the avatar exist, it will display in the ui
 function checkExistAvatar()
 {
     global $id, $avatar;
@@ -191,7 +178,6 @@ function checkExistAvatar()
 
     return file_exists($ava_fromdb) ? ($prefix . $ava_fromdb) : (file_exists($ava_fromtmp) ? ($prefix . $ava_fromtmp) : "");
 }
-
 
 
 function uploadAvatar()
@@ -213,18 +199,10 @@ function uploadAvatar()
 
         move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
         $_SESSION['avatar'] =  $target_dir . $avatar;
-        // print $_SESSION['avatar'];
         $_SESSION['nameAvatar'] = $avatar;
     } else {
         $errors['avatar'] = 'Hình ảnh không hợp lệ';
     }
-}
-
-function checkRenderData($first, $type)
-{
-    global $cur_user_value;
-    $check = $type == 'avatar' ? 'nameAvatar' : $type;
-    return $first != null ? $first : ($cur_user_value != null ? $cur_user_value[$type] : (isset($_SESSION[$type]) ? $_SESSION[$type] : ""));
 }
 
 function userEditInput($inputid)
@@ -252,7 +230,13 @@ function userEditInput($inputid)
             getDataFromForm($_POST);
             validateData();
         } else if (isset($_POST['edit-back'])) {
-            header("Location: " . getUrl() . 'Login/home');
+            unset($_SESSION['name']);
+            unset($_SESSION['type']);
+            unset($_SESSION['userid']);
+            unset($_SESSION['avatar']);
+            unset($_SESSION['description']);
+            unset($_SESSION['loaded']);
+            header("Location: " . getUrl() . 'UserSearch/userSearchF');
         }
     }
 

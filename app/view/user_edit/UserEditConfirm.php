@@ -14,31 +14,16 @@
 
         <div class="form-group">
             <label for="name">Họ và tên</label>
-            <input class="edit-input form_input" disabled type="text" name="name"
-                value="<?php print $_SESSION['name'] ?>">
+            <label class="confirm-label" name="name"><?php print $_SESSION['name'] ?>
         </div>
         <div class="form-group">
             <label for="type-group">Phân loại</label>
-            <div class="input-group form_input">
-
-                <?php
-                foreach ($transfer_type as $key => $value) {
-                    $is_checked = $key == $_SESSION['type'] ? 'checked' : '';
-                    print "
-                    <div class='radio-group'>
-                        <input disabled type='radio' $is_checked value='$key' name='type'>
-                        <label for='$value'>$value</label>
-                    </div>
-                ";
-                }
-                ?>
-            </div>
+            <label class="confirm-label" name="type"><?php print $transfer_type[$_SESSION['type']] ?>
         </div>
 
         <div class="form-group">
             <label for="userid">Id</label>
-            <input class="edit-input form_input" type="text" name="userid" disabled
-                value="<?php print $_SESSION['userid'] ?>">
+            <label class="confirm-label" name="type"><?php print $_SESSION['userid'] ?>
         </div>
         <div class="form-group">
             <label for="avatar">Avatar</label>
@@ -54,8 +39,8 @@
 
         <div class="form-group">
             <label for="description">Mô tả thêm</label>
-            <textarea class="edit-input form_input" disabled type="text" name="description" rows="4"
-                maxlength="1000"><?php print $_SESSION['description'] ?></textarea>
+            <label class="confirm-label description-confirm" name="type"><?php print $_SESSION['description'] ?>
+
         </div>
         <div class="btn-group">
             <button class="submit-btn" name="back">Sửa lại</button>
