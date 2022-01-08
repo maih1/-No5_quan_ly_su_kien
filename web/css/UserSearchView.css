@@ -78,9 +78,25 @@ td {
   padding-top: 3px;
 }
 
-#td3 {
-  max-width: 50%;
+.col-name {
+  width: 20%;
   overflow-wrap: anywhere;
+}
+
+.col-type {
+  width: 15%;
+  overflow-wrap: anywhere;
+}
+
+.col-description {
+  text-align: center !important;
+  display: inline-block;
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+
+.col-action {
+  width: 10%;
 }
 
 th {

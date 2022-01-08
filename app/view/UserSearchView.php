@@ -23,7 +23,7 @@
                 <?php
                 foreach ($classify as $row => $q) {
                 ?>
-                
+
                 <option value="<?php echo $row ?>"><?php echo $q; ?></option>
                 <?php
                 }
@@ -44,26 +44,26 @@
             <table>
                 <tr>
                     <th id="th1">No</th>
-                    <th id="th2">Tên thành viên</th>
-                    <th id="th3">Phân loại</th>
-                    <th id="th2">Mô tả chi tiết</th>
-                    <th id="th">Action</th>
+                    <th id="th2" class="col-name">Tên thành viên</th>
+                    <th id="th3" class="col-type">Phân loại</th>
+                    <th id="th2" class="col-description">Mô tả chi tiết</th>
+                    <th id="th" class="col-action">Action</th>
                 </tr>
                 <?php
                 if (isset($search)) {
                     foreach ($search as $key => $row) { ?>
                 <tr>
                     <td id="td1"><?php echo $row['id']; ?></td>
-                    <td id="td2"><?php echo $row['name']; ?></td>
-                    <td id="td3"><?php
-                                            foreach ($classify as $k => $v) {
-                                                if ($row['type'] == $k) {
-                                                    echo "$v", PHP_EOL;
-                                                }
-                                            }
-                                            ?></td>
-                    <td id="td3"><?php echo $row['description']; ?></td>
-                    <td id="td">
+                    <td id="td2" class="col-name"><?php echo $row['name']; ?></td>
+                    <td id="td3" class="col-type"><?php
+                                                            foreach ($classify as $k => $v) {
+                                                                if ($row['type'] == $k) {
+                                                                    echo "$v", PHP_EOL;
+                                                                }
+                                                            }
+                                                            ?></td>
+                    <td id="td3" class="col-description"><?php echo $row['description']; ?></td>
+                    <td id="td" class="col-action">
                         <button id="butt" type="submit" name="del"
                             onclick="return confirm('Bạn chắc chắn muốn xóa user <?php echo $row['name']; ?>');"
                             value="<?php echo $row[0]; ?>">Xóa</button>
