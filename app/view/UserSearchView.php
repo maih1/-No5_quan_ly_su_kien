@@ -19,9 +19,11 @@
             <br>
             <label for="phanloai"><?php echo "Phân loại" ?> </label>
             <select id="phanloai" name="phanloai">
+                <option value=""></option>
                 <?php
                 foreach ($classify as $row => $q) {
                 ?>
+                
                 <option value="<?php echo $row ?>"><?php echo $q; ?></option>
                 <?php
                 }
