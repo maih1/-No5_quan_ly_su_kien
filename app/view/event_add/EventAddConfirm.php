@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Đăng ký sự kiện</title>
+	<title>Xác nhận đăng ký sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../web/css/EventAdd.css">
 </head>

@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Sửa sự kiện</title>
+	<title>Hoàn thành sửa sự kiện</title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../../web/css/EventEdit.css">
 
