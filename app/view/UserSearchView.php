@@ -22,7 +22,7 @@
                 <?php
                 foreach ($classify as $row => $q) {
                 ?>
-                <option><?php echo $q; ?></option>
+                <option value="<?php echo $row ?>"><?php echo $q; ?></option>
                 <?php
                 }
                 ?>
