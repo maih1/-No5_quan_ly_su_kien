@@ -1,0 +1,138 @@
+body {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  font-size: 15px;
+}
+
+form {
+  margin: auto;
+  margin-top: 80px;
+  width: 60%;
+  padding: 30px;
+}
+
+label {
+  display: inline-flex;
+  width: 100px;
+  padding: 12px 20px;
+  margin-left: 120px;
+  margin-bottom: 10px;
+}
+
+#key {
+  display: inline-flex;
+  width: 208px;
+  border: 1px solid #385d8a;
+  padding: 12px 20px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+select {
+  font-family: Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+  display: inline-flex;
+  border: 1px solid #385d8a;
+  padding: 12px 20px;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+
+  float: none;
+  margin-left: 20px;
+  width: 250px;
+  margin-right: 350px;
+
+  background: transparent;
+  background: url(../image/arrow.png) no-repeat right rgb(255, 255, 255);
+  -webkit-appearance: none;
+  background-position-x: 244 px;
+  background-repeat: no-repeat;
+}
+
+#search {
+  margin-left: 330px;
+  width: 110px;
+  height: 50px;
+  color: white;
+  padding: 10px;
+  background-color: #4f81bd;
+  border: 1px solid #4f81bd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#search:hover {
+  background-color: #629de4;
+}
+
+table {
+  border-collapse: collapse;
+  margin-left: 10px;
+  margin-top: 20px;
+  width: 880px;
+}
+
+th,
+td {
+  text-align: center;
+  padding-left: 15px;
+  padding-top: 3px;
+}
+
+.col-name {
+  width: 20%;
+  overflow-wrap: anywhere;
+}
+
+.col-type {
+  width: 15%;
+  overflow-wrap: anywhere;
+}
+
+.col-description {
+  text-align: center !important;
+  display: inline-block;
+  overflow-wrap: anywhere;
+  width: 100%;
+}
+
+.col-action {
+  width: 20%;
+}
+
+th {
+  text-align: center;
+}
+
+#butt {
+  background-color: #4f81bdc2;
+  border: 1px solid #385d8a;
+  width: 55px;
+  height: 25px;
+  color: white;
+  margin-left: 4px;
+  font-size: small;
+}
+
+#back {
+  margin-left: 790px;
+  width: 110px;
+  height: 50px;
+  color: white;
+  padding: 10px;
+  background-color: #4f81bd;
+  border: 1px solid #4f81bd;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#back:hover {
+  background-color: #629de4;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
