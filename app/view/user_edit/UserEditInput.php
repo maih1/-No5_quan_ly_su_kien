@@ -20,8 +20,8 @@
         }
             ?></p>
         <div class="form-group">
-            <button class="submit-btn back-btn" name="edit-back">Quay lại</button>
             <label for="name">Họ và tên</label>
+            <button class="submit-btn back-btn" name="edit-back">Quay lại</button>
             <input class="edit-input form_input" type="text" name="name"
                 value=<?php print checkRenderData($name, 'name') ?>>
         </div>

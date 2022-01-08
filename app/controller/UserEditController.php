@@ -227,7 +227,6 @@ function userEditInput($inputid)
     }
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['submit'])) {
-            var_dump($_POST);
             getDataFromForm($_POST);
             validateData();
         } else if (isset($_POST['edit-back'])) {

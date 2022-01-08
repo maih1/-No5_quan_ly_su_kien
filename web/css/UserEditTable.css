@@ -91,6 +91,7 @@ form p.invalid-message {
 
 .form_input {
   flex-basis: 256px;
+  overflow-wrap: break-word;
 }
 
 .input-group .radio-group + .radio-group {
