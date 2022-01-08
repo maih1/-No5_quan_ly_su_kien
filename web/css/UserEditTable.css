@@ -20,8 +20,16 @@
   padding: 12px 20px;
 }
 
+.confirm-label {
+  background-color: var(--input-background-color);
+  border: var(--input-border);
+  padding: 12px 20px;
+  min-width: 256px;
+}
+
 button {
   padding: 12px 20px;
+  color: white;
 }
 
 button:hover {
@@ -77,7 +85,7 @@ form p.invalid-message {
   padding: 8px 0;
 }
 
-.form-group > label {
+.form-group label:first-child {
   flex-basis: 20%;
 }
 
@@ -130,6 +138,14 @@ input[type='radio'] {
 
 .btn-browse-file {
   cursor: pointer;
+}
+
+/* User Confirm */
+.description-confirm {
+  height: 90px;
+  flex: 1 !important;
+  overflow-wrap: break-word;
+  overflow-y: auto;
 }
 
 /* User Edit Complete */
