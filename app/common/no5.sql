@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 21, 2021 at 07:55 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.10
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th1 07, 2022 lúc 08:56 AM
+-- Phiên bản máy phục vụ: 10.4.13-MariaDB
+-- Phiên bản PHP: 7.4.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,179 +18,48 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `no5`
+-- Cơ sở dữ liệu: `no5`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admins`
+-- Cấu trúc bảng cho bảng `admins`
 --
-
-CREATE TABLE `admins` (
-  `id` int(10) NOT NULL,
-  `login_id` varchar(20) NOT NULL,
-  `password` varchar(64) NOT NULL,
-  `actived_flag` int(1) NOT NULL DEFAULT 1,
-  `reset_password_token` varchar(100) NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table no5.admins: #1932 - Table 'no5.admins' doesn't exist in engine
+-- Error reading data for table no5.admins: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `no5`.`admins`' at line 1
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `events`
+-- Cấu trúc bảng cho bảng `events`
 --
-
-CREATE TABLE `events` (
-  `id` int(10) NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `slogan` char(10) NOT NULL,
-  `leader` varchar(250) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table no5.events: #1932 - Table 'no5.events' doesn't exist in engine
+-- Error reading data for table no5.events: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `no5`.`events`' at line 1
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_comments`
+-- Cấu trúc bảng cho bảng `event_comments`
 --
-
-CREATE TABLE `event_comments` (
-  `id` int(10) NOT NULL,
-  `event_id` int(10) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `content` text NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table no5.event_comments: #1932 - Table 'no5.event_comments' doesn't exist in engine
+-- Error reading data for table no5.event_comments: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `no5`.`event_comments`' at line 1
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `event_timelines`
+-- Cấu trúc bảng cho bảng `event_timelines`
 --
-
-CREATE TABLE `event_timelines` (
-  `id` int(10) NOT NULL,
-  `event_id` int(10) NOT NULL,
-  `from` time NOT NULL,
-  `to` time NOT NULL,
-  `name` varchar(250) NOT NULL,
-  `detail` text NOT NULL,
-  `PoC` varchar(250) NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- Error reading structure for table no5.event_timelines: #1932 - Table 'no5.event_timelines' doesn't exist in engine
+-- Error reading data for table no5.event_timelines: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `no5`.`event_timelines`' at line 1
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
-
-CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
-  `type` int(1) NOT NULL DEFAULT 1,
-  `name` varchar(250) NOT NULL,
-  `user_id` char(15) NOT NULL,
-  `avatar` varchar(250) NOT NULL,
-  `description` text NOT NULL,
-  `updated` datetime NOT NULL,
-  `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `login_id` (`login_id`);
-
---
--- Indexes for table `events`
---
-ALTER TABLE `events`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `event_comments`
---
-ALTER TABLE `event_comments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `event_id` (`event_id`);
-
---
--- Indexes for table `event_timelines`
---
-ALTER TABLE `event_timelines`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `event_id` (`event_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `events`
---
-ALTER TABLE `events`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `event_comments`
---
-ALTER TABLE `event_comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `event_timelines`
---
-ALTER TABLE `event_timelines`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `event_comments`
---
-ALTER TABLE `event_comments`
-  ADD CONSTRAINT `event_comments_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
-
---
--- Constraints for table `event_timelines`
---
-ALTER TABLE `event_timelines`
-  ADD CONSTRAINT `event_timelines_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `events` (`id`);
+-- Error reading structure for table no5.users: #1932 - Table 'no5.users' doesn't exist in engine
+-- Error reading data for table no5.users: #1064 - You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM `no5`.`users`' at line 1
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
