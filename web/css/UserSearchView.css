@@ -78,6 +78,11 @@ td {
   padding-top: 3px;
 }
 
+#td3 {
+  max-width: 50%;
+  overflow-wrap: anywhere;
+}
+
 th {
   text-align: center;
 }
