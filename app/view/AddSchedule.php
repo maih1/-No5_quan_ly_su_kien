@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../../../web/css/AddSchedule.css"/>
     <link rel="stylesheet" type="text/css" href="../../../web/css/jquery.datetimepicker.css"/>
     <script src="../../web/js/AddSchedule.js" type="text/javascript"></script>
-    <title>Add Schedule</title>
+    <title>Thêm lịch trình sự kiện</title>
 </head>
 <body>
     <div id="mainform">
