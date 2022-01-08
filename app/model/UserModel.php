@@ -106,33 +106,18 @@ function add()
     return $check_add;
 }
 
-function userSearch($key)
-{
-    global $conn;
-    //$key = isset($_GET['key']) ? $_GET['key'] : '';
-    $key = "%" . $_GET['key'] . "%";
-    $query = "SELECT * FROM users WHERE name LIKE :key OR description LIKE :key";
-    $_query = $conn->prepare($query);
-    $_query->bindParam(':key', $key);
-    $_query->execute();
-    $result = $_query->fetchAll();
-
-    return $result;
-}
-
-function userSearchExact($phanloai)
-{
-    global $conn, $classify;
-    $phanloai = $_GET['phanloai'];
-    $key = array_search($phanloai, $classify);
-    $query = "SELECT * FROM users WHERE type = :key ";
-    $_query = $conn->prepare($query);
-    $_query->bindParam(":key", $key);
-    $_query->execute();
-    $count = $_query->fetchAll();
-
-    return $count;
-}
+function userSearch($key, $phanloai) {
+        global $conn, $classify;
+        $key = "%".$key."%";
+        $query = "SELECT * FROM users WHERE (name LIKE :key OR description LIKE :key) AND type = :phanloai";
+        $_query = $conn->prepare($query);
+        $_query->bindParam(':phanloai', $phanloai);
+        $_query->bindParam(':key', $key);
+        $_query->execute();
+        $result = $_query->fetchAll();
+        
+        return $result;
+    }
 
 function userDel($id)
 {
