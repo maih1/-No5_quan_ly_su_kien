@@ -6,6 +6,8 @@
     $name = $slogan = $leader = $description = $avatar = null;
     $check = 0;
 
+    // Check validate
+    // add data to session
     function eventAddInput() {
         global $name, $slogan, $leader, $description, $avatar;
         global $check;
@@ -14,49 +16,49 @@
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             load($_POST); 
             backhome();
-            
+
             if(empty($name)) {
-                $_SESSION['name'] = null;
+                $_SESSION['ev_add_name'] = null;
                 addError('name', 'Hãy nhập tên sự kiện');
-            } elseif(strlen($name) == 100) {
+            } elseif(mb_strlen($name) > 100) {
                 addError('name', 'Không nhập quá 100 ký tự');
             } else {
-                $_SESSION['name'] = $name;
+                $_SESSION['ev_add_name'] = $name;
                 $check++;
             }
 
             if(empty($slogan)) {
-                $_SESSION['slogan'] = null;
+                $_SESSION['ev_add_slogan'] = null;
                 addError('slogan', 'Hãy nhập slogan');
-            } elseif(strlen($slogan) == 250) {
+            } elseif(mb_strlen($slogan) > 250) {
                 addError('slogan', 'Không nhập quá 250 ký tự');
             } else {
-                $_SESSION['slogan'] = $slogan;
+                $_SESSION['ev_add_slogan'] = $slogan;
                 $check++;
             }
 
             if(empty($leader)) {
-                $_SESSION['leader'] = null;
+                $_SESSION['ev_add_leader'] = null;
                 addError('leader', 'Hãy nhập tên leader');
-            } elseif(strlen($leader) == 250) {
+            } elseif(mb_strlen($leader) > 250) {
                 addError('leader', 'Không nhập quá 250 ký tự');
             } else {
-                $_SESSION['leader'] = $leader;
+                $_SESSION['ev_add_leader'] = $leader;
                 $check++;
             }
 
             if(empty($description)) {
-                $_SESSION['description'] = null;
+                $_SESSION['ev_add_des'] = null;
                 addError('description', 'Hãy nhập mô tả chi tiết');
-            } elseif(strlen($description) == 1000) {
+            } elseif(mb_strlen($description) > 1000) {
                 addError('description', 'Không nhập quá 1000 ký tự');
             } else {
-                $_SESSION['description'] = $description;
+                $_SESSION['ev_add_des'] = $description;
                 $check++;
             }
             
             if(empty($avatar)) {
-                $_SESSION['nameAvatar'] = null;
+                $_SESSION['ev_add_name_avatar'] = null;
                 addError('avatar', 'Hãy chọn avatar');
             } else {
                 uploadAvatar();                  
@@ -67,12 +69,14 @@
     }
 
 
+    // Check enough data for comfirm page
+    // Check condition add to db
     function eventAddConfirm(){
         require_once "./app/view/event_add/EventAddConfirm.php";
 
-        if(empty($_SESSION['name']) && empty($_SESSION['slogan']) 
-        && empty($_SESSION['leader']) && empty($_SESSION['description'])
-        && empty($_SESSION['nameAvatar']) && empty($_SESSION['avatar'])) {
+        if(empty($_SESSION['ev_add_name']) && empty($_SESSION['ev_add_slogan']) 
+        && empty($_SESSION['ev_add_leader']) && empty($_SESSION['ev_add_des'])
+        && empty($_SESSION['ev_add_name_avatar']) && empty($_SESSION['ev_add_avatar'])) {
             header('Location:' . getUrl(). 'EventAdd/eventAddInput');
         }
 
@@ -83,31 +87,31 @@
             }
 
             if(isset($_POST['submit-confirm'])) {
-                if(isset($_SESSION['name']) && isset($_SESSION['slogan']) 
-                && isset($_SESSION['leader']) && isset($_SESSION['description'])
-                && isset($_SESSION['nameAvatar']) && isset($_SESSION['avatar'])) {
+                if(isset($_SESSION['ev_add_name']) && isset($_SESSION['ev_add_slogan']) 
+                && isset($_SESSION['ev_add_leader']) && isset($_SESSION['ev_add_des'])
+                && isset($_SESSION['ev_add_name_avatar']) && isset($_SESSION['ev_add_avatar'])) {
+                    $check_add = add();
                     
-                    $id = getIdEnd() + 1;
+                    $id = getIdEnd();
                     $target_dir = "web/avatar/event/".$id;
                     if(!file_exists($target_dir)){
                         mkdir($target_dir, 0777);
                     }
-                    $tmp_file = $_SESSION['avatar'];
-                    $target_file = $target_dir."/".basename($_SESSION['nameAvatar']);
+                    $tmp_file = $_SESSION['ev_add_avatar'];
+                    $target_file = $target_dir."/".basename($_SESSION['ev_add_name_avatar']);
                     rename($tmp_file, $target_file);
-                    $_SESSION['avatar'] = $target_file;
-                    $check_add = add();
+                    $_SESSION['ev_add_avatar'] = $target_file;
                 }
                 
                 $_SESSION['check-event-add-complete'] = $check_add;
 
                 if($check_add){
-                    unset($_SESSION['name']);
-                    unset($_SESSION['slogan']);
-                    unset($_SESSION['leader']);
-                    unset($_SESSION['avatar']);
-                    unset($_SESSION['nameAvatar']);
-                    unset($_SESSION['description']);
+                    unset($_SESSION['ev_add_name']);
+                    unset($_SESSION['ev_add_slogan']);
+                    unset($_SESSION['ev_add_leader']);
+                    unset($_SESSION['ev_add_avatar']);
+                    unset($_SESSION['ev_add_name_avatar']);
+                    unset($_SESSION['ev_add_des']);
                     unset($_SESSION['check-event-add-confirm']);
                     header('Location:' . getUrl(). 'EventAdd/EventAddComplete');
         }
@@ -116,6 +120,7 @@
     }
 
 
+    // Complete add data
     function eventAddComplete(){
         require_once "./app/view/event_add/EventAddComplete.php";
         
@@ -124,7 +129,8 @@
         } 
     }
 
-
+    
+    // Get data
     function load($data) {
         global $name, $slogan, $leader, $description, $avatar;
         $name = testInput($data['name']);
@@ -135,6 +141,7 @@
     }
 
 
+    // Input data normalization
     function testInput($data) {
         $data = trim($data);
         $data = stripslashes($data);
@@ -143,6 +150,7 @@
     }
 
 
+    // Check the conditions to switch to the confirm  page
     function isConfirm(){
         global $check;
         if ($check == 5 && isset($_POST['submit'])){
@@ -153,7 +161,8 @@
         }
     }
 
-
+    
+    // Return data for input.value
     function getValue($value, $nameValue){
         $res = null;
         if(!empty($value)){
@@ -166,13 +175,14 @@
     }
 
 
+    // Upload avatar
     function uploadAvatar(){
         global $avatar, $check;
         if(checkFileUpload()){
-            if(isset($_SESSION['avatar']) && isset($_SESSION['nameAvatar'])){
+            if(isset($_SESSION['ev_add_avatar']) && isset($_SESSION['ev_add_name_avatar'])){
                 if(!empty($_FILES["upload-file"]["name"]) &&
-                $_SESSION['nameAvatar'] != basename($_FILES["upload-file"]["name"])){
-                    unlink($_SESSION['avatar']);
+                $_SESSION['ev_add_name_avatar'] != basename($_FILES["upload-file"]["name"])){
+                    unlink($_SESSION['ev_add_avatar']);
                 }
             } 
     
@@ -180,14 +190,15 @@
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
             
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
-            $_SESSION['avatar'] =  $target_dir . $avatar;
-            $_SESSION['nameAvatar'] = $avatar;
+            $_SESSION['ev_add_avatar'] =  $target_dir . $avatar;
+            $_SESSION['ev_add_name_avatar'] = $avatar;
             
             $check++; 
         }
     }
 
 
+    // Check conditions upload avatar
     function checkFileUpload(){
         $check_file = true;
         $maxfilesize = 524288000;
@@ -210,6 +221,8 @@
         return $check_file;
     }
 
+    
+    // Back home page
     function backhome(){
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             if(isset($_POST['back-home'])){
