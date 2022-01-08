@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../../web/css/Comments.css"/>
     <script async src="../../web/js/CommentAddRealFileBtn.js"></script>
-    <title>Add Event Comment</title>
+    <title>Thêm comment sự kiện</title>
 </head>
 <body>
     <div id="mainform">
@@ -61,7 +61,7 @@
             <br>
             <div>
                 <label class="input-form">Nội dung</label>
-                <textarea style="resize: none;" form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"></textarea>
+                <textarea style="resize: none;" form="avatarform" name="comment" id="comment-area" cols="60" rows="10" wrap="hard"><?php echo $inputData[1] ?? '' ?></textarea>
             </div>
             <?php if(isset($validate)) {
                 if(array_key_exists('content', $validate)){
