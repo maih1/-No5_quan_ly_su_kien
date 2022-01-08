@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../web/css/UserEditTable.css" type="text/css" />
-    <title>Document</title>
+    <title>Hoàn thành sửa đăng ký người dùng</title>
 </head>
 
 <body>

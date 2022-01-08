@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Đăng ký người dùng</title>
+	<title>Hoàn thành đăng ký </title>
 	<meta charset=UTF-8>
     <link rel="stylesheet" href="../web/css/UserAdd.css">
 </head>

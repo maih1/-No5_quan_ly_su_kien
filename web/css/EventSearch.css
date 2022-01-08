@@ -56,16 +56,17 @@ form {
 	margin-top:30px;
 }
 .search-no-th{
-	
 	text-align: left;
 	width:50px;
 	font-weight:lighter;
 }
 .search-th{
+	overflow-wrap: break-word;
 	text-align: left;
 	font-weight:lighter;
     padding: 5px 20px;
 	width:140px;
+	display: inline-block;
 }
 .action-th{
 	text-align: left;

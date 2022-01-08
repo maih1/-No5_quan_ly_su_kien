@@ -4,7 +4,7 @@
 <head>
     <link href="../web/css/Reset.css" rel="stylesheet">
     <meta charset="utf-8">
-    <title>Reset</title>
+    <title>Đặt lại mật khẩu</title>
 </head>
 
 <body>
