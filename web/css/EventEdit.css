@@ -45,7 +45,8 @@ form, .event-complete {
     width: 75%;
     height: 20%;
     display: inline-block;
-    resize: none  
+    resize: none;
+    overflow-wrap: break-word;  
 }
 
 input[type="file"] {  
