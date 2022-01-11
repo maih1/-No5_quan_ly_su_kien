@@ -76,7 +76,7 @@ function eventEditInput($event_id){
             mkdir('web/avatar/event/tmp', 0777, true);
         }
         // upload file
-        if($new_avatar){
+        if($new_avatar && checkFileUpload()){
             $target_dir = "web/avatar/event/tmp/";
             $target_file = $target_dir . $file_name;
             move_uploaded_file($temp_name, $target_file);
@@ -178,5 +178,26 @@ function test_input($data) {
             unset($_SESSION['new_avatar']);
         }
         
+    }
+    function checkFileUpload(){
+        $check_file = true;
+        $maxfilesize = 524288000;
+
+        $allowtypes = array('image/jpg', 'image/jpeg', 'image/jfif', 'image/pjpeg', 'image/pjp', 'image/webp', 
+                            'image/png', 'image/svg', 'image/ico', 'image/cur', 'image/gif', 'image/apng');
+        
+        if(file_exists($_FILES["upload-file"]["tmp_name"])){
+            if($_FILES["upload-file"]['error'] != 0) {
+                $check_file = false;
+            }
+            if ($_FILES["upload-file"]["size"] > $maxfilesize){
+                $check_file = false;
+            }
+            if (!in_array($_FILES["upload-file"]["type"],$allowtypes )){
+                $check_file = false;
+            }
+        }
+
+        return $check_file;
     }
 }
