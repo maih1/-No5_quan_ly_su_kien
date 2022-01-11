@@ -100,6 +100,7 @@
                     $tmp_file = $_SESSION['ev_add_avatar'];
                     $target_file = $target_dir."/".basename($_SESSION['ev_add_name_avatar']);
                     rename($tmp_file, $target_file);
+                    chmod($target_file, 666);
                     $_SESSION['ev_add_avatar'] = $target_file;
                 }
                 
@@ -188,6 +189,7 @@
     
             $target_dir = "web/avatar/event/tmp/";
             $target_file   = $target_dir . basename($_FILES["upload-file"]["name"]);
+            chmod($target_dir, 666);
             
             move_uploaded_file($_FILES["upload-file"]["tmp_name"], $target_file);
             $_SESSION['ev_add_avatar'] =  $target_dir . $avatar;

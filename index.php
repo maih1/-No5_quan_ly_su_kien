@@ -2,10 +2,10 @@
 session_start();
 if (isset($_GET['url'])) {
     if (!file_exists('web/avatar/user/tmp')) {
-        mkdir('web/avatar/user/tmp', 0777);
+        mkdir('web/avatar/user/tmp', 0666);
     }
     if (!file_exists('web/avatar/event/tmp')) {
-        mkdir('web/avatar/event/tmp', 0777);
+        mkdir('web/avatar/event/tmp', 0666);
     }
     $paths = explode("/", filter_var(trim($_GET["url"], "/")));
 
